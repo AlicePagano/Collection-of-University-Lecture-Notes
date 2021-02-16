@@ -1,0 +1,476 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{03}{04}{2020}
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 8.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+Recalling the equation of motion for the Heisenberg field oeprator \( \hat{\psi }_{H_ \alpha } (\va{x},t)  \) (Eq.\eqref{eq:7_3}):
+\begin{equation*}
+  i \hbar \pdv{}{t} \hat{\psi }_{H_ \alpha } (\va{x},t)  = e^{\frac{i \hat{H}t }{\hbar }} \qty[\hat{\psi }_{\alpha } (\va{x}), \hat{H}  ]
+  e^{-\frac{i \hat{H}t }{\hbar }}
+\end{equation*}
+Now we can substitute the commutator \( \qty[\hat{\psi }_{\alpha } (\va{x}), \hat{H}  ] \) with its explicit expression previously  obtained and, since we have the exponential operators both on left and right, we can easily transform standard field operators into the Heisenberg field operators and also put on the left the kinetic energy part. The result is:
+\begin{equation*}
+  \qty[i \hbar \pdv{}{t} + \frac{\hbar ^2 \grad _x^2}{2m} ]\hat{\psi }_{H_ \alpha } (\va{x},t)
+  = \sum_{\beta'\gamma \gamma'}^{}   \int_{}^{} \dd[]{\va{y}}
+  \hat{\psi }_{H_ \gamma } ^\dag (\va{y},t)
+  \hat{\psi }_{H_ {\gamma'} }  (\va{y},t)
+  \hat{\psi }_{H_ {\beta'} }  (\va{x},t)  V (\va{x},\va{y})_{\substack{\alpha \beta'  \\ \gamma \gamma'   } }
+\end{equation*}
+where we have also make the substitution \( \va{y}' \rightarrow \va{y}\).
+Then, multiplying by \( \hat{\psi }_{H_ \alpha  } ^\dag (\va{y},t)  \) on the left and taking the ground state expectation value of all the equation:
+\begin{equation*}
+\begin{split}
+  &\qty[i \hbar \pdv{}{t} + \frac{\hbar ^2 \grad _x^2}{2m} ] \frac{\expval{ \hat{\psi }_{H_ \alpha }^\dag  (\va{x}',t')
+  \hat{\psi }_{H_ \alpha } (\va{x},t)
+  }{\psi_0} }{\braket{\psi _0}{\psi _0} }
+  = \\
+  &=\sum_{\beta'\gamma \gamma'}^{}  \int_{}^{} \dd[]{\va{y}}
+  \frac{\expval{
+  \hat{\psi }_{H_ \alpha } ^\dag (\va{x}',t')
+  \hat{\psi }_{H_ \gamma } ^\dag (\va{y},t)
+  \hat{\psi }_{H_ {\gamma'} } (\va{y},t)
+  \hat{\psi }_{H_ {\beta'} } (\va{x},t)
+  }{\psi_0}
+  }{\braket{\psi _0}{\psi _0} }
+  V(\va{x},\va{y})_{\substack{\alpha \beta'  \\ \gamma \gamma'   } }
+\end{split}
+\end{equation*}
+
+Let us focus on the left-side term which has an expression reminiscent of the Green's function definition \eqref{eq:7_1} if \( t' \rightarrow t^+ \) and \( \va{x}' \rightarrow \va{x} \) (remember that the Green's function definition involves the \( \psi ^\dag  \) in the right, so we should reorder in a proper way):
+\begin{equation*}
+  \pm i \lim_{\substack{\va{x}' \rightarrow \va{x} \\t' \rightarrow t^+ } } \qty( i \hbar \pdv{}{t} + \frac{\hbar ^2 \grad _x^2}{2m} )
+  G_{ \alpha \alpha } (\va{x}t, \va{x}' t')
+\end{equation*}
+where the \( \pm \) sign refers to bosons/fermions.
+Then we complete the derivation by summing over the spin index \( \alpha  \) and integrating over the \( \va{x} \) variable. This means that on the left we get:
+\begin{equation*}
+  \pm i \int_{}^{} \dd[]{\va{x}}
+  \lim_{\substack{\va{x}' \rightarrow \va{x} \\t' \rightarrow t^+ } } \sum_{\alpha }^{}  \qty( i \hbar \pdv{}{t} + \frac{\hbar ^2 \grad _x^2}{2m} )
+  G_{ \alpha \alpha } (\va{x}t, \va{x}' t')
+\end{equation*}
+Repeating all these operations for the right-side of the equation we get:
+\begin{equation*}
+\begin{split}
+  &\sum_{\substack{\alpha \beta'  \\ \gamma \gamma'    } }^{}
+  \int_{}^{} \dd[]{\va{x}}
+  \int_{}^{} \dd[]{\va{y}}
+  \lim_{\substack{\va{x}' \rightarrow \va{x} \\t' \rightarrow t^+ } }
+  \frac{\expval{
+  \hat{\psi }_{H_ \alpha } ^\dag (\va{x}',t')
+  \hat{\psi }_{H_ \gamma } ^\dag (\va{y},t)
+  \hat{\psi }_{H_ {\gamma'} } (\va{y},t)
+  \hat{\psi }_{H_ {\beta'} } (\va{x},t)
+  }{\psi_0}
+  }{\braket{\psi _0}{\psi _0} }
+  V(\va{x},\va{y})_{\substack{\alpha \beta'  \\ \gamma \gamma'   } } \\
+  &\overset{(a)}{=}
+  \sum_{\substack{\alpha \beta'  \\ \gamma \gamma'    } }^{}
+  \int_{}^{} \dd[]{\va{x}}
+  \int_{}^{} \dd[]{\va{y}}
+  \frac{\expval{
+  \hat{\psi }_{\alpha } ^\dag (\va{x})
+  \hat{\psi }_{\gamma } ^\dag (\va{y})
+  \hat{\psi }_{\gamma'}  (\va{y})
+  \hat{\psi }_{\beta'}  (\va{x})
+  }{\psi_0}
+  }{\braket{\psi _0}{\psi _0} }
+  V(\va{x},\va{y})_{\substack{\alpha \beta'  \\ \gamma \gamma'   } }\\
+  &\overset{(b)}{=}
+  2 \frac{\expval{ \frac{1}{2}
+  \int_{}^{} \dd[]{\va{x}}
+  \int_{}^{} \dd[]{\va{y}}
+  \hat{\psi }_{\alpha } ^\dag (\va{x})
+  \hat{\psi }_{\gamma } ^\dag (\va{y})
+  \hat{\psi }_{\gamma'}  (\va{y})
+  \hat{\psi }_{\beta'}  (\va{x})
+  V(\va{x},\va{y})_{\substack{\alpha \beta'  \\ \gamma \gamma'   } }
+  }{\psi_0}  }{\braket{\psi _0}{\psi _0} } \\
+  &\overset{(c)}{=}
+  2 \frac{\expval{\hat{V} }{\psi_0} }{\underbrace{\braket{\psi _0}{\psi _0}}_{=1}  }
+\end{split}
+\end{equation*}
+where in step \( (a) \) we should let \( \va{x}' \rightarrow \va{x} \) and \( t' \rightarrow t^+ \). It means that in the Heisnberg field operators, the exponential terms are relative to the same times, thus we obtain the standard field operators without time dependence.
+In step \( (b) \) we divide by a factor \( 2 \) and in step \( (c) \) we recognize the expression in second quantization of the potential energy term in terms of field operators.
+
+
+Now, if we compare the right-hand side with the left-hand side, it is easy to arrive at: \marginpar{Expectation value for the potential energy operator}
+\begin{equation*}
+\expval{\hat{V} }{\psi_0} = \pm \frac{i}{2}
+\int_{}^{} \dd[]{\va{x}}
+\lim_{\substack{\va{x}' \rightarrow \va{x} \\t' \rightarrow t^+ } }
+\sum_{\alpha }^{}
+\qty(i \hbar \pdv{}{t} + \frac{\hbar ^2 \grad _x^2}{2m} )
+G_{\alpha \alpha }(\va{x}t,\va{x}'t')
+\end{equation*}
+The conclusion is that the expectation value of the potential energy operator in the ground state is given by an integral of the Green's function. In particular, the most important result is that thanks to this trick (the potential energy is inside the Schr$\ddot{o}$dinger equation) we were able to express the potential energy expectation value as a function of a single-particle Green's function, despite of the potential energy operator depends on four field operators.
+
+Recalling the expression for the expectation value of the kinetic energy operator in terms of the single-particle Green's function (Eq.\eqref{eq:7_4}):
+\begin{equation*}
+  \bra{\psi _0} \hat{T} \ket{\psi _0} =
+ \pm i \int_{}^{} \dd[]{\va{x}} \lim_{\substack{\va{x}'\rightarrow \va{x} \\ t' \rightarrow t^+} } \sum_{\alpha }^{}  \qty( - \frac{\hbar ^2 \grad ^2_x}{2m}) G_{\alpha \alpha } (\va{x}t,\va{x'}t')
+\end{equation*}
+the total energy of our system is the sum of expectation value of kinetic energy operator and potential energy operator:
+\begin{equation*}
+  E = \expval{\hat{H} }{\psi_0} = \expval{\hat{T} }{\psi_0} + \expval{\hat{V} }{\psi_0}
+\end{equation*}
+Now it is clear that the potential energy expectation value can be expressed as:
+\begin{small}
+  \begin{equation*}
+  \begin{split}
+    \expval{\hat{V} }{\psi_0}  &= \frac{i}{2}
+    \int_{}^{} \dd[]{\va{x}}
+    \lim_{\substack{\va{x}' \rightarrow \va{x} \\t' \rightarrow t^+ } }
+    \sum_{\alpha }^{}
+    \qty(i \hbar \pdv{}{t} )
+    G_{\alpha \alpha }(\va{x}t,\va{x}'t')
+    - \frac{i}{2}
+    \int_{}^{} \dd[]{\va{x}} \lim_{\substack{\va{x}'\rightarrow \va{x} \\ t' \rightarrow t^+} } \sum_{\alpha }^{}  \qty( - \frac{\hbar ^2 \grad ^2_x}{2m}) G_{\alpha \alpha } (\va{x}t,\va{x'}t') \\
+    &= \frac{1}{2} \qty(\dots) - \frac{1}{2}  \expval{\hat{T} }{\psi_0}
+  \end{split}
+  \end{equation*}
+\end{small}
+By taking togheter these terms, the total energy results: \marginpar{Total energy}
+\begin{equation}
+  E = \expval{\hat{H} }{\psi_0}
+  = \pm \frac{i}{2}
+  \int_{}^{} \dd[]{\va{x}} \lim_{\substack{\va{x}'\rightarrow \va{x} \\ t' \rightarrow t^+} }  \qty[ \mathcolorbox{yellow!40}{i \hbar \pdv{}{t}} - \mathcolorbox{green!20}{\frac{\hbar ^2 \grad ^2_x}{2m}}] \Tr G (\va{x}t,\va{x'}t')
+  \label{eq:8_1}
+\end{equation}
+and as promised the total energy is expressed as a function of a single-particle Green's function. We have essentially derived this for fermions, but if you repeat the derivation for bosons the result is the same (the \(+\) sign holds for bosons, while the \(-\) sign for fermions).
+
+
+\subsection{Fourier transform of Green's functions}
+
+\begin{property}{Homogeneity in space}{}
+If the system is homogeneous in space, i.e. the total momentum commute with the Hamiltonian (\( [\hat{\va{p}},\hat{H}  ] = 0 \)), the Green's function is homogeneous in space, i.e. it depends only on \( \va{x}-\va{x}' \) and not separately from \( \va{x} \) and \( \va{x}' \).
+\label{propty:8_1}
+\end{property}
+
+Moreover, for a system confined in a large box of volume \( V \), this means that it is more convenient to work not in the real space but in the reciprocal one. Hence, it is convenient to take the Fourier transform of the Green's function.
+
+Let us suppose that our system is homogeneous in time and space:
+\begin{equation}
+G_{\alpha \beta }(\va{x}t,\va{x}'t')  =  G_{\alpha \beta }(\va{x}-\va{x}',t-t') \equiv
+\sum_{\va{k}}^{} \frac{1}{V} \int_{- \infty }^{+ \infty } \frac{\dd[]{\omega } }{2 \pi } e^{i \va{k}\vdot (\va{x}-\va{x}')} e^{- i \omega (t-t')} \mathcolorbox{red!30}{G_{\alpha \beta } (\va{k},\omega )    }
+\label{eq:8_3}
+\end{equation}
+where the red term is the Fourier transform of the Green's function, which depends on the wave vector and on the frequency.
+Now, since typically we work in a very large box of infinite volume, we can go from the sum over \( \va{k} \) wave vector to an integral over \( \va{k} \) (we already know the recipt for going from sum to integral derived in Eq.\eqref{eq:5_2}). Thus we can write:
+\begin{equation*}
+  G_{\alpha \beta } \overset{V \rightarrow \infty }{ \underset{\Delta \va{k}= (2 \pi )^3/V}{=} }
+  \frac{1}{(2 \pi )^4}
+  \int_{}^{} \dd[]{\va{k}}
+  \int_{-\infty }^{+\infty } \dd[]{\omega }    e^{i \va{k}\vdot (\va{x}-\va{x}')} e^{- i \omega (t-t')} G_{\alpha \beta } (\va{k},\omega )
+\end{equation*}
+
+\begin{example}{Total energy in the Fourier space}{}
+Let us express the formula of the total energy, derived above in Eq.\eqref{eq:8_1}, in terms of the Fouerier transformed Green's function, by replacing the Green's function with the expansion in term of Fourier components.
+\begin{small}
+\begin{equation*}
+  E = \pm \frac{i}{2}
+  \int_{}^{} \dd[]{\va{x}} \lim_{\substack{\va{x}'\rightarrow \va{x} \\ t' \rightarrow t^+} }
+  \frac{1}{(2 \pi )^4} \int_{}^{} \dd[]{\va{k}}
+  \int_{-\infty }^{+\infty } \dd[]{\omega }
+  \qty(\hbar \omega + \frac{\hbar ^2 k^2}{2m})
+  e^{i \va{k}\vdot (\va{x}-\va{x}')} e^{- i \omega (t-t')}
+  \Tr G (\va{k}, \omega )
+\end{equation*}
+\end{small}
+where of course the yellow term in \eqref{eq:8_1} involving the time derivative, produces the factor \( \hbar \omega  \) and the green term, the second order derivative in spatial coordinates, produces \( \frac{\hbar ^2 k^2}{2m} \). In this way, we have expressed the total energy in terms of the trace of the Fourier trandformed Green's function.
+
+At this point, we can immeadiatly take the limit \( \va{x}' \rightarrow \va{x} \) because only one term contains the dependence on \( \va{x}\):
+\begin{equation*}
+  \int_{}^{} \dd[]{\va{x}} e^{i \va{k}\vdot (\va{x}-\va{x}')} \overset{\va{x}'\rightarrow \va{x}}{\longrightarrow } V
+\end{equation*}
+Concerning the time dependence, considering that \( t'  \) slightly larger than \( t \), we can define the new variable \( \eta  \) as:
+\begin{equation*}
+  \eta \equiv t'-t \quad \Rightarrow e^{- i \omega (t-t')} \rightarrow e^{i \omega \eta } \quad \text{with } \eta >0,\, t'\rightarrow t^+
+\end{equation*}
+In conclusion, the alternative expression for the total energy of the system in terms of the Fourier transformed Green's function is:
+\begin{equation}
+  E = \pm \frac{i}{2} \frac{V}{(2 \pi )^4}
+  \lim_{\eta \rightarrow 0^+}
+  \int_{}^{} \dd[]{\va{k}}
+  \int_{-\infty }^{+\infty } \dd[]{\omega }
+  \mathcolorbox{yellow!40}{e^{i \omega \eta }}
+  \qty(\hbar \omega + \frac{\hbar ^2 k^2}{2m})
+  \Tr G (\va{k}, \omega )
+\end{equation}
+The presence of the expoential factor in yellow, which depends on the imaginary contribution, means that if we want to make a computation we have to work in the complex frequency plane \( \omega  \) and in particular this exponential will define the appropriate contour in this space.
+\end{example}
+
+This complete our derivation of the basic property of Green's function. However,  we have still to demonstrate that we can obtain the excitation spectrum of the system as a function of the Green's function. Before proceeding, we make a small exercise in order to compute the Green's function for a simple case: non interacting free fermions.
+
+
+
+
+
+
+
+
+
+\section{Green's function for free fermions}
+
+Now, we make an exercise to really look at the explicit expression for Green's functions in the simple case of free fermions (for a non interacting homogeneous system of fermions).
+In practice, we consider a degenerate electron gas model but neglecting the electron-electron interaction (\textbf{non-interacting system}). The ground state is represented by the Fermi sphere, also called \textbf{filled Fermi sea}.
+
+In order to evaluate the Green's function it is convenient to perform a \textbf{canonical transformation} to \textbf{particles} and \textbf{holes}.
+
+The latter consists in redefining the fermion operator
+\( c_{ \va{k}\lambda } \) as follow:
+\begin{equation}
+c_{\va{k}\lambda }=
+  \begin{cases}
+   a_{\va{k} \lambda } & \absvec{k} > k_F \quad \text{for \textbf{Particles} }\\
+   b_{-\va{k} \lambda }^\dag & \absvec{k} \le k_F\quad \text{for \textbf{Holes} }
+  \end{cases}
+\end{equation}
+where holes indicate the absence of particles (if we create a hole, we destroy a particle). In particular, the minus sign in the \( \va{k} \) wave vector is explained as follow: if we consider the Fermi sphere and we create an hole inside, the total momentum is reduced by a factor \( \va{k} \) because we have destroyed a particle with momentum \( \va{k} \).
+Of course, the same trasnformation can be applied to the costruction operator.
+
+As defined,
+\begin{itemize}
+\item \( a_{\va{k}\lambda  } \) destroys a \textbf{particle} \emph{above} the Fermi sea.
+\item \(  b_{-\va{k} \lambda }^\dag \) creates a \textbf{hole} (absence of a particle) \emph{inside} the Fermi sea.
+\end{itemize}
+
+\begin{remark}
+This transformation is “canonical” because preserves the anticommuation rules, which implies that the physics is unchanged. Indeed, it is easy to demonstrate:
+\begin{equation*}
+\begin{split}
+  \{ a_{\va{k}} , a_{\va{k}'}^\dag  \} &=  \{ b_{\va{k}} ,b_{\va{k}'}^\dag  \} = \delta _{\va{k}\va{k}'} \\
+  \{ a_{\va{k}} ,  b_{\va{k}'}^\dag  \} &= 0
+\end{split}
+\end{equation*}
+In particular \( a_{\va{k}}  \) and \(  b_{\va{k}'}^\dag \) commute because they refer to different \( \va{k} \) vectors (above or below the Fermi wave vector).
+\end{remark}
+
+
+Now, it is interesting to rewrite the Hamiltonian for the non-interacting system using this canconical trasformation. Using the well known form of the Hamiltonian in second quantization:
+\begin{equation*}
+\begin{split}
+  \hat{H}_0 &= \sum_{\va{k}\lambda }^{} \frac{\hbar ^2k^2}{2m}  c_{\va{k}\lambda }^\dag c_{\va{k}\lambda }
+  = \sum_{\va{k}\lambda }^{} \varepsilon _{\va{k}}  c_{\va{k}\lambda }^\dag c_{\va{k}\lambda }  \\
+  &= \sum_{\abs{\va{k}}\le k_F, \lambda }^{} \varepsilon _{\va{k}} \,  b_{-\va{k}\lambda } b_{-\va{k}\lambda }^\dag
+  + \sum_{\abs{\va{k}}> k_F, \lambda }^{} \varepsilon _{\va{k}} \,  a_{\va{k}\lambda }^\dag a_{\va{k}\lambda }
+\end{split}
+\end{equation*}
+where we have rewritten by exploiting the canconical transformation, thanks to we obtain two contributions.
+Now, let us focus on the first contribution and since this term is symmetric in \( \va{k} \), we can change the wave vector \( -\va{k}' \rightarrow \va{k} \), obtaining:
+\begin{equation*}
+\begin{split}
+  \hat{H}_0 &=  \sum_{\abs{\va{k}}\le k_F, \lambda }^{} \varepsilon _{\va{k}} \,  b_{\va{k}\lambda } b_{\va{k}\lambda }^\dag
+  + \sum_{\abs{\va{k}}> k_F, \lambda }^{} \varepsilon _{\va{k}} \,  a_{\va{k}\lambda }^\dag a_{\va{k}\lambda }
+\end{split}
+\end{equation*}
+Then, using the anticommuation rule \( b_{\va{k}\lambda } b_{\va{k}\lambda }^\dag = (1 - b_{\va{k}\lambda }^\dag b_{\va{k}\lambda }) \) we obtain:
+\begin{equation*}
+  \hat{H}_0 =  \mathcolorbox{pink!40}{\sum_{\abs{\va{k}}\le k_F, \lambda }^{} \varepsilon _{\va{k}}}
+  + \mathcolorbox{yellow!40}{\sum_{\abs{\va{k}}> k_F, \lambda }^{} \varepsilon _{\va{k}} \,  a_{\va{k}\lambda }^\dag a_{\va{k}\lambda }}
+  - \mathcolorbox{green!20}{\sum_{\abs{\va{k}}\le k_F, \lambda }^{} b_{\va{k}\lambda }^\dag b_{\va{k}\lambda }}
+\end{equation*}
+where the yellow term refers to particles (creating a particle raised the energy), while the green term to holes (creating a hole lowers the energy). Eventually, the pink term is just the same of the kinetic energy contribution for \( \abs{\va{k}}\le k_F \) which corresponds to \( E_0 \), the ground state energy of the filled Fermi sea (in the absence of particles or holes, the energy is that of the filled Fermi sea).
+
+
+
+How can we interpret physically this canonical trasformation?
+Let us consider a filled Fermi sea (ground state of the non-interacting system), then we excite the system obtaining a particle that goes outside the Fermi sphere and that creates an hole inside it.
+Instead, using the canonical transformation we start with a system which has no particles inside (empty state) and after we have excited the system we get a particle, the hole. This is possible because the pink term is just a constant contribution which corresponds to \( E_0 \).
+Hence, the canonical transformation is equivalent to a \emph{shift} in energy (change the “zero” level: \( E_0 \rightarrow 0 \)).
+Actually, with the canonical transformation we only consider particle outside the Fermi sphere and holes inside.
+
+Let us note that:
+\begin{itemize}
+\item If the total number of fermions is fixed, particles and holes necessarily occur in pairs.
+\item since each particle-hole pair has a net positive energy, the filled Fermi sea is really the ground state (so when we consider a particle outside the fermi sphere we are increasing the energy).
+The net positive energy is due to the fact that in the second term we have \( \absvec{k}> k_F \), while in the third term \( \absvec{k}\le k_F \), thus the third contribution is smaller in absolute value with respect to the second one. The effect is a positive contribution.
+\end{itemize}
+
+In order to evaluate the Green's function for the free fermion system,  we come back to Heisenberg field operators.
+In our specific case the Hamiltonian reduces to that of non-interacting particle  \( \hat{H}\rightarrow \hat{H}_0   \), this will correspond to the “interaction” picture operators but we will see this later.
+
+Let us consider the expression for the Heisenberg field operator (Eq.\eqref{eq:7_heisenberg_destruction}):
+\begin{equation*}
+   \hat{\psi }_{H_ \alpha } (\va{x},t) \equiv e^{\frac{i \hat{H}_0 t}{\hbar }} \hat{\psi }_ \alpha  (\va{x}) e^{\frac{- i \hat{H}_0 t}{\hbar }} =
+   e^{\frac{i \hat{H}_0 t}{\hbar }} \qty(
+   \sum_{\va{k}}^{} \frac{e^{i \va{k}\vdot \va{x}} }{\sqrt{V} } \eta _ \alpha c_{\va{k}\alpha }
+   )  e^{\frac{- i \hat{H}_0 t}{\hbar }}
+\end{equation*}
+where the standard field operator is made by combination of plane waves multiplied by a spin function.
+The difficulty is that this formula relate the two operators \( \hat{H}_0  \) and \( c_{\va{k}\alpha }  \).
+
+One can easily show that the last expression can be written with a sequence of commutators. In particular:
+\begin{equation*}
+   e^{\frac{i \hat{H}_0 t}{\hbar }}  c_{\va{k}\alpha }
+   e^{\frac{- i \hat{H}_0 t}{\hbar }}
+   = \sum_{n=0}^{\infty }
+   \frac{1}{n!}
+   \qty[
+   \frac{i}{\hbar }\hat{H}_0 t,
+   \qty[ \frac{i}{\hbar } \hat{H}_0 t,
+   \dots \qty[
+   \frac{i}{\hbar } \hat{H}_0 t,   c_{\va{k}\alpha }
+   ] \dots  ]  ]
+\end{equation*}
+as can be verified by expanding the exponential operators and checking that the left-hand and the right-hand terms are the same.
+Moreover, since the \( \frac{i t}{\hbar } \) are just numbers they can be putted outside of the commutators, obtaining:
+\begin{equation*}
+   e^{\frac{i \hat{H}_0 t}{\hbar }}  c_{\va{k}\alpha }
+   e^{\frac{- i \hat{H}_0 t}{\hbar }}
+   = \sum_{n=0}^{\infty }
+   \frac{1}{n!} \qty(\frac{i t}{\hbar })^n
+   \qty[
+   \hat{H}_0 ,
+   \qty[ \hat{H}_0 ,
+   \dots \qty[
+   \hat{H}_0 ,   c_{\va{k}\alpha }
+   ] \dots  ]  ]
+\end{equation*}
+Now, let us focus on the inner commutator \( [\hat{H} _0,c_{\va{k}\alpha }] \). By writing it explicitely (using the expression in second quantization for \( \hat{H}_0  \)) we have:
+\begin{equation*}
+  \begin{split}
+  [\hat{H}_0, c_{\va{k}\alpha } ]
+  &= \sum_{\va{k}'\alpha'}^{} \varepsilon _{\va{k}'}
+  \qty[c_{\va{k}'\alpha'}^\dag c_{\va{k}'\alpha'}, c_{\va{k}\alpha}]
+  = \sum_{\va{k}'\alpha'}^{} \varepsilon _{\va{k}'}
+  \qty(-\qty[c_{\va{k}\alpha}, c_{\va{k}'\alpha'}^\dag c_{\va{k}'\alpha'}] ) \\
+  &=
+  \sum_{\va{k}'\alpha'}^{} \varepsilon _{\va{k}'}
+  \qty(-
+  \underbrace{\qty{ c_{\va{k}\alpha},c_{\va{k}'\alpha'}^\dag
+  }}_{= \delta _{\va{k}\va{k}'} \delta _{\alpha \alpha'}}
+  c_{\va{k}'\alpha'} + c_{\va{k}'\alpha'}^\dag
+  \underbrace{\qty{c_{\va{k}'\alpha'}, c_{\va{k}\alpha}}}_{=0}    ) \\
+  &= - \varepsilon _{\va{k}} c_{\va{k}\alpha }
+  \end{split}
+\end{equation*}
+where we have used the relation Eq.\eqref{eq:7_2}.
+
+Then, by repeating this procedure \( n \) times for \( n \) commutators, we can rewrite the sequence of operators as follow:
+\begin{equation*}
+  e^{\frac{i \hat{H}_0 t}{\hbar }}  c_{\va{k}\alpha }
+  e^{\frac{- i \hat{H}_0 t}{\hbar }}
+  = \sum_{n=0}^{\infty }
+  \frac{1}{n!} \qty(\frac{i t}{\hbar })^n
+  \qty(- \varepsilon _{\va{k}})^n c_{\va{k}\alpha }
+  = e^{-\frac{ i \varepsilon _{\va{k}} t}{\hbar }} c_{\va{k}\alpha }
+\end{equation*}
+the nice thing is that we were able to put in evidence the explicit time dependence of the Fermi sea operator in the Heisenberg picture.
+The nice thing is that we were able to put in evidence to elucidate the explicit time dependence of the sea operator in the Heisenberg picture.
+Let us come back to the original expression of the Heisenberg field operator:
+\begin{equation*}
+     \begin{split}
+   \hat{\psi }_{H_ \alpha } (\va{x},t) &=
+   e^{\frac{i \hat{H}_0 t}{\hbar }} \qty(
+   \sum_{\va{k}}^{} \frac{e^{i \va{k}\vdot \va{x}} }{\sqrt{V} } \eta _ \alpha c_{\va{k}\alpha }
+   )  e^{\frac{- i \hat{H}_0 t}{\hbar }}  \\
+   &=
+   \sum_{\va{k}}^{}
+    \frac{e^{ (i \va{k}\vdot \va{x} - \omega _{\va{k}} t)} }{\sqrt{V} } \eta _ \alpha c_{\va{k}\alpha }
+   \end{split}
+\end{equation*}
+where for simplicity we have defined \( \omega _{\va{k}} \equiv \varepsilon _{\va{k}}/\hbar  \) and we have written explicitly the space and time dependence of the Heisenberg field operator.
+
+Using the canonical transformation we get:
+\begin{equation*}
+  \hat{\psi }_{H_ \alpha } (\va{x},t) =
+  \sum_{\substack{\va{k} \\ \abs{\va{k}} \le k_F  } }^{}
+    \frac{e^{ (i \va{k}\vdot \va{x} - \omega _{\va{k}} t)} }{\sqrt{V} } \eta _ \alpha b_{-\va{k}\alpha }
+    +
+    \sum_{\substack{\va{k} \\ \abs{\va{k}} > k_F  } }^{}
+      \frac{e^{ (i \va{k}\vdot \va{x} - \omega _{\va{k}} t)} }{\sqrt{V} } \eta _ \alpha a_{\va{k}\alpha }
+\end{equation*}
+Let us focus on the first term, clearly here we can replace \( -\va{k} \rightarrow \va{k} \) and so we get:
+\begin{equation*}
+  \hat{\psi }_{H_ \alpha } (\va{x},t) =
+  \sum_{\substack{\va{k} \\ \abs{\va{k}} \le k_F  } }^{}
+    \frac{e^{ -(i \va{k}\vdot \va{x} + \omega _{\va{k}} t)} }{\sqrt{V} } \eta _ \alpha b_{\va{k}\alpha }
+    +
+    \sum_{\substack{\va{k} \\ \abs{\va{k}} > k_F  } }^{}
+      \frac{e^{ (i \va{k}\vdot \va{x} - \omega _{\va{k}} t)} }{\sqrt{V} } \eta _ \alpha a_{\va{k}\alpha }
+\end{equation*}
+
+Now, in order to compute the Green's function we need to use \(   \hat{\psi }_{H_ \alpha } \) and \(   \hat{\psi }_{H_ \alpha } ^\dag  \) expressed in term of \( b  \) and \( a \) operators.
+We can use the fact that the particle and hole destruction operators both annihilate the ground state:
+\begin{equation*}
+  \begin{cases}
+   a_{\va{k}\alpha } \ket{0} = 0 & \text{(there are no particles above the Fermi sea)} \\
+   b_{\va{k}\alpha } \ket{0} = 0 & \text{(there are no holes below the Fermi sea)}
+  \end{cases}
+\end{equation*}
+since there are no particles above or holes below the Fermi sea in the state \( \ket{0} \).
+For instance the first relation gives zero because it would destroy a particle outside the Fermi sphere, but in the non-interacting state there are no particles. Similarly, the second relation means that the operator would destroy a hole inside the Fermi sphere but destroying a hole inside the Fermi sphere would correspond in creating a particle inside. It is not possible, because inside the Fermi sphere, in the non-interacting ground state, the state is already filled and so we cannot create an additional particle. Hence, we get zero.
+
+
+By considering the expression for the Green's function we get:
+\begin{equation*}
+  i G_{\alpha \beta }^0 (\va{x}t,\va{x}'t')
+  = \bra{0} T \qty[\hat{\psi }_{H_\alpha } (\va{x}t) \hat{\psi }_{H_ \beta } ^\dag (\va{x}'t')  ] \ket{0}
+\end{equation*}
+It is easy to check that by replacing the Heisenber field operators, in principle we should get 4 terms, but in practice only 2 non-vanishing contributions survive (usefulness of the particle-hole notation):
+\begin{small}
+\begin{equation*}
+i G_{\alpha \beta }^0 (\va{x}t,\va{x}'t')
+  \begin{cases}
+   \frac{1}{V} \sum_{\substack{\abs{\va{k}}> k_F  \\ \abs{\va{k}'}> k_F} }^{}
+   e^{i (\va{k}\vdot \va{x}- \omega _{\va{k}} t)}
+   e^{-i (\va{k}'\vdot \va{x}'- \omega _{\va{k}'}t')} \eta _ \alpha  \eta _ \beta ^\dag   + \bra{0} a_{\va{k}\alpha } a_{\va{k}'\beta }^\dag  \ket{0} & t> t' \\
+   -\frac{1}{V} \sum_{\substack{\abs{\va{k}} \le k_F  \\ \abs{\va{k}'}\le k_F} }^{}
+   e^{i (\va{k}'\vdot \va{x}'+ \omega _{\va{k}'} t')}
+   e^{-i (\va{k}\vdot \va{x}+ \omega _{\va{k}}t)} \eta _ \beta ^\dag   \eta _ \alpha   + \bra{0} b_{\va{k}'\beta } b_{\va{k}\alpha  }^\dag  \ket{0} & t< t'
+  \end{cases}
+\end{equation*}
+\end{small}
+Then by replacing \( -\va{k} \rightarrow \va{k} \) and considering that
+\begin{equation*}
+  \bra{0}  a_{\va{k}\alpha } a_{\va{k}'\beta }^\dag \ket{0}
+  = \bra{0}   b_{\va{k}'\beta } b_{\va{k}\alpha  }^\dag \ket{0}
+  = \delta_ {\va{k}\va{k}'} \delta _{\alpha \beta }
+\end{equation*}
+which means that for instance if we create a particle outside the Fermi sphere with \(  a_{\va{k}'\beta }^\dag \), the only possibility to get a non vanishing contribution is that this destroy exactly the same particle. Similarly for the \( b \) operator.
+
+The final result is
+\begin{equation}
+  \begin{split}
+  i G_{\alpha \beta }^0 (\va{x}t,\va{x}'t')
+  =& \frac{\delta _{\alpha \beta }}{V}
+  \sum_{\va{k}}^{} e^{i \va{k}\vdot (\va{x}-\va{x}')}
+  e^{-i \omega _{\va{k}} (t-t')} \times \\
+  & \times \qty[ \Theta (t-t') \Theta (\absvec{k} -k_F) - \Theta (t'-t) \Theta (k_F- \absvec{k} )]
+    \end{split}
+    \label{eq:8_2} 
+\end{equation}
+this is the explicit form of the Green's function in the case of free fermions (non interacting system).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

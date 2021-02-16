@@ -1,0 +1,14 @@
+\documentclass[border=4pt]{standalone}
+
+\usepackage{tikz} 
+\usetikzlibrary{shapes,arrows,positioning,automata,backgrounds,calc,er,patterns}
+\usepackage{tikz-feynman}
+\tikzfeynmanset{compat=1.0.0}
+ \usepackage{physics}
+ 
+  %Use LuaLaTex to compile
+\begin{document}
+ \feynmandiagram [horizontal=a to b] { i1[particle={\( (\va{k}+\va{q})_\lambda \)}] -- [fermion] a -- [fermion] i2 [particle={\( \va{k}_\lambda \)}], a -- [photon, , edge label=\( \va{q} \)] b,
+f1 [particle={\( (\va{p}-\va{q})_\mu \)}] -- [fermion] b -- [fermion] f2 [particle={\( \va{p}_\mu \)}],
+};
+\end{document}

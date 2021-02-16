@@ -1,0 +1,149 @@
+\documentclass[11pt, a4paper, twoside, openright]{book}
+\usepackage{subfiles}
+
+\input{../macro/packages.tex}
+\input{../macro/settings.tex}
+\input{../macro/new_commands.tex}
+
+
+
+%\usepackage{eso-pic}
+%
+%\newcommand\BackgroundPic{%
+%\put(0,0){%
+%\parbox[b][\paperheight]{\paperwidth}{%
+%\vfill
+%\centering
+%\includegraphics[scale=1.5]{../frontespizio/back.jpg}%
+%\vfill
+%}}}
+
+%\includegraphics[width=1.4\paperwidth,height=\paperheight,%
+%keepaspectratio]{../frontespizio/back.jpg}%
+
+
+\begin{document}
+
+%%%%%%FRONTESPIZIO%%%%%%
+%Reset the geometry of frontespizio
+\newgeometry{inner=20mm,
+            outer=20mm,% = marginparsep + marginparwidth
+                       %   + 5mm (between marginpar and page border)
+            top=20mm,
+            bottom=20mm,
+            marginparsep=6mm,
+            marginparwidth=30mm}
+\makeatletter
+\renewcommand{\@marginparreset}{%
+  \reset@font\small
+  \raggedright
+  \slshape
+  \@setminipage
+}
+\makeatother
+
+
+\frontmatter
+
+\pagecolor{blue} %Page color blue!70
+\input{../frontespizio/frontespizio.tex}
+
+\pagecolor{white}
+
+%%%ABSTRACT%%%%%%%%%
+
+\chapter*{\centering {\normalsize Abstract}}
+\noindent In this document I have tried to reorder the notes of the “Introduction to Many-Body Theory” course held by Professor Pier Luigi Silvestrelli at the Department
+of Physics of the University of Padua during the second semester of the 2019-20 academic year of the master's degree.
+%The notes are \textbf{fully} integrated with the material provided by the professor in the Moodle platform. 
+%In addition, I will integrate them, as best as possible, with the books recommended by the professor.
+There may be formatting errors, wrong marks, missing exponents etc. If you find errors, let me know (alice.pagano@studenti.unipd.it) and I will correct them, so that this document can be a good study support.
+
+\vspace{1cm}
+\noindent Padova, \today  \hspace{6cm} Alice Pagano
+
+\tableofcontents
+
+
+\pagestyle{plain}
+
+
+
+\newgeometry{inner=20mm,
+            outer=49mm,% = marginparsep + marginparwidth
+                       %   + 5mm (between marginpar and page border)
+            top=20mm,
+            bottom=25mm,
+            marginparsep=6mm,
+            marginparwidth=30mm}
+\makeatletter
+\renewcommand{\@marginparreset}{%
+  \reset@font\small
+  \raggedright
+  \slshape
+  \@setminipage
+}
+\makeatother
+
+
+
+
+
+
+
+
+
+
+
+\chapter*{Introduction}
+
+\section*{Useful informations}
+
+Reference textbook:
+\begin{itemize}
+\item Fetter A.L., Walecka J.D., "Quantum Theory of Many-Particle Systems" (1971,2003)
+\item  H. Bruns, K. Flensberg, "Many-Body Quantum theory in Condensed Matter Physics" (2002)
+\end{itemize}
+
+There are two options for the exam:
+\begin{itemize}
+\item Homeworks (detailed calculations, send the solution to the professor by a PDF file in 10 days) + "simplified" oral exam (quantitative concepts, no long calculations).
+\item Standard oral exam.
+\end{itemize}
+
+\clearpage
+\LARGE{ \textbf{Outline of the course} }
+
+\normalsize
+\begin{enumerate}
+\item ciao
+\end{enumerate}
+
+
+
+
+
+
+\mainmatter
+\pagestyle{fancy}
+
+
+\subfile{../lessons/1_10-03-2020.tex}
+\subfile{../lessons/2_13-03-2020.tex}
+\subfile{../lessons/3_17-03-2020.tex}
+\subfile{../lessons/4_20-03-2020.tex}
+\subfile{../lessons/5_24-03-2020.tex}
+\subfile{../lessons/6_27-03-2020.tex}
+\subfile{../lessons/7_31-03-2020.tex}
+\subfile{../lessons/8_03-04-2020.tex}
+\subfile{../lessons/9_07-04-2020.tex}
+\subfile{../lessons/10_10-04-2020.tex}
+\subfile{../lessons/11_17-04-2020.tex}
+\backmatter
+\pagestyle{plain}
+
+%\chapter{Conclusions}
+
+\input{../bibliography/bibliography.tex}
+
+\end{document}

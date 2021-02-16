@@ -1,0 +1,96 @@
+\documentclass[border=4pt]{standalone}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{shapes}
+ 
+
+\begin{document}
+
+
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_b66e055fp}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_b66e055fp}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.65pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Path Data [id:dp3522214341661185] 
+\draw  [pattern=_b66e055fp,pattern size=4.800000000000001pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 155; green, 155; blue, 155}] (191.67,136.58) .. controls (191.67,119.92) and (196.94,104.49) .. (205.92,91.87) .. controls (214.89,104.49) and (220.17,119.92) .. (220.17,136.58) .. controls (220.17,153.25) and (214.89,168.68) .. (205.92,181.3) .. controls (196.94,168.68) and (191.67,153.25) .. (191.67,136.58) -- cycle ;
+%Shape: Circle [id:dp029347206190421415] 
+\draw   (65.67,136.58) .. controls (65.67,93.92) and (100.25,59.33) .. (142.92,59.33) .. controls (185.58,59.33) and (220.17,93.92) .. (220.17,136.58) .. controls (220.17,179.25) and (185.58,213.83) .. (142.92,213.83) .. controls (100.25,213.83) and (65.67,179.25) .. (65.67,136.58) -- cycle ;
+%Shape: Circle [id:dp03237345436716432] 
+\draw   (191.67,136.58) .. controls (191.67,93.92) and (226.25,59.33) .. (268.92,59.33) .. controls (311.58,59.33) and (346.17,93.92) .. (346.17,136.58) .. controls (346.17,179.25) and (311.58,213.83) .. (268.92,213.83) .. controls (226.25,213.83) and (191.67,179.25) .. (191.67,136.58) -- cycle ;
+%Straight Lines [id:da8249354621694867] 
+\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=1.5]    (142.92,136.58) -- (268.92,136.58) ;
+%Straight Lines [id:da8003046500767055] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (142.92,136.58) -- (175.47,204.2) ;
+\draw [shift={(176.33,206)}, rotate = 244.29000000000002] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da981723427834599] 
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (268.92,136.58) -- (301.47,204.2) ;
+\draw [shift={(302.33,206)}, rotate = 244.29000000000002] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Circle [id:dp9883289582676065] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (139.25,136.58) .. controls (139.25,134.56) and (140.89,132.92) .. (142.92,132.92) .. controls (144.94,132.92) and (146.58,134.56) .. (146.58,136.58) .. controls (146.58,138.61) and (144.94,140.25) .. (142.92,140.25) .. controls (140.89,140.25) and (139.25,138.61) .. (139.25,136.58) -- cycle ;
+%Shape: Circle [id:dp7707624755682245] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (265.25,136.58) .. controls (265.25,134.56) and (266.89,132.92) .. (268.92,132.92) .. controls (270.94,132.92) and (272.58,134.56) .. (272.58,136.58) .. controls (272.58,138.61) and (270.94,140.25) .. (268.92,140.25) .. controls (266.89,140.25) and (265.25,138.61) .. (265.25,136.58) -- cycle ;
+%Straight Lines [id:da026834772436820753] 
+\draw    (142.92,136.58) -- (203.59,117.76) ;
+\draw [shift={(205.5,117.17)}, rotate = 522.76] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da3940280256720774] 
+\draw    (268.92,136.58) -- (207.41,117.75) ;
+\draw [shift={(205.5,117.17)}, rotate = 377.02] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da17838744369736714] 
+\draw    (205.92,136.58) -- (205.54,119.17) ;
+\draw [shift={(205.5,117.17)}, rotate = 448.77] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+
+% Text Node
+\draw (233.33,98.07) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$\vec{p} -\frac{\vec{q} }{2}$};
+% Text Node
+\draw (140.33,98.07) node [anchor=north west][inner sep=0.75pt]  [font=\footnotesize]  {$\vec{p} +\frac{\vec{q} }{2} $};
+% Text Node
+\draw (236.67,149.07) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,opacity=1 ]  {$\vec{q}$};
+% Text Node
+\draw (266.67,172.07) node [anchor=north west][inner sep=0.75pt]    {$\textcolor[rgb]{0.82,0.01,0.11}{k}\textcolor[rgb]{0.82,0.01,0.11}{_{F}}$};
+% Text Node
+\draw (136.67,164.07) node [anchor=north west][inner sep=0.75pt]    {$\textcolor[rgb]{0.82,0.01,0.11}{k}\textcolor[rgb]{0.82,0.01,0.11}{_{F}}$};
+
+
+\end{tikzpicture}
+\end{document}

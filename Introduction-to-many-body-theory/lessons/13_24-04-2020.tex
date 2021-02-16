@@ -1,0 +1,247 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{24}{04}{2020}
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 13.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+We have shown that a general field operator can be separated into a creation and destruction part.
+
+Now this definition is particular useful because when you take an expectation value of a normal order operator in the unperturbed non interacting ground state by definition it gives zero, because you have on the right the destruction operator.
+
+
+Now the basic idea is, since the main task to evaluate the Green's function in the perturtbative approach is to compute the T product of sequence of operator, is try to reduce the T product into an N product. Since then if we take the expectation value on the non interacting ground state it gives zero. Of course by doing this transformation you should properly take into account all the additional terms due to the commutation (or anticommutatiojn) rules that comes into play.
+
+
+We can also mention a property that is useful for the next application. Both the time ordering and normal ordering operators are distributive:
+..
+
+This means in practice that since typically we split the field operators into destruction and creation part, we can work separately on the creation and destruction parts and at the ends of the procedure you can put togheter all the parts and have the final result.
+
+Now we also define another important quantity which is the so called contraction of 2 operators:
+
+
+where it is denoted by a pair of dots (in some bock you can also find a small bar connecting two operators) and it is just the difference between the time ordering product of the two operators and the time ordering product.
+
+As we will explicitly see this actually is not an operator but a c-number.
+
+
+In practice this represents the additional term that we have introduced trying to rearrange the T product into a N product.
+
+Actually many contractions vanish and for instance if we take the two parts (creation and destruction) of the field operators, we can easily see that their contraction is zero:
+..
+let us see why:
+..
+where the N operator acts as..
+..
+while the action of the time ordering operator depends on the values of the corresponding times:
+..
+
+But know let us focus on the first case, one can easily rewrite this expression as follow:
+..
+because psi- and psi+ commut or anticommute (in the case of fermions) at any time. Why? because remembering the original definition of the destruction and creation operator that are relative (for instance think about the degenarate electron gas) they are referring to differents modes (k wave vectors above or belowe the fermi wave vector). So clearly they commute or anticommute.
+
+THis of course means that in any case the second is the result which is exactly the same of the normal order operator.
+
+Hence we have that this contraction vanishes!.
+
+Note thathi it is only true in the interaction picture since the operators proeprties are the same as in the Schr$\ddot{o}$dinger picture (in the sense that the field operators are just combinations of \( c_k \) operators and that the time dependence is only included on a single phase as..)
+
+
+One can also show that other contractions are zero (you can try to demonstarete them for exercise):
+...
+
+The question is: what are the few contractions that are non zero?
+Actually one example of non vanishing  contraction is the following. If make a contraction of this pair of operators:
+..
+just to make a case let us consider \( t_x>t_y \) and remembering that the contraction is the difference between time and N operator. Now of course the effect of the time ordered operator is nothing:
+..
+while of course since it is the destruction part, the effect of the operator is to interahcnage the two operators and putting a - sign for fermions:
+..
+
+Now just focus on fermions and try to write explicitely the two parts of the field operators:
+..
+In both the cases you are referring to modes which wave vectors are above the fermi sphere.
+This is differerent with respect to the previous case in which you had different modes.
+
+Now, in this case since the operators are \( a  \) operators, clearly this relation is valid:
+..
+where of course now we cannot just assume they commute or anticommute because the modes are the same modes above the fermi wave vector.
+
+So if we take this products of operators we can interachange the order but we have also to take into account the delta:
+...
+(we have an additional term with respect to the previous case).
+
+Let us check what the second term is. We can conclude that the contraction is equal to this expression (because the first term of the last equation cancels with the number order operators, so only the second term is left).
+But now, typically for the degenerate electron gas, these single particles wave functions are normalized plane waves with a spin part. We can write this in a compact way by considering all the k wave vectors but putting a theta function. Remember also that we are considering the case \( t_x>t_y \) we can also put a theta function on the times here.
+But if you remember the expression in space and time of the non interacting green function,  one part of it (in case of k > kF) was really this quantity above.
+
+So thisis a aprt of the non interacting green function in the case \( k>k_F \). By the way this demonstrates that really the contraction even when it is not vanishing is not an operator but it is a function, so a c-number.
+
+SO you can also check other possible contraction that do not vanish, and you find that the only non-zero contraction are those listed here:
+..
+..
+These are the only two possible case with non vanishing contraction.
+
+
+Now we remember that our field operators can be splitted as:
+..
+In this case we can also exploit the distributive properties that we have mentioned above because clearly if now we take the contraction of the two full operators, we can consider the products of all the pairs (we have four terms). Two terms are among the vanishing contractions, while the remaining two can be different from zero if the time ordering is a particular one.
+So it is very easy to conclude that this quantity is just the non itneracting green function multiplied by these theta....
+But of course the sum of the theta is just 1 and so you have that this quantity is equal to the full non interacting green function. It is a very important result!!!
+
+
+You could also arrive at the very same conclusion if you just take the expectation value on the non interacting ground state of the products of those two field operators. A part from a normalization factor which is one it is the non interacting green function. Now we can use the definition of contraction in Eq.contraction ...
+, then by definition the expectation value of the normal ordering product of two operators is zero, and so the contraction we have seen is a c-number and so we can put it outside the expectation value. We can easily conclude thath really the contraction of these two operators is the non interactin green function.
+
+
+ANother suitable property we should comment (it will be useful in the next applications) is that what happens when you have a normal ordering operator of a sequence of operators and you make a contraction between two operators that are not close to each other?
+The idea is that you should put the two operators togheter (close to each other) and by doing this you should rearrange the order and putting a - sign for every interchange of fermionic operator. Then, since this contraction is just a c-number, can be taken outside the normal ordering operator and this is the end of the story for such situation.
+
+
+Another useful property is that essentially if we interchange the order of the operators for the contractions we have a minus sign in the case of fermions:
+..
+
+Now the basic result that will help a lot to perform perturbative approach for the green function is the following. Remember that our task is just to evaluate time ordering products. The T product of a seuqnece of operators according to thisfamous wick's theorem is given by the sum of the corresponding normal ordering product, plus many additional terms. All these terms represent the sum ofver all possible pairs of contractions.
+(you have to consider all the situation, for instance the situation with 2 pairs, 3 pairs, 4 pairs ... and so on).
+If you want one general expression (is the last pair in the last equation!) could be a situation where the first operator is paired into the contraction with the last one, the second one with the last-1 one, the third with the last-2 one... and so on.
+
+Now, we do not demonstrate this theorem in details (look at the book) because it is a little techniqual point. We can at least give an idea of the demonstration.
+For instance for two operators it is obviusly true. Remebering that the contraction is just:
+..
+so clearly we can write the T product as:
+...
+where the only possible contractions for two operator is just the contration of the two operators.
+
+Then, the theorem is really demonstarted by induction, in the sense that by assuming that it is true for n operator, we can demonstrate that it is true for n+1 operators.
+
+
+Now the basic useful aspect of this wick's theorem, is that of course in principle it is just an operator identity that it is valid for every sequence of operators, but really it is extremely useful in the specific case when you take the expectation value on the non interacting unperturbed ground state (which is the basic element in the perturbative expansion of the green fucntion).
+Why? because in this case only fully contracted terms survive, because all uncontracted normal-ordered products vanish because by definition if you take the expectation value of a normal-ordered product vanishes.
+So you can have that the right hand part is different from zero only in case you have a full contraction of all pairs of operators (as the last term in the Eq.quella lunga con la T e la N... la penultima praticamente (il wick's theorem)) as we will see in more details.
+
+So the wick's theorem is very important for the perturbative approach, which states that the time ordering product of sequence of operators is equal to the normal order product plus a sum over all the possible contraction of pairs of operators..
+
+This theorem is important for us because since the basic element of the in the perturbative expansion of the green's function is represented by the expectation value on the non interacting ground state of time ordered products, clearly by definition all the terms that are not fully contracted vanish and we are only left with all possible fully contracted terms.
+
+
+\section{seconda ora}
+
+Now we have also seen that when the contractions are different from zero they coincide with the non interacting green functions. It means that in the perturbative approach we can express the exact green function as a series containing essentially combinations of the interaction \( U \) and the non interacting green functions \( G^0 \).
+
+For example let us focus on the first order contribution and in particular on the numerator that we have denoted as \( i \widetilde{G} ^{(1)} \) with explicit expression:
+...
+By applying the wick's theorem and actually one has in this way to consider all the possible non vanishinf contractions (typically between a .. and a ..). By taking into account all this terms one obtain the following results: (we can guarantee that it is much simpler to perform this evaluation by exploiting the wick's theorem with respect to the standard evalution of all the possible pairing of the field operators ). If we use the wick's theorem we arrive at this conclusion for the numerator of the first order green's function:
+..
+
+there are essentially 6 terms (there is a common integration over two four dimensional variables). We have suitable combinations of non-interacting green function with suitable choices of the space time and spin variables.
+
+Now, clearly the wick's theorem is very helpful, but in any case we are still left with a very complicated formula. Just consider that we are only at the first order, you can imagine what happens when you are in higher order!!!
+Clearly, by visual inspection we can see a huge amount of variables and indexes. Here a very important help comes from the possibility first invented and introduced by Ferymann (in his work of quantum electrodynamics) to associate a graphical picture to each term. So for this task we introudce the famous feyman diagrams.
+
+These diagrams are very useful because:
+\begin{itemize}
+\item from one hand they can give you an exact mathemtical representation of the perturbation theory to every order, so to infinite order;
+\item maybe more importantluy they gives a powerful method that really focus on the important part of these terms in such a way to elucidate the physical content of this complicated expression that come into play when you work with the perturbative expansion of the green function.
+\end{itemize}
+
+Now in order to associate graphical representation to this complicated integrals, we have to define some basics element. SInce we have said above that essentially the basic elements in the expansions are \( U \) (the interaction potnetial) and \( G^0\) (the non-interacting green's function), clearly these basic elements shoudl appear also in the graphical representation.
+
+So the basic elements for the graphical representations are the following.
+
+This is (fig1) is the first element. As you can see it is a single straight line with an arrow, and with two pairs of arguments that of course correspond to the arguments of the non interacting greens function.
+So we associate this symbol (graphical term) to the non interacting green's function and in such a way that this arrow goes from the second argument to the first argument. Remember the definition of the green's function, this means that this arrow goes from the point of creation (the second argument corresponds to the creation field operator) to the point of annihilation. This is consistent with the meaning of the green's function as propagator.
+
+Now we can use a similar symbol (fig2) but with a double arrow, which instead correspond to the exact (full-interacting) green0s function.
+
+Then (fig3) another basic element is the interaction potential which correspond to:
+...
+the space variables multiplied by the delta in times (because we assume that the interaction is instantaneous and we are in non relativistic approach). A waveing line is associated to the interaction potential.
+
+
+Finally (fig4) there will be a situation where there is a so called internal vertex (a point where three lines converges, and typically two are single lines (non interacting green's function ) and another one is a waving line indicating a potential). Now this internal vertex as the idea that we should take a sum (or an integral for continous variables) over internal variables (that are clearly space time continuous variables and spin discrete variables).
+
+
+
+Now, having presented the basic elements, let us see what can be done for the specifc case of the first order approximation for the numerator of the green's function.
+It is easy to demonstarate that we can represents these terms graphycally by the feymann diagrams in this way.
+We have 6 terms and for instance let us consider the first term (A). We have \( i G^0 _{\alpha \beta } (x,y) \) outisde, which is the straight line, then inside the paranthesis we have two green's function (A) with the same argument. The second is the circle on the right in figure, while the first the circle on the left in figure.
+We have also to consider the integration over the internal vairables that is indicated by the waving line.
+Of course clarly we can easily associate all the other diagrams to the corresponding analytical terms....
+
+Of course we have just a single waving line for each terms because we are in the first order so clearly we have only one interaction potential involved. In all the cases you have three non-interacting green's function involved.
+
+Now the important thing is that again we have all the indices but with the important point that we can really visualize the basic form of these different contribution as we will demonstrate soon.
+
+For instance we can already notice that there is a clear topological difference between the first two diagrams (A and B) and the other 4 diagrams. Because we can see that these two diagrams have a so called disconnected diagrams because there is no connection between a part of a diagram and all the rest. In particular, there is a non-interacting green's function that is somehow isolated from the rest of the diagram. It clearly correspond to the fact that for instance in the term \( i G^0_{\alpha \beta } (x,y) \) (which multiply (A)) you could take this term outside from the double integral because it does not depends on the internal bariables.
+
+So for (A) and (B) diagrams we can say that they contains subunits not connected to the rest of the diagram by any lines. So in these two terms these non-interacting green's function is one factor and the integral another factor.
+
+If you remember our picture of an additional particle interacting with the \( N \)-body system clearly this means that in this specific contribution, the free particle that we had does not interact with the rest of the system.
+
+But what is more important is that we can really make a calculation with these diagrams and to exploit the basic topological form in respective on the specific sum and very boring notion of all the spin and space time variables. Because one can see that if we approximate our numerator of our interacting green's function at first order, this numerator can be written in such a way..
+..
+a sum of these 5 terms miltiplied by three other terms. It is clear that here we do not mentioned anymore all the variables and all the indices, but we focus on the topological forms behaviour of the terms. It is clear that to first order this expression is correct, because you recover all the six terms listed above. Why? Of course if you think to make the multiplication:
+- if you multiply the first term (arrow) with the first in the second parentehis you obtain \( i G^0 \) (the zero order non interactin green's function).
+- if you multiply the first term by the second term on the second parenthesis, you get clearly the (A) term.
+- similarly multipling the first term with the third term on the second parenthesis, you get the (B) term and so on.
+
+-if you multiply the second term (in the first parenthesis) with the first in the second parenthesis, you have the (C) term.
+- if you multiply the third term by the first term i nsecond parenthesi you get the (D) term.
+- similarly for the fourth term multiplied for the first term which gives the (E) term
+- similarly for the fifth term multiplied for the first term which gives the (F) term
+
+Of course here (in the first parenthesis) you have many more terms and moreover you could have the multiplication for instance of the second term(first parentheis) with the second (second parenthesis), but to be consistent to first order we should neglect all terms having two or more waving lines! so having two ore more interactions potentials!
+
+So just to be consistent to first order it is true that we can write the numerator in this way.
+
+
+
+
+But now since remember that this is just the numerator, in order to get the complete green's function we must include also the denominator that as you can remeber is given by such an expression:
+...
+it correspond to the original definition of the green's function ( la prima equazione di questo secondo PDF!!) without  the last two operators \( \hat{\psi }_ \alpha (x \hat{\psi }_ \beta ^\dag (y) )  \).
+So actually the denominator corresponds to an expansion in which differently from the numerator you do not have those two field operators.
+
+So the treatment is somehow simplified but also in this case you can apply the Wick's theorem. If we apply the Wick's theorem also to the denominator and again of course we should count only the full contracting terms, it is easy to show that acutally we find the following diagrams:
+..
+where we have explicitly shown all those at first order.
+So clearly, for instance the first term is the zero order, while the second is the first order...
+
+Here the very interesting conclusion is that since you should have these terms at the denominator. If you remember the numerator you can see that it is something multiplied by exactly the term that appear in the denominator.
+
+So this means that actually you can delete this term (the second parenthesis in the equation for the numerator) and since we can delete it you are left with the first parenthesis.
+
+So you have the important conclusion that we have really obtain using using the Ferymann diagram concept that the complete green's function at first order is only given by considering the connected diagrams. SO the contribution from the disconnected diagrams vanishes!
+
+Now what is even more important is that we have explicitely shown this, so as you can see it was not essentially to keep track to all the internal variables and the spin indices and so on, but we were able to make calculations just focusing on the basic topological aspect of these diagrams.
+
+
+We have shown this explicitely at the first order but one can easily prove and you can see in the fetter book for details that this can be proved to all orders!
+
+So to all order is it true that the contribution of the disconnected diagrams vanish. SO for instance in the case of the first order we can complete neglect the diagrams (A) and (B) in the complete green's function because are disconnected and we can just focus on the reamaining four diagrams. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

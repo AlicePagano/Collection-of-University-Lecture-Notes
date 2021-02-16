@@ -1,0 +1,226 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{21}{04}{2020}
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 12.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+Let us come back to the notion of the adibatic switching one. We introduce an hamiltnonian formally time dependent, made by the sum of the hamiltnonian of the non-interacting system (supposed to be a solvable problem, we know anything) plus an correction term containing the interaction potential multiplied by a factor, where epsilon is a small positive term.
+remember that we have introduced the time evolution operator for states in the interaction picture. If we are in the particular case were the hamiltnonian is defined in this way, of course we can define a corresponding time evolution operator which of course depends on the parameter epsilon. Of course we know that the interaction picture state can be connected to the corresponding Schr$\ddot{o}$dinger picture state trough this unitary transformation.
+
+
+Now clearly, if \( t_0 \) time tends to minus infinite, of course this hamiltnonian tends to the non interacting hamiltnonian which of course is included in the Schr$\ddot{o}$dinger equation for the non itneracting system.
+
+Clearly for \( t_0 \) the Schr$\ddot{o}$dinger state is obtained by the ground state of the non interacting system by appluing this interaction term. This means that psi I (t 0) coincide at \( t_0 \) with the non interacting ground state and so for relative large negative state this state becomes time indipendent and coincident with the non interacting ground state.
+
+If there is no perturbation the eingestate in the......
+
+
+If instead, there is interaction (included by the second term) when the time increases from very large times to more less negative times, this correspond to the interaction which is turn on and so we can recover the interaction picture state at time t trough the time evolution operator starting grom the interaction picture at \( t_0 \).
+
+This equation determines how the real interaction state develops in time up to \( t=0 \) time which of course correspond to the full interaction.
+
+
+Clearly we have also seen that all the pictures coincide at zero time, so for instance the heisenberg state vector is equal to the interaction state vector at time zero, and of course this interaction state at time zero can be obtained by the ground state of the non interacting system by applying this time evolution operator from - infinity to 0 time.
+
+This somehow expressed how an exact eigenstate of the interacting system evolves starting grom the eigenstates of the non interacting hamiltnonian.
+
+Now there is a technical issue which is the following: we have formally defined this time dependent hamiltnonian having in time that adiabatically (so very slowly) we turn on and turn off the interaction. Of course if we want that the property of the really interacting system are obtained, we have to take eventually the limit when this parameter goes to zero. From a mathematical point of view the question is what happen when you really take \( \varepsilon \rightarrow 0 \)?
+Do we get a meninful result or not?
+
+The answer is given by the gell-mann and low theorem....
+It is a quit techincal and a little boring aspect so we dont follow the detailed demonstreation (you can find it on the book). We only report the basic result.
+
+The basic result is the following. If this quantity which is essentially the previous term, divided by the denominatory, exist to all order in perturbation theory, then this is an eigenstate of the full hamiltnonian and we can call it in this way by remembering that essentially we get the interacting system eigenstate.
+
+The point of the theorem is essentially that seperatly the numerator and denominator do not exist (they do not behave well in the \( \varepsilon \rightarrow 0 \)) but their ratio is a meaningfull quantity.
+
+So if this is an iegenstate of the full hamiltnonian we can write any question like this, where \( E \) is the corresponding eigenvalue. If \( \ket{\Phi _0}  \)  is the non interacting ground state typically what you get by this application is the interacting ground state but this is not always true.
+What you are sure is that it is in any case an eigensate of the full hamiltnonian. SO essentially this equation describes how the eigensatet develops slowly adiabatically from the non interacting ground state when you turn on the interaction. Non intrestingly if we multiplu from the left by the non interacting state remembering that ....
+si easy to demonstarte that we get this quantity:
+\begin{equation}
+  E- E_0
+\end{equation}
+so we get that the difference between the full interacting state (which is typically the ground state) and the non interacting eigenvalue is given by such an expression.
+So this is another important consequence of the gellmanetc theorem...
+
+Moreover, essentially you can repeat the same procedure by considering starting from the + infinite time and then coming back to the zero time where the ufll interaction is active.
+
+Now if one can also demonstrate is that if the state that you abotain above is not degenerate, using this alternative recipy you get exactly the same state (that repeting typically is the ground state but in principle you can only be sure that it is an eigenstate of the full hamiltnonian).
+
+This guarantee us that we can really obtain the correct limit when this parameter is vanishing if you do it in a proper way.
+
+
+
+
+
+
+
+Now, before proceeding and trying to perform a perturbative approach for the green function, we spend few words to describe better the physical interpretation of the green function.
+
+Let us remember the definition of the green function (typically the ground state is normalized).
+
+Now for instance let us focus on the first term which is relevant for \( t>t' \). This term represents the probability amplitude that an additional particle (created by this creation operator at point \( \va{x}' \) and at time \( t' \)) propagate to \( \va{x} \) and \( t \) where it is destroyed by the destruction operator. So the green function characterizes the propagation of an additional particle. This is also the reason why the green funciton is also named propagator. We can repeat the comment considering the second term form \( t'>t \) and essentially you can easily verify that this second term characterzied the propagation of an additional hole to the system, in the sense that clear here we destroy a particle (you creates a hole) and then you create a particle (you destory an hole).
+
+Since the holes are essentially absence of particles, clearly when you create a hole you destroy a particle and when you destroy a hole you create a particle. So essentially the holes can be interpreted if you want as particles hoing backward in time as suggested by Feymann. (even if in our situation there is no particular special about this considerination but is just a different view of the same phenomenon).
+
+
+Now let us try to derive this qualitatively description of the green function in a more quantitative way. Remember that the time evolution operator in the interaction picture is defined as following:
+
+
+We can go from an opertor from the Schr$\ddot{o}$dinger picture to an operator in the interaction picture trough this transformation:
+
+
+Of course taking this general expression we can write:
+..
+..
+
+So this means that if we also remember the expression to go from the Schr$\ddot{o}$dinger picture operator to heisenberg picture operator, then we can of course use this expression to write this in this other way:
+..!!
+
+
+The last is the way in which we go from the time dependent interaction picture operator to the corresponding time dependent heisenberg picture operator trough the U evolution operator.
+
+
+Now, we can also remember that the exact interacting ground state can be obtained from the non interactig ground state by acting with the U operator from - infinity to zero time. Of course imiplictly considering to properly taking the correct limit process in which this parameter goes to zero.
+..!!
+SImilarly we can get the same interacting ground state going from the non interacting ground state at infinite time and coming back to zero time.
+
+
+So let us consider the first part of the green function, corresponding to the first term:
+.. !!
+If we consider the above expression, we can rewrite it in this ways: !!!!!!
+
+Now we can use the property of the time evolution operator....
+
+What does this expression mean? Essentially this means that you start from the non interacting ground state at very large ngeative times, then the state evolves up to t', then at t' you create an additional particle at the position x', then this state with an additional particle propagates t (due to the presence of this time evolution operator) and then the additional particle is destroyed at time t in position x. Then the state evolves to plus infinite (to very large positive time) in such a way to come back to the non interacting ground state. So in this way we have the precise confermation that the green function really describes the process in which you had a system of \( N \) particle one extra particle propagates and then you take it away...
+
+
+
+Of course you can repeat the same discuttion considering the other term of the green function. In this case it is easy to demonstaret that first you take away a particle (considering the propagation of the resulting absence of particle (the resulting hole)) and then you fill the hole in such a way to restore the particle.
+
+So from a schematic point of view, you can summarize what happens when \( t>t' \) you have the propagation of an additional particle whcih is added to you N body system.....which at time t' propagates up to t when it is taken away or destroyed.
+
+Or symmetrically if \( t<t' \) you can create a hole at x t (you take away an electron) you proagate the hole at x' t' where the hole is destroyed (in practice you put here again the particle by restoring the N number of particles).
+It means that while the hole propagates from t to t' to larger time, you can also see the same process as a particle going backward in time from t' to t.
+
+This is of course the basic reasoning for calling the green function propagator and elucidate the physical meaning of the green function.
+
+We can also had that of course these schematice pictures is also suitable because you can understand  that if you really let this particle for instance to propagate in the N body system, since it is no longer a non-interacting particle (because it interacts with all the other particle, so with the system), clearly the green function could be a good probe of the particle-particle interactions in the system that are of course the most important aspects we are interested in our many body problem.
+
+
+\section{Seconda ora}
+Let us summarize the main formal results that we have obtained with the idea that it is better to shift from the hesienberg to the interaction picture in order to make a parturbative approach to the green function.
+So we have seen that essentialy we can go from the expression from time dependent operator in the interaction picture to heisenberg one by thistransformation with this time evolution operator:
+..
+
+We have also mentioned the Gellman theorem which explaions how to precisely go from the non interacting ground state to the interacting state taking the proper limit of epsilon going to zero.
+..
+It is clear that since we have those two expression, the expectation value of the heisenberg operator in the heisenberg picture can be obtained as an expectation value of this quantity:
+..
+where this is the operator in the interaction picture and the \( \hat{S}  \) operator is defined as:
+..
+Of course we have also seen by considering the physical interpreation of the green function that this matrix element which includes two heisenberg operator in place of one can be written in this way, essentially involing three \( U \) operators at different times.
+
+In turn the \( \hat{U}  \) operator can be expressed as...
+as said.
+
+Now we should come back to the problem of expressing the gren function and to evaluate it in a peturbative approach.
+Asa anticipated is convenient to perform this task using the interaction picture, because as we will see we can use the Wick theorem that allow us to simplify substantially the perturbative approach.
+
+So desptue the fact that the green function has been defined in the heisenberg picture, it is convenient to use the interaction picture.
+
+Now, essentially if we consider tha the basic element of the green function can be expressed with three time evolution operator and that the last can be written as shown, it is easy to obtain a corresponding perturbative expression as sum of infinite term for the green function.
+
+We do not do in detail the domenostation (we can find the details on the book), bu the result is understandable.
+
+From now we use a simplified notation in the sense that we put togheter the space and time variable, in the sense that with \( x_0 \) we denote both the spatial coordinate and the corresponding time \( t_x \). We also define the
+interaction potential formally as \( U \) (do not confuse with the time evolution operator)  the potential defined in terms of space coordinates multiplied by delta in times.
+
+Of course this is a notation which is particularly suitable for a relativistic approach in which you put on the same foot space and time variable, but it is convenient also in our case to simplify the notation.
+Of course the fact tha our approach is non-relativistic is included in the delta factor which means that the interaction is instantaneous (not retarded). So in this potential essentially the times must be the same.
+
+
+Moreover, we now omit as we have already done the explicit \( I \) subscript because now we work consistnely in the interaction picture (so this means we will consider the hamiltnonian in the interaction picture).
+
+Now, consider the denominator of the green function. If we divide it by this quantity, essentially we can exploit the result of the Gelmann law theorem and of course we can also expressed the intecting state in terms of the non interacting ground state. Pytting things togheter we can write in this way... where we have emphasited the presence of the \( \hat{S}  \) operator.
+
+This is a sum that is of course related to the green function denominator, but for the moment we compute this and we will remember it for the future.
+
+
+
+
+
+Let us focus instead on the numerator of the green function expression that we have written above.
+We denote the numerator with the tilde (this means just the numerator of the green function) and now we consider the different terms in this series. Let us start from the \( n=0 \) (zero order term). This clearly means that in this expression at zero order you have no interacting hamiltnonian (you have just the product of the field operators). Clealry, since on the right and on the left you have the non-interacting ground state, essentially you have this quantity (quella scritta a minchia sopra la formula), but it is what we have defined  the non interacting green function. So the zero order term, as expected, is just the evalution of the green function without any interaction.
+
+What happens to the \( n=1 \) term? In the expression you have just a single interaction hamiltnonian which in turn is made by the product of four field operators. We can also make the expression symmetric by considering two four dimensional integral (of course you have two three dimensional integral in the definition of the interaction hamiltnonian, then you have a single time integral but you can formally write a double time integral by exploiting the presence of this delta factor in the interaction potential and putting the time togheter with the space and considering just the  space time variable).
+
+Of course then you should make the same comments for the additional infinite terms \( n>1 \). Let us focus on the \( n=1 \) term. It is clear from this expression that the main task to evaluate the green function at each term is to evaluate the expectation value in the non interacting ground state of T products of creation and destruction operators (of course by assuming we are working in the interaction picture).
+
+This is the basic element inside the perturbative expression of the green function
+...
+(at zero order, at first order and of course the same for additional order (in these cases we have more field operators inside)).
+
+
+It is clear that this matrix element is not vanishing. It gives a meaninfull contribution only if you pare in a suitable way this creation and destruction field operators (in such a way to have a non zero result). This is very complicated because you have to take into account the different possible time ordering of these fields operators and already at first order (in which you have 6 field operators) this task is clearly very complicated(if you just directly apply the usual commutation and anticommuation relations).
+
+
+So you can imagine that the situation becomes rapidly extremely difficult by increasing the order of the perturbation expansion.
+
+
+We should consider an alternative more convenient way to take into account the non vanishing contributions.
+
+
+To do that we come back to the canonical transformations (to particle-hole formalism) and considering specifically fermions, we can split the field operator in the Schr$\ddot{o}$dinger picture into a part relative to particles and the part relative to holes. In case of fermions having particularly in mind the degenerative electrons gas of course the single particle wave functions are typically plane waves.
+
+In the interaction picture, the transformation from the Schr$\ddot{o}$dinger picture to the interaction one (that according our convention we express without any subscript) is made by this formula:
+..
+and in this way it is easy to emphasize the time dependence of this interaction picture field operator, because essentially it is the same as the time dependence that we have derivated making the exercise of evaluating the non-interacting greens'function.  So the explicit time dependence is very simple (just a phase).
+
+
+Now the interesting point in this case is that these two terms have different meaning. We can say that the first one is a plus field operator and that the second one a minus field operator. (please do not confuse it with the dagger)
+
+What does it mean? The plus operator is the destruction part (remember that this is the destruction operator for particles), in particular it destroy particles above the fermi sea. The more itneresting point is that it annhilates the non-interacting ground state because when you apply this to the non interacting ground state gives zero (it would destroy particles above the fermi sphere, but in the non interacting ground state you have no particles above the fermi sea).
+
+
+The rest can be called creation part, because it destroy electrons inside the fermi sea (it creates holes insie the fermi sea).
+
+What is the meaning of + an - sign? Historically these signs have been derived from the relativistic quantum field theory. For us they have no particular meaning, but could be interpreted in the case of the degenerate electron gas as the sign of the frequency with respect to the fermi energy. In fact if you consider the + term it corresponds to k>kF and so the corresponding energy is clearly larger than the femru energy....
+
+On the contrary the second term is related to wave vectors smaller than kF.. so for energy smaller than the gfermi energy...
+
+So the idea is that in general field operator can be uniquely separated into a destruction part that annihilates the non-interacting ground states and a creation part.
+
+SO the idea is that the most important property is that as we have said before, if we apply the destruction part to the non interacting ground state it gives you 0.
+
+Of course you can repeat the same procedure to the joint operators, and in this case it is this quantity which is the destruction part to give 0. Because it would destroy an hole inside the fermi sphere, but in the non-interacting ground state there is not hole inside the fermi sphere....
+
+
+FInally it is convenient to introduce an additional operator which is a normal ordering operator having defined this splitting into creation and destruction operators.. It has the following effect: it place the annihilation operator to the right for creation operators. If you are considering fermion system you should include a minus 1 factor for every interachange of fermions operators.
+
+For instance if we consider the \( N \) normal ordering operator applied to this sequence of operator, since this is the destruction part, the effect of this application is....because you have to reverse the order of the field operators since you have to put to the right the destruction operators and since you are considering fermions you have also to include a minus sign in fron because you have interchanged the two field operators.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,340 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{31}{03}{2020}
+
+\begin{document}
+
+\chapter{Green's function}
+
+\marginpar{ \textbf{Lecture 7.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+In most cases of interest, the first few orders of perturbation theory cannot provide an adequate description of an interacting many-particle system. For this reason, it becomes essential to develop systematic methods for solving the Schr$\ddot{o}$dinger equation to all orders in perturbation theory.
+In this chapter, first of all we present the Green's function concept and then the formalism of the different picture of quantum mechanics.
+
+\section{Green's function}
+\label{sec:7_1}
+As said, we need more sophisticated tools of quantum field theory for instance to find the correlation energy of degenerate electron gas due to the presence of divergences. One of such tools is represented by the \textbf{Green's function} (or \emph{wave function propagator}, as it is sometimes called).
+
+The Green's function method has many variants and a lot of application as for instance in solving differential equation. Here, we are interested in the fact that this concept is useful when we apply perturbative approaches.
+
+Let us rewrite the Hamiltonian in second quantization in terms of field operators:
+\begin{equation*}
+  \hat{H} = \sum_{\alpha }^{} \int_{}^{} \dd[3]{\va{x}} \hat{\psi }_ \alpha ^\dag  (\va{x}) T (\va{x}) \hat{\psi }_ \alpha (\va{x})
+  + \frac{1}{2} \sum_{\alpha \beta }^{} \int_{}^{} \dd[3]{\va{x}}
+  \int_{}^{} \dd[3]{\va{x}'} \hat{\psi }_ \alpha ^\dag (\va{x})
+  \hat{\psi }_ \beta ^\dag (\va{x}') V (\va{x},\va{x}') \hat{\psi }_ \beta (\va{x}') \hat{\psi }_ \alpha (\va{x})
+\end{equation*}
+where we assume that the ground state \( \ket{\psi _0}  \) is normalized and the standard time independent Schr$\ddot{o}$dinger equation is:
+\begin{equation*}
+  \hat{H} \ket{\psi _0} = E \ket{\psi _0}, \quad \braket{\psi _0}{\psi _0}= 1
+\end{equation*}
+Now, we define new \emph{time dependent} \textbf{Heisenberg field operators}. \marginpar{Heisenberg field operators}  We will present the Heisenberg picture in the future, but for the moment we give just the definition of these new operators.
+For instance, for the destruction operator:
+\begin{equation}
+  \hat{\psi }_{H_ \alpha } (\va{x},t) \equiv e^{\frac{i \hat{H} t}{\hbar }} \hat{\psi }_ \alpha  (\va{x}) e^{\frac{- i \hat{H} t}{\hbar }}
+  \label{eq:7_heisenberg_destruction}
+\end{equation}
+where we have introduced the time dependent by applying the new operator \( e^{i \hat{H}t/\hbar  }  \) both on the left and on the right. Of course, a similar definition is valid for the creation operator.
+
+Now, we define the \textbf{ single-particle Green's function} \marginpar{Green's function} (or the two points Green's function)  as follow:
+\begin{equation}
+  i G_{\alpha \beta }(\va{x}t, \va{x}'t') \equiv \frac{\bra{\psi _0} T \qty[ \hat{\psi }_{H \alpha } (\va{x},t) \hat{\psi }_{H_ \beta }^\dag (\va{x}',t')  ] \ket{\psi _0}  }{\braket{\psi _0}{\psi _0} }
+  \label{eq:7_1}
+\end{equation}
+where \( \alpha , \beta  \) are spin indexes, the denominator is just the normalization and the numerator is essentially the expectation value on the ground state of two operators.
+In particular, \( T \) is a \textbf{time-ordered} product of operators (the operator containing the latest time stands farthest to the left): it orders the operators from \emph{right} to \emph{left} in \emph{ascending} time order with a \( (-1)^p \) factor, where \( p \) is the number of interchanges of fermions operators from the original given order (for bosons nothing special happens)
+
+In practice, if we consider the action of this time order operator to two field operators, we essentially obtain:
+\begin{equation*}
+  T \qty[ \hat{\psi }_{H_ \alpha } (\va{x},t) \hat{\psi }_{H_ \beta } ^\dag (\va{x}',t')  ] =
+  \begin{cases}
+   \hat{\psi }_{H_ \alpha } (\va{x},t) \hat{\psi }_{H_ \beta } ^\dag  (\va{x}',t') & \text{if } t>t'  \\
+   \pm \hat{\psi }_{H_ \beta } (\va{x}',t') \hat{\psi }_{H_ \alpha } ^\dag  (\va{x},t) & \text{if } t<t'
+  \end{cases}
+\end{equation*}
+where the plus sign refers to bosons, while the minus sign to fermions.
+
+Let us note that the Green's function is a matrix element, namely the expectation value of field operators in the ground state, and it is essentially a function of the coordinate variables \( \va{x}, t, \va{x}', t' \). It means that GF contains only part of the full information carried by the wave functions of the systems, however it includes the most relevant information:
+\begin{enumerate}
+\item the expectation value of any single-particle operator in the ground state of the system;
+\item the ground state (total) energy of the system;
+\item the excitation spectrum of the system. 
+\end{enumerate}
+The first two points are demonstrated below, while the third follows from the Lehmann representation, which is discussed later in this section. 
+Moreover, in the spirit of the perturbative approach, one can demonstrate that the Feynman rules for finding the contribution of the \( n \)-th order perturbation theory are simpler for \( G \) than for other combinations of field operators.
+
+\begin{property}{Homogeneity in time}{}
+If \( \hat{H}  \) is time independent, the Green's function is homogeneous in time, i.e. it depends only on \( t-t' \) and not separately from \( t \) and \( t' \).
+\label{propty:7_1}
+\end{property}
+\begin{proof}[Proof of propty.(\ref{propty:7_1})]
+We can always assume that the ground state is normalized and that the Schr$\ddot{o}$dinger is the following:
+\begin{equation*}
+  \hat{H} \ket{\psi _0} = E \ket{\psi _0}, \quad \braket{\psi _0}{\psi _0}=1
+\end{equation*}
+Let us consider the case \( t>t' \), i.e. we assume a specific time ordering in the definition of the Green's function:
+\begin{equation*}
+\begin{split}
+ i G_{\alpha \beta } (\va{x} t, \va{x}'t')  &= \bra{\psi _0 } \hat{\psi }_{H_ \alpha } (\va{x},t) \hat{\psi }_{H_ \beta }^\dag (\va{x}',t') \ket{\psi _0}     \\
+ &= \bra{\psi _0 }  e^{\frac{i \hat{H} t}{\hbar }} \hat{\psi }_{ \alpha } (\va{x})
+ \underbrace{e^{-\frac{i \hat{H} t}{\hbar }}  e^{\frac{i \hat{H} t'}{\hbar }}}_{e^{-\frac{i \hat{H} (t-t') }{\hbar }} }
+  \hat{\psi }_{\beta }^\dag (\va{x}')  e^{-\frac{i \hat{H} t'}{\hbar }} \ket{\psi _0} \\
+  & \overset{(a)}{=}   e^{\frac{i E (t-t')}{\hbar }}
+  \bra{\psi _0}  \hat{\psi }_{\alpha  } (\va{x}) e^{-\frac{i \hat{H} (t-t') }{\hbar }}    \hat{\psi }_{\beta  }^\dag (\va{x}') \ket{\psi _0}\\
+  &= i G_{\alpha \beta } (\va{x},\va{x}', (t-t'))
+\end{split}
+\end{equation*}
+where in step \( (a) \) we had put togheter the middle exponential operators (since they commute) and we had put outside the term \( e^{i E (t-t')/\hbar } \) because it is a c-number. In particular, the latter was derived by considering the action of the exponential operators both to the state on the left and on the right (since the property \( H \ket{\psi _0} = E \ket{\psi _0}   \) is valid also for an exponential of the hamiltonian).
+
+If we consider the case \( t<t' \) and we repeat the entire computation, ww end up that the Green's function only depend on \( t-t' \)(i.e. it is homogeneous in time).
+
+\end{proof}
+
+\subsubsection{1 - Expectation value of single particle operators}
+Now, let us demonstrate that from the GF we obtain the expectation value of any single-particle operator in the ground state: \marginpar{Expectation value of single particle operators}
+Let us assume to have a general single-particle operator in second quantization:
+\begin{equation*}
+  \hat{J} = \int_{}^{} \dd[]{x} \hat{j} (\va{x})
+\end{equation*}
+which is the integral of the density operator in second quantization, which corresponds in first quantization to a generic operator \( J_{\beta \alpha }(\va{x}) \):
+\begin{equation*}
+\hat{j} (\va{x})  = \sum_{\alpha  \beta }^{} \hat{\psi }_ \beta ^\dag  (\va{x}) J_{\beta \alpha } (\va{x}) \hat{\psi}_ \alpha (\va{x})
+\end{equation*}
+where we have written \( \beta \alpha  \) order instead of \( \alpha \beta  \), because it will be more convenient ant this is not relevant.
+
+Again considering that the ground state is normalized (\( \braket{\psi _0}{\psi _0}  \)), if we take the matrix element over the ground state of the last operator, we obtain:
+\begin{equation*}
+\begin{split}
+  \bra{\psi _0} \hat{j} (\va{x}) \ket{\psi _0}   & \overset{(a)}{=}
+  \lim_{\va{x}' \rightarrow \va{x}} \sum_{\alpha \beta }^{} J_{\beta \alpha } (\va{x}) \bra{\psi _0} \hat{\psi }_ \beta ^\dag (\va{x}') \hat{\psi }_ \alpha  (\va{x}) \ket{\psi _0}         \\
+  &\overset{(b)}{=}  \lim_{\substack{\va{x}' \rightarrow \va{x} \\ t' \rightarrow t } } \sum_{\alpha \beta }^{} J_{\beta \alpha } (\va{x}) \bra{\psi _0} \hat{\psi }_ {H_ \beta } ^\dag (\va{x}',t') \hat{\psi }_ {H_ \alpha }  (\va{x},t) \ket{\psi _0}   \\
+  &\overset{(c)}{=}  \pm \lim_{\substack{\va{x}' \rightarrow \va{x} \\ t' \rightarrow t } } \sum_{\alpha \beta }^{} J_{\beta \alpha } (\va{x}) \bra{\psi _0} T \qty[  \hat{\psi }_ {H_ \beta } ^\dag (\va{x}',t') \hat{\psi }_ {H_ \alpha }]  (\va{x},t) \ket{\psi _0} \\
+  & = \pm i
+  \lim_{\substack{\va{x}' \rightarrow \va{x} \\ t' \rightarrow t } } \sum_{\alpha \beta }^{} \qty[ J_{\beta \alpha } G_{\alpha \beta }(\va{x}t,\va{x}'t')] \\
+  &= \pm i
+  \lim_{\substack{\va{x}' \rightarrow \va{x} \\ t' \rightarrow t } } \Tr \qty[ J_{\beta \alpha } G_{\alpha \beta }(\va{x}t,\va{x}'t')]
+\end{split}
+\end{equation*}
+where in the step \( (a) \) formally we can write \( x' \) by taking the limit \( x' \rightarrow x \). In the step \( (b) \) we have multiplied the operators inside by the factor \( e^{\frac{i \hat{H} t}{\hbar }} \) in such a way to introduce the Heisenberg field operators (it is allowed if we take the limit \( t' \rightarrow t \), as you can see from the previous proof). In the step \( (c) \), we have introduced the \( T \) product, provided that  \( t' \rightarrow t \) from above (\( t' \) is infinitesimally later than \( t \)), because in that case the action of the two operators change the order and we recover the \( \alpha \beta  \) order in the definition of the Green function \eqref{eq:7_1} and from the normalization condition we recover the original definition of the Green's function.
+Then, we have interpreted the \( \sum_{\alpha \beta }^{}   \), as a trace of the matrix product between \( J \) and the Green's function.
+Remember that the + sign stands for bosons, while the - sign for fermions.
+
+\begin{remark}
+If we have:
+\begin{equation*}
+  C = A \vdot B \quad \Rightarrow C_{ij} = \sum_{l}^{} A_{il} B_{lj}
+\end{equation*}
+The trace is:
+\begin{equation*}
+  \Tr(AB) = \Tr(C) = \sum_{i}^{} C_ii  = \sum_{il}^{} A_{il} B_{li}
+\end{equation*}
+\end{remark}
+
+\begin{example}{Total kinetic energy}{}
+For instance, the total kinetic energy of the system (\( \hat{H} = \hat{T} + \hat{V}    \)) is the integral over the kinetic energy density in second quantization:
+\begin{equation*}
+  \hat{T} = \int_{}^{} \dd[]{\va{x}} \tau (\va{x}), \quad \tau (\va{x}) \equiv \sum_{\alpha \beta }^{} \hat{\psi }_ \beta (\va{x}) \qty(- \frac{\hbar ^2 \grad _x^2}{2m}) \hat{\psi }_ \alpha (\va{x}) \delta _{\alpha \beta }
+\end{equation*}
+In particular, the kinetic energy density in first quantization is:
+\begin{equation*}
+  \tau _{\beta \alpha } (\va{x}) = - \frac{\hbar ^2 \grad _x^2}{2m} \delta _{\alpha \beta }
+\end{equation*}
+which is diagonal in the spin indexes.
+
+Now let us write the expectation value on the ground state of the kinetic energy as a function of the Green's function:
+\begin{equation*}
+\begin{split}
+\bra{\psi _0} \hat{T} \ket{\psi _0}     &= \pm i \int_{}^{} \dd[]{\va{x}} \lim_{\va{x}' \rightarrow \va{x}}
+\qty(- \frac{\hbar ^2 \grad ^2_x}{2m} \sum_{\alpha \beta }^{} \delta _{\alpha \beta } G_{\alpha \beta } (\va{x}t,\va{x}'t')  )      \\
+&= \pm i \int_{}^{} \dd[]{\va{x}} \lim_{\va{x}'\rightarrow \va{x}}\qty( - \frac{\hbar ^2 \grad ^2_x}{2m} \Tr[G (\va{x}t,\va{x}'t')] )
+\end{split}
+\label{eq:7_4}
+\end{equation*}
+where we should apply the kinetic energy differential term, depending just on \( \va{x} \), before taking the limit \( x' \rightarrow x \).
+
+In conclusion, it is essentially the expression of the kinetic energy term as a function of the Green's function and as we will see it is really useful.
+\end{example}
+
+\subsubsection{2 - Ground state energy of the system}
+In order to determine the ground state energy: \marginpar{Total ground state energy}
+\begin{equation*}
+  E = \bra{\psi _0} \hat{H} \ket{\psi _0 }
+  = \bra{\psi _0 } \hat{T} \ket{\psi _0} + \bra{\psi _0} \hat{V} \ket{\psi _0}
+\end{equation*}
+One should evaluate also the expectation value of the potential energy as a function of the Green's function.
+
+The potential energy in second quantization as a function of field operators can be written as:
+  \begin{equation*}
+    \hat{V} = \frac{1}{2} \sum_{\substack{\alpha \alpha' \\ \beta \beta' }  }^{} \int_{}^{} \dd[3]{\va{x}}
+    \int_{}^{} \dd[3]{\va{x}'} \hat{\psi }_ \alpha ^\dag (\va{x})
+    \hat{\psi }_ \beta ^\dag (\va{x}') V (\va{x},\va{x}')_{\substack{ \alpha \alpha' \\ \beta \beta' } } \hat{\psi }_ {\beta'} (\va{x}') \hat{\psi }_ {\alpha '} (\va{x})
+  \end{equation*}
+
+Now we want to evaluate the expectation value \( \bra{\psi _0} \hat{V} \ket{\psi _0}    \).
+Since it involves 4 field operators, while in the definition of the Green's function we have involved only 2 operators, one could expect to need a two-particle Green's function (that is more complicated and it is expressed as a function of 4 operators)\footnote{See Prob. 3.3., page 116 \cite{fetter}.}.
+However, actually the standard single-particle Green's function is sufficient to evaluate this expectation value, because we can use the Schr$\ddot{o}$dinger equation, which contains the potential energy.
+
+First of all, let us consider the equation of motion for the Heisenberg field operator: \marginpar{Heisenberg equation of motion}
+\begin{equation}
+\begin{split}
+i \hbar  \pdv{}{t} \hat{\psi }_{H_ \alpha } (\va{x},t)   &=
+\frac{i^2 \hat{H} \cancel{\hbar}  }{\cancel{\hbar } } e^{\frac{i \hat{H} t}{\hbar }} \hat{\psi }_ \alpha (\va{x}) e^{-\frac{i \hat{H} t}{\hbar }}  +
+e^{\frac{i \hat{H} t}{\hbar }} \hat{\psi }_ \alpha (\va{x}) \qty(-\frac{i^2 \hat{H} \cancel{\hbar }  }{\cancel{\hbar }}) e^{-\frac{i \hat{H} t}{\hbar }}    \\
+& = - \hat{H} \hat{\psi }_{H _ \alpha } (\va{x},t) +  \hat{\psi }_{H _ \alpha } (\va{x},t)   \hat{H} \\
+&= \qty[\hat{\psi }_{H _ \alpha } (\va{x},t) , \hat{H} ] \\
+& = e^{\frac{i \hat{H} t}{\hbar }} \qty[\hat{\psi }_{\alpha } (\va{x}) , \hat{H} ]  e^{-\frac{i \hat{H} t}{\hbar }} \\
+& = e^{\frac{i \hat{H} t}{\hbar }} \qty[\hat{\psi }_{\alpha } (\va{x}) , \hat{T} ]  e^{-\frac{i \hat{H} t}{\hbar }} + e^{\frac{i \hat{H} t}{\hbar }} \qty[\hat{\psi }_{\alpha } (\va{x}) , \hat{V} ]  e^{-\frac{i \hat{H} t}{\hbar }}
+\end{split}
+\label{eq:7_3}
+\end{equation}
+where we have used the fact that the exponential term commutes with the hamiltonian.
+
+Now let us focus on the commutator between the standard field operator and the kinetic energy operator: \marginpar{Commutator between field and kinetic energy operators}
+\begin{equation*}
+\begin{split}
+\qty[\hat{\psi }_{\alpha } (\va{x}) , \hat{T} ]  &=
+\lim_{\va{y}'\rightarrow \va{y}} \sum_{\beta }^{} \int_{}^{} \dd[]{\va{y}} \qty[  \hat{\psi }_ \alpha  (\va{x}), \hat{\psi }_ \beta ^\dag  (\va{y}')  \qty(- \frac{\hbar ^2 \grad ^2_y}{2m}) \hat{\psi }_ \beta (\va{y})    ]     \\
+& = \sum_{\beta }^{} \int_{}^{} \dd[]{\va{y}}     \lim_{\va{y}'\rightarrow \va{y}}
+\qty(- \frac{\hbar ^2 \grad ^2_y}{2m}) \qty[\hat{\psi }_ \alpha (\va{x}), \hat{\psi }_ \beta ^\dag   (\va{y}') \hat{\psi }_ \beta (\va{y})   ]
+\end{split}
+\end{equation*}
+where we have used the definition of the kinetic energy operator in terms of the field operators and where it is convenient to use the dummy variable \( \va{y} \). The important thing is that we should take the limit \( y' \rightarrow y \) after the action of the kinetic energy term \( \grad _y \), and because this term only acts on \( \va{y} \), not on \( \va{y}' \), in the second step we can take formally this term in front of the commutator.
+
+Now we introduce the important relations: \marginpar{Commuation relation}
+\begin{equation}
+[A,BC] =
+  \begin{cases}
+   [A,B]C - B[C,A]\\
+   \{A,B\}C - B\{C,A\}
+  \end{cases}
+  \label{eq:7_2}
+\end{equation}
+\begin{proof}
+For instance:
+\begin{equation*}
+\begin{split}
+  [A,BC]&= ABC-BCA   \\
+        &= ABC - \mathcolorbox{yellow!40}{BAC} + \mathcolorbox{yellow!40}{BAC} - BCA \\
+        &= [A,B]C - B[C,A]
+\end{split}
+\end{equation*}
+\end{proof}
+Now, let us focus on fermions, however the final results will be valid for both fermions and bosons. Using the property of the commutator \eqref{eq:7_2}, we can write:
+\begin{equation*}
+  [\hat{\psi }_ \alpha (\va{x}), \hat{\psi }_ \beta  ^\dag (\va{y}') \hat{\psi }_ \beta (\va{y})   ] =
+ \{  \underbrace{  \hat{\psi }_ \alpha  (\va{x}),  \hat{\psi }_ \beta ^\dag  (\va{y}')  }_{\delta _{\alpha \beta } \delta (\va{x}-\va{y}')}
+ \}  \hat{\psi }_ \beta  (\va{y})
+ - \hat{\psi }_ \beta  ^\dag (\va{y}') \{ \underbrace{\hat{\psi }_ \beta  (\va{y}), \hat{\psi }_ \alpha  (\va{x}) }_{=0}  \}
+\end{equation*}
+Hence, for the kinetic energy term we obtain:
+\begin{equation}
+\begin{split}
+  [\hat{\psi }_ \alpha (\va{x}),\hat{T}  ] &=
+  \sum_{\beta }^{} \int_{}^{} \dd[]{\va{y}} \lim_{\va{y}' \rightarrow \va{y}} \qty(- \frac{\hbar ^2 \grad ^2_y}{2m}) \delta _{\alpha \beta } \delta _{\va{x}-\va{y}} \hat{\psi }_ \beta (\va{y})        \\
+  &= \sum_{\beta }^{} \delta _{\alpha \beta } \int_{}^{} \dd[]{\va{y}} \lim_{\va{y}' \rightarrow \va{y}}  \delta (\va{x}-\va{y})
+  \qty(- \frac{\hbar ^2 \grad ^2_y}{2m}) \hat{\psi }_ \beta (\va{y})     \\
+  & = - \frac{\hbar ^2 \grad ^2_x}{2m} \hat{\psi }_ \alpha (\va{x})
+\end{split}
+\end{equation}
+where the differential operator only acts on \( \va{y} \) if we take the limit on the proper order.
+
+
+Now, let us focus on the potential energy term: \marginpar{Commutator between field and potential energy operators}
+\begin{equation*}
+  [\hat{\psi }_ \alpha  (\va{x}), \hat{V}  ] = \frac{1}{2}
+  \sum_{\substack{ \beta \beta' \\ \gamma \gamma'} }^{}
+  \int_{}^{} \dd[]{\va{y}} \int_{}^{} \dd[]{\va{y}'}
+  \qty[ \underbrace{\hat{\psi }_ \alpha (\va{x}) }_{A}, \, \underbrace{\hat{\psi }_ \beta ^\dag  (\va{y}) \hat{\psi }_ \gamma ^\dag (\va{y}')   }_{B}   V(\va{y},\va{y}')_{ \substack{ \beta \beta' \\ \gamma \gamma' } }
+  \underbrace{\hat{\psi }_ {\gamma'} (\va{y}') \hat{\psi }_ {\beta '} (\va{y}) }_{C}]
+\end{equation*}
+where \( V \) is just a function (i.e, not an operator).
+Then we can exploit using the relation of commutators \eqref{eq:7_2}:
+\begin{equation*}
+\begin{split}
+  [A,BC] &= [A,B]C - B[C,A] \\
+  &= \qty[ \hat{\psi }_ \alpha (\va{x}), \hat{\psi }_ \beta ^\dag  (\va{y}) \hat{\psi }_ \gamma ^\dag (\va{y}')   ]  \hat{\psi }_ {\gamma'} (\va{y}') \hat{\psi }_ {\beta '} (\va{y})
+  - \hat{\psi }_ \beta ^\dag  (\va{y}) \hat{\psi }_ \gamma ^\dag (\va{y}')  \underbrace{ \qty[ \hat{\psi }_ {\gamma'} (\va{y}') \hat{\psi }_ {\beta '} (\va{y}) ,  \hat{\psi }_ \alpha (\va{x}) ]  }_{=0}
+\end{split}
+\end{equation*}
+where the last term is zero because they are all destruction field operators.
+Hence, remains just the term \( [A,B]C \):
+\begin{equation*}
+  \qty[\hat{\psi }_ \alpha (\va{x}), \hat{V}  ] = \frac{1}{2}
+  \sum_{\substack{\beta \beta'  \\ \gamma  \gamma'  } }^{}
+  \int_{}^{} \dd[]{\va{y}} \int_{}^{} \dd[]{\va{y}'}
+  \qty[ \underbrace{\hat{\psi }_ \alpha (\va{x})}_{a}, \underbrace{\hat{\psi }_ \beta  ^\dag (\va{y}) }_{b}  \underbrace{\hat{\psi }_ \gamma  ^\dag (\va{y}')  }_{c}  ]
+  V(\va{y},\va{y}')_{  \substack{\beta \beta'  \\ \gamma  \gamma'  }  }      \hat{\psi }_ {\gamma' } (\va{y}') \hat{\psi }_{\beta'} (\va{y})
+\end{equation*}
+Thus:
+\begin{equation*}
+\begin{split}
+[a,bc]  &= \{ a,b \}c - b \underbrace{\{ c,a \}  }_{= \{ a,c \}  }     \\
+\Longrightarrow  \qty[ \hat{\psi }_ \alpha (\va{x}), \hat{\psi }_ \beta ^\dag (\va{y}) \hat{\psi }_ \gamma ^\dag (\va{y}')    ]
+& = \delta _{\alpha \beta } \delta (\va{x}-\va{y}) \hat{\psi }_{\gamma  } ^\dag (\va{y}') - \hat{\psi }_ \beta ^\dag (\va{y}) \delta _{\alpha \gamma  } \delta (\va{x}-\va{y}')
+\end{split}
+\end{equation*}
+The commutator between the potential energy and the field operator becomes:
+\begin{equation*}
+\begin{split}
+  \qty[\hat{\psi }_ \alpha (\va{x}), \hat{V}  ] &= \frac{1}{2}
+  \sum_{\substack{\beta'  \\ \gamma  \gamma'  } }^{}
+  \int_{}^{} \dd[]{\va{y}'}
+\hat{\psi }_ \gamma ^\dag (\va{y}')  \hat{\psi }_ {\gamma'}  (\va{y}') \hat{\psi }_{\beta'} (\va{x}) V(\va{x},\va{y}')_{\substack{ \alpha \beta' \\ \gamma  \gamma'  } } \\
+    &- \frac{1}{2} \sum_{\substack{\beta \beta'  \\   \gamma'  } }^{}
+\int_{}^{} \dd[]{\va{y}} \hat{\psi }_ \beta ^\dag (\va{y})
+\underbrace{\hat{\psi }_{\gamma' } (\va{x}) \hat{\psi }_{\beta'} (\va{y})}_{- \hat{\psi }_{\beta'} (\va{y}) \hat{\psi }_{\gamma' } (\va{x})  }  V(\va{y},\va{x})_{\substack{\beta \beta' \\ \alpha  \gamma'   } }  \\
+&\overset{(a)}{=}  \mathcolorbox{yellow!40}{
+\frac{1}{2}
+\sum_{\substack{\beta'  \\ \gamma  \gamma'  } }^{}
+\int_{}^{} \dd[]{\va{y}'}
+\hat{\psi }_ \gamma ^\dag (\va{y}')  \hat{\psi }_ {\gamma'}  (\va{y}') \hat{\psi }_{\beta'} (\va{x}) V(\va{x},\va{y}')_{\substack{ \alpha \beta' \\ \gamma  \gamma'  } }
+}
+\\
+    &+ \frac{1}{2} \sum_{\substack{\beta \beta'  \\   \gamma'  } }^{}
+\int_{}^{} \dd[]{\va{y}} \hat{\psi }_ \beta ^\dag (\va{y})
+ \hat{\psi }_{\beta'} (\va{y}) \hat{\psi }_{\gamma' } (\va{x})  V(\va{y},\va{x})_{\substack{\beta \beta' \\ \alpha  \gamma'   } }
+\end{split}
+\end{equation*}
+where \( (a) \) we have interchanged the destruction operators just by introducing a minus sign in front.
+
+Since the particles are \emph{identical} the interaction potential is unchanged under particle interchange:
+\begin{equation}
+  V(\va{x},\va{x}')_{\substack{ \alpha \alpha'  \\ \beta \beta' } } = V(\va{x}',\va{x})_{\substack{ \beta \beta'  \\ \alpha \alpha' } }
+\end{equation}
+it means that the potential is symmetric.
+\begin{remark}
+    Typically the potential will be the standard Coulomb interaction:
+\begin{equation*}
+    V(\va{x},\va{x}') = \frac{e^2}{\abs{\va{x}-\va{x}'} } \delta_{\substack{ \alpha \alpha'  \\ \beta \beta' } }
+  \end{equation*}
+\end{remark}
+
+By changing the dummy variables in the first (yellow) term above:
+\begin{equation*}
+  \gamma \rightarrow \beta, \quad \gamma' \rightarrow \beta', \quad \beta' \rightarrow \gamma', \quad \va{y}' \rightarrow \va{y}, \quad  \va{y}\rightarrow \va{y}'
+\end{equation*}
+and by considering the symmetry of the potential,
+we see that the first term is equal to the second one. This means that in practice we can multiply the first term by a factor 2 and neglect the second one. The final commutator result:
+\begin{equation}
+  \qty[\hat{\psi }_ \alpha (\va{x}), \hat{V}  ] =
+  \sum_{\substack{\beta'  \\ \gamma  \gamma'  } }^{}
+  \int_{}^{} \dd[]{\va{y}'}
+  \hat{\psi }_ \gamma ^\dag (\va{y}')  \hat{\psi }_ {\gamma'}  (\va{y}') \hat{\psi }_{\beta'} (\va{x}) V(\va{x},\va{y}')_{\substack{ \alpha \beta' \\ \gamma  \gamma'  } }
+\end{equation}
+where we have three field operators and the potential function.
+
+In conclusion, the total commutator between the field operator and the Hamiltonian is:   \marginpar{Commutator between field and  hamiltonian operators}
+\begin{equation}
+\begin{split}
+    \qty[\hat{\psi }_ \alpha (\va{x}), \hat{H}  ]&=   \qty[\hat{\psi }_ \alpha (\va{x}), \hat{T}  ] +   \qty[\hat{\psi }_ \alpha (\va{x}), \hat{V}  ] \\
+    &= - \frac{\hbar ^2 \grad ^2_x}{2m} \hat{\psi }_ \alpha (\va{x}) +
+    \sum_{\substack{\beta'  \\ \gamma  \gamma'  } }^{}
+    \int_{}^{} \dd[]{\va{y}'}
+    \hat{\psi }_ \gamma ^\dag (\va{y}')  \hat{\psi }_ {\gamma'} (\va{y}') \hat{\psi }_{\beta'} (\va{x}) V(\va{x},\va{y}')_{\substack{ \alpha \beta' \\ \gamma  \gamma'  } }
+\end{split}
+\end{equation}
+
+
+
+
+\end{document}

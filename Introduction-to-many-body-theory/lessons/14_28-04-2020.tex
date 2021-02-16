@@ -1,0 +1,234 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{28}{04}{2020}
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 14.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+We have shown the Feymann diagrams associated to the first order contribution for the numerator of the green's function. We have also evaluated the denominator and the corresponding diagramas.  We have ssentially seen that when we take the numerator and divide it by the denominator, you cancel the disconnected diagrams.
+
+
+This has been shown at first order but it can be proved to all orders and so we have the important conclusion that we can neglect the contribution coming from all the disconnected diagrams.
+
+
+This is very important because this factorization of fisconnected diagrams allows us to ignore all these diagrams that are not connected to some other parts (so that contains parts not connected to the main fermion line which runs from \( y \) to \( x \)). This is clear a great semplification.
+
+(pagina4)
+Formally we can write that our perturbative expansion for the green's function (there is an error! Lo 0 deve essere tolto perchè quella deve essere la full green's function).
+is obtained in this way where this means that we have only to take into account connected diagrams.
+
+
+
+Now we have illustrated what happens at first order, but now we can establish some rules that allows us to associate some diagrams to the corresponding analitical expression and viceverse in the perturbative series.
+
+So before stating these rules we have to make some important observations:
+\begin{itemize}
+\item First of all these specific rules depends on the form of the interaction which of course enters in the interacting hamiltnonian. In our case we consider systems by identical particles which interact trough a 2-body potential. Of course this is the typical case for coulomb interaction.
+
+\item ANother observation is that if we come back to first order for instance we see that there are some situations in which we have a line which closes with itselft (ex. in (A), (D), (F)).
+So we must comment on what one has to interpret such a situation. Of course please note that since this is closed (A), means that the green's function has the same arguments and in particular the same times. Also in the case of (B), the green's function have the same time because formmally \( x_1 \) is different to \( x_1' \) but remember that the interaction potential is instantaneous in the non relativistic interaction, so clearly these two coordinates in any case corresponds to equal times!
+
+So what must we interpet such a situation????
+In principle these expressions as \( i G^0 _{\alpha \beta } \) are ambiguous because the green's function are defined in terms of T product and the T produc is undefined at equal times. However we have a physical constraint to make choice, because actually if we remember how we have developed and derived these feymann diagrams, you can check that the come from a contraction of 2 fields in the interacting hamiltnoninan. Now in the interacting hamiltnonian typically they appear in such a form .. where the joint field operators comes before the other.
+So actually we must interpet the non-interacting green's function at equal times in this way, by assuming that the second argument \( t' \) is slightly above the first \( t \), concerning the time. If now we consider the action of the time ordering operator, we have to reverse the order and clearly this is in the correct original sequence of field operators! So this is the correct choice.
+Moreover, since  it is nothing else than the non-interacting density, clearly this expression is proportional to the non-interacting density that for a uniform system is just proportional to the \( N/V \) (the toal number of particles divided by the volume).
+
+\item another observation is the following, we see (always coming back to the first order example that here we have (in (C))) this term that looks very similar to the (E). The same (D) looks very similar to (F).
+Topologically they are very similar, the only difference is that the indices are slightly different and in particular one can check that these terms only differ by the interchange of \( x_1 \) with \( x_1' \).
+
+But now clearly this means that since our interaction potential is symmetric by assumption under interchange, we can just count on eof these diagrams and eliminate the half factor that enters in the \( i... \) expression, reflecting the \( 1/2 \) factor in the interaction potential definition.
+
+So this allows us to eliminate other diagrams that are actually not topologically different  from others.
+
+
+\item Moreover, if we go besides the first order term (to higher orders), we see that for each connected diagram there is an ideantical contribution from all similar diagrams where you interachange the order of the labels of the interaction potential. Since these are just dummy integration variables, clearly you can neglect all the others and just multiply the first one by the number of possible interchanges.
+
+For instance at the second order we have these two diagrams:
+.
+
+they are clearly the same taht only differ for indices...
+this means that in practice in the left we have before the hamiltnonian with \( x_1 \) and \( x_1' \) and then with \( x_2 \) and \( x_2' \), while in the right the order is reversed.
+
+Actually, not only they are the same but there is no difference also concerning the sign because clearly \( \hat{H}_1  \) contains an even number of fermion fields, so if you interchange two interaction hamiltnonians nothing changes.
+
+But if the order in the perturbative expansion is the m-th order, there are \( m! \) ways of choosing the ordering of dummy integration variables. The idea is that we can count each diagrams just once and this \( m! \) cancel the \( \frac{1}{m!} \) in the perturbative expansion of the green's function.
+
+Note that this is only true for connected diagrams as concerns also the previous observations concerning the \( 1/2 \) factor.
+
+\item Moreover, we can also make an observation about the signs. Because one can show that for every fermion line closes on itself there should be a minus sign. This can be illustrated again by the first order case. Let us come back to the analitical expression, in the (diagram A) we have a plus sign because we have two closed rings. In diagram (B) we have a single ring so we have a minus and also for (D) and (F).
+
+So in general, if \( F \) is the number of closed fermions loops in the diagram, we must affix...
+
+\item Finally there is also a numerical factor that you have to assign to the analitical expression of \( G(x,y) \) at \( n \)-th order. Because in fact first of all if we want \( G \) we have to multiply \( iG \) for \( 1/i \). This is the reason for the term (-i).
+
+Now at the n-th order perturbation term we had such a factor \( (-\frac{i}{\hbar })^n \).
+
+Finally since clearly at order n, you have \( 2n+1 \) \( iG^0 \) terms. So this term involves \( 2n+1 \) non-interacting green's function you have to put a factor \( i^{2n+1} \).
+
+
+If you put all togheter you have that the numerical factor that you have to associate to the green's function to the n-th order is this one..
+
+
+\end{itemize}
+
+SO having made these observation we can state a few rules to build the n-th order contribution to the green's function. Again remeber that we are dealing with a system of identical particles interacting trough a 2-body potential.
+
+So we have to first of all raw all the connected diagrams that are topologically distinct. It meanst that we can omit \( \frac{1}{2} \) and \( \frac{1}{n!} \). At order n we have n interaction lines representing the interaction potential \( U \) and \( 2n+1 \) fermions lines representing anon-interacting green's function.
+SO at order one we have three non interacting fermions line and 1 interaction potential.
+
+Now we have to assume as already stated, that we have to integrate over all internal variables (space and time ) and in case of spins to sum over internal spins variables.
+SO at each node you have to assume that you are integrationg over space time variables and sums over the spins.
+
+Summarizing what we have stated above, we have to affix a numerical factor: \( (-1)^F (i/\hbar )^n \).
+
+
+This means that by exploiting these rules we can simpkify the situation for the first order contribution. So remember that originally using the wick's theorem we had 6 diagrams (A,B,C,D,E,F). Now two of them (the first two are disconnected so we can neglect them) but we can also neglect two of the other four terms, because actually (C) is not topologically different from (E) and the same for (D) and (F).
+
+Starting from six diagrams we arriva to only two diagrams that are topologically distinct. These are the two diagrams:
+.
+
+So we can named them (a)<-(D) and (b)<-(C). SO already with the Wick's theorem we had an important semplification and then playing with the Feymann diagrams not only we have in a condition to illustrate the basic content of the different term, but also we have a mathematical and practical way to simplify furhter the description, because we could eliminate most of the diagrams.
+
+So at first order, the order diagrams are these ones and the corresponding analitycal expression is even simplified:
+..
+this is the expression of the green's function at first order, where we implicitly assume that when the indices are repeated we have to make a summation.
+
+Let us notice the (-1) factor in the (a) term, related to the fact that we have a single closed loop.
+
+
+(a) and (b) are corresponding to the direct term and exchange term respectively. IN the direct ter you have a line closing on itself.
+
+The situation is really very satisfactory because in the first order case we have a significant simplification. We have just two physically distinct contribution. Of course if you increase the order of the perturbative series the situation becomes much complicated.
+
+
+
+For instance we can just mention (we do not prove it in detail) that at second order the topologically distinct connected diagrams are 10. These are illustrated here. Of course one could put all the time and space and spin indices, but this is not particularly important, because as we have learned from the first order case what is more important it is the form of these diagrams which in turn reflects the clear different physics, different analitical contribution in the green's function.
+
+
+Let us notice that since in this case  we are at second order, it means that we have according to the rules, for each diagrams:
+two interaction lines in every case!
+2n+1=5 fermion lines! that indicate non interactin green's funciton.
+
+If you go to even higher orders the situation becomes more ocmplicated because you have a proliferation of diagrams.
+
+
+\section{seconda ora}
+
+% TI VOGLIO BENE <3
+% ANCH'IO <3<3<3!
+We have described the feyman diagrams and the relation with the corresponding perturbative terms in the expansion of the green's function.
+
+Up tio now we have worked in real space. Now we see that we want to extend the contents of feymann diagrams also in momentum space that as already discussed is more convenient in the case of uniform and isotropic system (of course with an hamiltnonian which is time independent).
+It is clealry convenient to use a fourier transform of the green0s function that we denote in this way in a compact way, where \( k \) means both the wave vector and the frequency. CLealry the fourier expansion look likes this:
+..
+where \( x,y \) includes also time variables and in an uniform isotrpic system this function just depends on the difference between the coordinates.
+
+Clearly this is true for the full green's function, but a similar expression can be written for the non interacting green's function:
+..
+where \( G^0_{\alpha \beta } \) is the non-interacting fourier transform of the green's function.
+
+To be more precise in the above expressions we have used the 4-dimensional notation, this means that:
+...
+Of course we remember that U means:
+..
+where we have the interacting potential assumed to be instantaneuously (formally we consider different time but actually times are the same).
+Of course also for this function we can introduce a corresponding fourier transform:
+...
+since the time dependence is trivial we can focus on the space wave vector fourier trnaform and so by taking the inverse transformation we can define the spatial fourier transform of the interpaticle potential.
+
+
+Now moreover tupically the interaction will be also spin independent so you can have a simplification also on the spin indices:
+..
+
+Now just to do an exercise we evaluate the foruier trnasform explicitely for one term of the first order contribution that we have introduced before. FOr instance we select the (b) exchange contribution which corresponds to this diagram:
+..
+Now if we consider the fourier expansion for this term (we remember that here we have 3 non interacting green's function and one interacitng potential, so we have four function). For each of these function we can consider the fourier expansion. So this term can be written as:
+..
+where we have four normalization factor in front, a double space four dimensional integral and four four dimensional integrals in momentum space. Then we have the sequence of the functions considering them fourier transforms and of course you also have the exponential terms (relative to the inside functions). For instance the exponential term \( e^{iq(x_1-x_1')}  \) corresponds to the fourier transform of the interaction potential \( U(q) \).
+
+
+Now, since the space variables are only present in the exponents, we can explicitly perform the space integral and so we integrate on \( x_1 \) and \( x_1' \) and we take also into account that the integral expression for the delta function can be written as:
+..
+
+Clearly by using the last definition we can rewrite such an expression as:
+..
+where we have left with the term including \( x \) and the one including \( y \) because this are independent on the internal integration variables, and then we have the two delta functions.
+Now of course the first ones means you have a non vanishing contribution only if \( q=k-p \), while for the second \( p_1=q+p \) but since \( q=k-p \) it means that \( p_1=k \).
+At this point, we can also perform the integration over \( p_1 \) and \( q \), and we can exploit the delta functions, we arrive at this expression:
+..
+now, if you remember the explicit general expression for the fourier transform of the full interacting green's function, and you compare what you have obtained with this expression, you undesratnd that what is inside the square parenthesis is exactly the fourier transform of our function.
+
+So actually the fourier transform, which is corresponding to this square parentheis is defined in this way.
+...
+
+Now we can make some useful comments about this exercise. We recall what happened concerning the nodes of the feyman diagrams. Remember that the nodes means that you have to perform integration over the two variables. What we have found is that in this internal vertices we have to perform the integration over \( x_1 \) and \( x_1' \) and here we have written the exponential terms involging \( x_1 \) or \( x_1' \). As we have seen above these integrations gives these results.....
+
+SO this is true for our two internal vertices, but one can show that this is generalized to any internal vertex, where in general you have a situation like this diagram:
+.
+Clearly the non-interacting green's function have a certain direction (indicated by the arrows) in principle the interacting waving line has no direction but we can assign a conventional direction. FOr instance we assume that \( x' \rightarrow x \) when you have \( U(x-x') \), but this choice is not particularly essentiall because in any case \( U \) is a symmetric function.
+
+So as said, for general vertex if we consider these directions we see that there is a factor \( e^{iqx}  \) for each incoming line (each line going to the vertex), while there is an exponential function \( e^{-iqx}  \) for each outgoing line (so for each line where the arrows points far from the node).
+
+Now, again in this case (the same diagram) we can also see that the integration correspond to an integration of such an exponential function:
+..
+It means \( q'=q+q'' \). WHat does it mean? remember that \( q' \) is going far from the node, while \( q  \) and \( q'' \) are coming to the node, so this means that this relation just reflects the conservation of energy and momemntum (remember that it is a generalized momentum so it includes also the frequency (and so the energy), not only the momentum).
+
+Now, another interesting point concerns the initial and final non-interanting green's function. Here the situation is reversed in the sense that the term \( e^{-iq' y}  \) corresponds to the second argument \( y  \) of the green's function as a minus sign, and the term correspondsning to the first argument \( x \) has a plus \( e^{iq''x}  \). This is what you obtained in the previous case.. (if you remember the previous example, quello a pagina 3, prima dell'ultimo uguale!).
+
+Now, as we have seen before, that actually due to these properties \( p_1=k \), now this is somethoing ttha it is easily generalized. SO due to the translational invariance we have that the incoming and outcoming momenta are the same \( q'=q'' \) (before we have \( p_1=k \)).
+
+
+
+
+
+
+So after these observations we can arrive at the feymann rules also for the contribution to n-th order for the fourier transform of the green's function:
+\begin{itemize}
+\item In order to have the fundamental diagrams, you have to draw all the diagrams that are connected (as in real space) and topologically distinc. At n-th order you have n interactions lines representing the interaction potential \( U \) and \( 2n+1 \) directed fermions lines which represent the non interactin green's function \( iG^0 \).
+\item As we have seen above, we have to assign a conventional direction to each interaction line.
+\item As we have also seen above, we have also to associate to each line a directed 4-momentum and we have to conserve 4-momentum (it means energy and momentum) at each internal node at each vertex.
+
+\item Then we have to interpet that each non-interacting green's function as the explicit expression that we have derived:
+..
+\item Of course the interacting potential has to be interpeted as the fourier transform of the interacting potential.
+
+\item As usual you have to integrate over the 4 internal momenta and sum over the corresponding spin variables.
+
+\item Concerning the numerical factor, essentially you have the same factor as in real space, where the sign is determined by the number of close loops, but here you have in addition also a factor like \( 1/(2pi)^{16} \) which comes from the normalizatio prefactor in the fourier transform definition.
+
+\item ANother observation is the following: when you have term like \( G^0 (\va{k}, \omega ) \) at the same time, so corresponding to diagrams of this kind (piccoli diagrammi in basso), you have to assign also a small convergence factor written as \( e^{i \omega \eta }  \) wjere \( \eta \rightarrow 0 \) is a small positive quantity that can be put to zero at the end of the calculation.
+
+Why we have to include such a term in the fourier tranform?
+Because for instance if we consider a signle-particle line forming a closed lopp, we know that this means that it is this corresponds to a green's function at equal times:
+\begin{equation*}
+  i G(x,x) = i G(\va{x},\va{x}',t,t')
+\end{equation*}
+But we have also seen that the correct choice is to assume that this second arugment is clightly larger than the first one \( t'=t + \eta  \). So when you fourier transform this quantity, you have a term like \( e^{-i \omega (t-t')}  \), but since \( t'>t \), it means that you have a factor like this \( e^{i \omega \eta }  \) to be really correct.
+
+But this is not only true for such a function (a loop diagram one) but it is also true for a situation like this:
+. (diagram)
+Because this is a situation where a single particle line is linked by the same interacting waving line. WHy it is so? Remeber that we are in non-relativistic approach, so our interactions ar einstantaneous interactions and this means that even we formally use different arguments, actually the times are the same. This means that the  two points in the diagrams are really corresponding to different points in space \( x \) and \( x' \), but not to differnt times... so essentially the same considerions as above applies and also for this diagram we have to include a factor like \( e^{i \omega \eta }  \) .
+
+
+
+
+
+
+Having presented all the rules also for the Feymann diagrams in momentum space, we can give for instance the complete expression for the first order contribution to the greeen's function. We will see it in the next lesson.
+
+
+
+
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+\end{document}

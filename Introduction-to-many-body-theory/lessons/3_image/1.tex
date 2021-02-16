@@ -1,0 +1,14 @@
+\documentclass[border=4pt]{standalone}
+
+\usepackage{tikz} 
+\usetikzlibrary{shapes,arrows,positioning,automata,backgrounds,calc,er,patterns}
+\usepackage{tikz-feynman}
+\tikzfeynmanset{compat=1.0.0}
+ \usepackage{physics}
+ 
+  %Use LuaLaTex to compile
+\begin{document}
+ \feynmandiagram [horizontal=a to b] {
+  i1 [particle={\(j\)}] -- [fermion] a -- [fermion] i2 [particle={\(i\)}], a -- [scalar, edge label=\(\bra{i} T \ket{j}\)] b 
+  };
+\end{document}

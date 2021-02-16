@@ -1,0 +1,300 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{13}{03}{2020}
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 2.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+\begin{example}{}{}
+For instance, let us consider only \( N=3 \) particles. We want to check all the possible ways to put \( n_1 =2 \)  particles in the first box, \( n_2 =1 \) in the second one and no particle in all the other boxes.
+Computing the factorial of the occupation numberm we obtain:
+\begin{equation*}
+  \frac{N}{n_1!n_2! \dots n_ \infty !} = \frac{3!}{2!1!\dots1!} = 3
+\end{equation*}
+(remember that \( 0! = 1 = 1! \)). It corresponds to the different particles that can occupy the second state which has occupation equal to one.
+\end{example}
+
+It is convenient to define a new (normalized) coefficient:  \marginpar{\(f\) coefficients}
+\begin{equation}
+  f(n_1,n_2,\dots,n_ \infty , t) \equiv \qty(\frac{N!}{n_1!n_2! \dots n_ \infty !})^{1/2} \bar{c} (n_1,n_2,\dots,n_ \infty ,t)
+\end{equation}
+that is related to the coefficient \( \bar{c}  \) up to a multiplicative factor. It has the propoerty of being normalized:
+\begin{equation*}
+  \sum_{\substack{n_1,n_2, \dots,n_ \infty  \\ \qty(\sum_{i=1}^{N} n_i = N ) } }^{} \abs{f(n_1,n_2,\dots,n_ \infty , t) }^2 = 1
+\end{equation*}
+Hence, the \( f \) coefficients correspond to the probability of having \( n_1 \) particles in the \( \varepsilon _1  \) state, \( n_2 \) in \( \varepsilon _2 \) and so on.
+
+Let us rewrite the original \( N \)-body wave function as a function of single particle wave function with the \( f \) coefficients as weights:  \marginpar{Expansion of the \(N\)-body wave function}
+\begin{equation*}
+\begin{split}
+  \psi (x_1, \dots, x_N, t) &= \sum_{E_1, \dots, E_N}^{} c(E_1, \dots, E_N,t) \varphi _{E_1}(x_1) \dots \varphi _{E_N}(x_N)  \\
+  &=   \sum_{\substack{n_1,n_2, \dots,n_ \infty  \\ \qty(\sum_{i=1}^{N} n_i = N ) } }^{} \bar{c} (n_1,n_2,\dots,n_ \infty ,t) \sum_{\substack{E_1, \dots, E_N \\ (n_1, n_2, \dots, n_ \infty )} }^{} \varphi _{E_1}(x_1) \dots \varphi _{E_N}(x_N) \\
+  & \overset{(a)}{=}   \sum_{\substack{n_1,n_2, \dots,n_ \infty  \\ \qty(\sum_{i=1}^{N} n_i = N ) } }^{} f(n_1,n_2, \dots, n_ \infty ,t) \Phi _{n_1 n_2 \dots n_ \infty } (x_1, x_2, \dots, x_N) \\
+  & \equiv \sqrt{\frac{\prod_{i}^{} n_i!  }{N!}}  \sum_{\substack{E_1, \dots, E_N \\ (n_1, n_2, \dots, n_ \infty )} }^{} \varphi _{E_1}(x_1) \dots \varphi _{E_N}(x_N)
+\end{split}
+\end{equation*}
+where in \( (a) \) we have simplified the formula by defining a new set of many body \( N \)-particle wave functio \( \Phi  \) which is in any case independent on time. Hence, we are been able to express the original time dependent \( N \)-body wave function into a set of \emph{completely  symmetric}  (under the exchange of 2 particles)  function \( \Phi  \), which also obey the \textbf{orthonormality condition}:
+\begin{equation*}
+  \int_{}^{} \dd[]{x_1}\dots \dd[]{x_N} \Phi^\dag _{n_1' n_2' \dots n_ \infty'} (x_1, \dots, x_N) \Phi_{n_1 n_2 \dots n_ \infty} (x_1, \dots, x_N)  = \delta_{n_1', n_1} \dots \delta_{n_ \infty ' n_ \infty }
+\end{equation*}
+To summarize, the original \( N \)-body wave function \( \psi  \) can be expanded in a \emph{complete} and \emph{orthonormal} basis set made of \emph{completely symmetrized} functions defined in terms of \emph{occupation numbers}: \( \{ \Phi _{n_1 \dots n_ \infty } (x_1, \dots, x_N)\}   \).
+
+\begin{example}{}{}
+In the previous example of the 3 spinless bosons, we had: \( n_1 = 2, n_2=1 \) and \( n_i=0 \) for \( i>2 \) (all the other states are empty). In this case, the function \( \Phi  \) is defined as:
+\begin{equation*}
+\begin{split}
+  \Phi _{210 \dots 0} (x_1,x_2,x_3) = \frac{1}{\sqrt{3} } \Big[ \varphi _1 (x_1)\varphi _1 (x_2) \varphi _2 (x_3) +
+  & \varphi _1 (x_1)\varphi _2 (x_2) \varphi _1 (x_3)  \\
+  + & \varphi _2 (x_1)\varphi _1 (x_2) \varphi _1 (x_3) \Big]
+\end{split}
+\end{equation*}
+where we have a normalization factor and the sum of the three possibilities corresponding to the three possible ways of distribution the three particles satisfying the constraint of the occupation number above choosen.
+\end{example}
+
+Now, let us make a step further. We remember that implicitily we are working in coordinate representation space, \( \varphi = \braket{x}{\varphi } \); hence, we can write the \( N \)-body  wave function formally as
+\begin{equation*}
+\Phi _{n_1 n_2 \dots n_ \infty } (x_1, \dots, x_N) = \braket{x_1 \dots x_N}{n_1 \dots n_\infty}
+\end{equation*}
+where \( \{ \ket{n_1 n_2 \dots n_ \infty }  \}   \) is the set of \textbf{abstract state vectors} (independent on time) in the Hilbert space, with \( n_i \ge 0 \, \forall i \).  \marginpar{Abstract representation} In this way, these vectors are no more linked to a specific space representation: we have the only essential information concerning the list of occupation numbers, with the constraint that the occupation number must be positive.
+
+Clearly, due to the property of the original wave function it is easy to check that this basis set has the correct property:
+\begin{itemize}
+\item It must be \textbf{orthogonal}: \( \braket{n_1' n_2' \dots n_ \infty '}{n_1 n_2 \dots n_ \infty  } = \delta _{n_1' n_1} \delta_{n_2' n_2} \dots \delta _{n_ \infty ' n _ \infty } \).
+\item It must be \textbf{complete}: \( \sum_{n_1 n_2 \dots n_ \infty }^{} \ketbra{n_1 n_2 \dots n_ \infty }{n_1 n_2 \dots n_ \infty }  = \mathbb{1}  \).
+\end{itemize}
+
+In order to manipulate the abstract state vectors,  \marginpar{Creation and destruction operators} we introduce suitable (bosonic), time-independent operators: \( b_k,b_k^\dag \) so that they satisfy the following \emph{commutaion rules}\footnote{The commutator is defined as\( [a,b]\equiv ab - ba \).}:
+\begin{equation}
+  \begin{cases}
+   [b_k,b_{k'}]= [b_k^\dag,b_{k'}^\dag] = 0\\
+   [b_k,b_{k'}]= \delta _{k,k'}
+  \end{cases}
+\end{equation}
+which are the same commutaion rules for the "creation" and "destruction" operator of the quantum harmonic oscillator. For the harmonic oscillator, the combination of these operators gives the so called \textbf{ number operator} \( \hat{n}_k  \): \marginpar{Number operator} 
+\begin{equation}
+  b_k^\dag b_k \ket{n_k} \equiv \hat{n}_k \ket{n_k} = n_k \ket{n_k}
+\end{equation}
+By applying it into a state characterized by an occupation number \( \ket{n_k}  \) it gives the corresponding state multiplyed by the occupation number itself.
+
+Let us focus on a given state \( k \):
+\begin{equation*}
+  \hat{n} = b^\dag b
+\end{equation*}
+is \textbf{hermitian}. In particular, it means that
+\begin{equation*}
+  \hat{n} = b^\dag b = \qty(b^\dag b)^\dag = \hat{n}^\dag
+\end{equation*}
+This relation implies that the eigenvalues are real which is consistent with our assumption and that \( \hat{n}  \) is also \textbf{positive definite}:
+\begin{equation*}
+  n = \bra{n} b^\dag b \ket{n} = \sum_{m}^{} \bra{n} b^\dag \ket{m} \bra{m} b \ket{n} = \sum_{m}^{} \abs{\bra{m} b \ket{n}  }^2 \ge 0
+\end{equation*}
+where we have inserted the completness relation and then we wrote the square modulus. We have shown that the eigenvalues are non negative.
+Eventually, as said, the interpretation of the \( \hat{n}  \) is number particle operator.
+
+Since we have \( [b,b^\dag]= b b^\dag - b^\dag b = 1 \) (for a given state \( k=k' \)), we obtain two important relations: \marginpar{Commutation properties} 
+\begin{subequations}
+\begin{align}
+  [b^\dag b,b] &= b^\dag b b - b b^\dag b = -b \\
+  [b^\dag b, b^\dag] &= b^\dag b b^\dag - b^\dag b^\dag b = b^\dag
+\end{align}
+\label{eq:2_10}
+\end{subequations}
+By applying this operator to the state \( \ket{n}  \) and using the above relations, we obtain:
+\begin{equation*}
+\begin{split}
+    b^\dag b \qty(b \ket{n} ) &= b \qty(b^\dag b) \ket{n} - b \ket{n}
+    = b \qty(b^\dag b - 1) \ket{n} \\
+    &= b \qty(\hat{n} -1 ) \ket{n} = \qty(n-1) b \ket{n}
+\end{split}
+\end{equation*}
+It means that if the state \( \ket{n}  \) is an eigenstate of the operator \( \hat{n} = b^\dag b  \) with eigenvalue \( n \), \( b \ket{n}  \) is eigenstate of \( \hat{n}  \) with eigenvalue \( (n-1) \):
+\begin{equation*}
+  b \ket{n} \rightarrow \ket{n-1}
+\end{equation*}
+so we refers to \( b \) as the \emph{destruction operator}: it reduces the occupation number of a given state by a factor 1, one particle. Similarly, \( b^\dag \ket{n}  \) is eigenstate of \( \hat{n}  \) with eigenvalue \( (n+1) \):
+\begin{equation*}
+  b^\dag \ket{n} \rightarrow \ket{n+1}
+\end{equation*}
+and we refers to \( b^\dag \) as the \emph{creation operator}.
+
+More precisely, by taking the normalization condition into account, we obtain:
+\begin{itemize}
+\item For the \textbf{destruction operator} \( b \): \( \qty(\bra{n} b )^\dag \qty(b \ket{n} ) = \bra{n} b^\dag b \ket{n} = n = n \bra{n-1}\ket{n-1}      \). Hence,
+\begin{equation}
+  b \ket{n} = \sqrt{n} \ket{n-1}
+\end{equation}
+\item For the \textbf{creation operator} \( b^\dag \):  \( \qty(\bra{n} b^\dag )^\dag \qty(b^\dag \ket{n} ) = \bra{n} b b^\dag \ket{n} = \braket{n}{n} + \bra{n} b^\dag b \ket{n }   = 1 + n = \qty(1+n) \braket{n+1}{n+1}     \). Finally:
+\begin{equation}
+  b^\dag \ket{n} = \sqrt{n+1} \ket{n+1}
+\end{equation}
+\end{itemize}
+
+\begin{remark}
+Applying \( b \) many times eventually give "0" (\emph{empty state}) and the \( \ket{n}  \) state can be obtained by applying the creation operator \( b^\dag \) "n" times to it.
+\end{remark}
+
+Until now, for simplicity, we have made some considerations focusing on just a given state, so now we want to see what happens if we generalize this definition to all the states of our system.
+In fact, this procedure can be generalized to many levels\footnote{Recall that the occupations numbers operators relative to different states commute: \( [\hat{n}_k, \hat{n}_{k'}  ]=0 \) if \( \va{k}\neq \va{k}' \).} and the generic state can be obtained by repeated applications of \( b^\dag_k \) operators to the "vacuum" (empty) state \( \ket{0}  \).
+To be more precise: \marginpar{Generic state} 
+\begin{equation*} 
+  \ket{n_1 n_2 \dots n_ \infty } = \frac{\qty(b_1^\dag)^{n_1} }{\sqrt{(n_1+1)!} } \frac{\qty(b_2^\dag)^{n_2} }{\sqrt{(n_2+1)!} }
+  \dots \frac{\qty(b_ \infty ^\dag)^{n_ \infty } }{\sqrt{(n_ \infty +1)!} } \ket{0}
+\end{equation*}
+where of course we have to include the normalization factors.
+
+Let us come back to the original Schr$\ddot{o}$dinger equation:
+\begin{equation*}
+  i \hbar \pdv{}{t} \psi (x_1, \dots, x_N, t) = H  \psi (x_1, \dots, x_N, t) = (T + V) \psi (x_1, \dots, x_N, t)
+\end{equation*}
+where, in the Hamiltonian, we have a single-particle and one-body term (\( T \)), and a two-particle and interacting potential energy term (\( V \)).
+In particular, the explicit expression of the kinetic energy term is
+\begin{equation*}
+  T = \sum_{k=1}^{N} T_k =  \sum_{k=1}^{N} \qty(- \frac{\hbar ^2 \grad ^2_k}{2m})
+\end{equation*}
+and by definition only acts on one particle. For instance, by fixing \( k \) as quantum number, it can only act on the corresponding single particle wave function \( \varphi _{E_k} (x_k) \).
+
+Now we expand the \( N \)-body wave function considering a superposition of single particle wave functions, where the weights are the time dependent \( c \) coefficients. In particular, we use the \( E' \) notations because it is convenient for the subsequent demsotration.
+The expansion is:
+\begin{equation*}
+  \psi (x_1, \dots, x_N, t) = \sum_{E_1', \dots, E_N'}^{} c(E_1', \dots E_N',t) \varphi _{E_1'} (x_1) \dots \varphi _{E_N'} (x_N)
+\end{equation*}
+Considering that the wave functions are orthonormal:
+\begin{equation*}
+  \int_{}^{} \dd[]{x_i} \varphi _{E_i}^\dag (x_i) \varphi _{E_i'} (x_i) = \delta _{E_i' E_i}
+\end{equation*}
+lets multiply the right hand of the Schr$\ddot{o}$dinger equation by  product of the wave functions \( \varphi _{E_i}^\dag (x_i)  \)  and then integrate over all the coordinates of the particles. The result is: \marginpar{Focus on the kinetic term} 
+\begin{equation*}
+\begin{split}
+  &\mathcolorbox{green!20}{\int_{}^{} \dd[]{x_1} \dots \dd[]{x_N} \varphi _{E_1}^\dag (x_1) \dots \varphi _{E_N}^\dag (x_N)}
+  \sum_{k=1}^{N} T_k \sum_{E_1', \dots, E_N'}^{} c(E_1', \dots E_N',t) \varphi _{E_1'} (x_1) \dots \varphi _{E_N'} (x_N) = \\
+  & = \sum_{k=1}^{N}  \sum_{E_k'}^{} c(E_1, \dots, \mathcolorbox{yellow!40}{E_k'}, \dots, E_N, t)  \int_{}^{} \dd[]{x_k} \varphi _{E_k}^\dag (x_k) T_k \varphi _{E_k'} (x_k)
+\end{split}
+\end{equation*}
+where for a given \( k \), \( E_k' \) can be different from \( E_k \). What happens is that since the kinetic term only acts to the corresponding single particle wave function, if \( k \) has a given value, essentially the sum is eliminated due to the presence of the delta terms, for all the terms. It means that only the \( E_i' \) reduces to the \( i \) state on the left with an exception for the term relative to the \( k \) state, because in this case the coefficients can be different. In other words, in the sum \( \sum_{E_i'}^{} c(E_i')  \) the only term that survies is the sum over \( E'_k \).
+
+This procedure can be applied also to the potential energy term and for the left hand of the Schr$\ddot{o}$dinger equation. For the latter, the procedure is trivial, while for the potential energy the computing is more complicated (see \cite{fetter} for details), because we have to consider pairs of particles, so we will implicitly assumed to do this. The Schr$\ddot{o}$dinger equation transform as:
+\begin{equation}
+   i \hbar \pdv{}{t} c (E_1, \dots, E_N, t) = \sum_{k=1}^{N} \sum_{E_k}^{} c(E_1, \dots,E_k', \dots,E_N, t)\bra{\varphi _{E_k}} T \ket{\varphi _{E_k}} + \qty(\dots V \dots)
+\end{equation}
+Basically, by considering this equation and focusing on the kinetic energy contribution, we note that only the difference between the coefficients \( c \) in both sides is that in the right term we have the \( E_{k}' \) term instead of \( E_k \) on the left.
+
+By focusing on the kinetic term and introducing the occupation number coefficients:
+\begin{equation*}
+\begin{split}
+  \sum_{k=1}^{N} & \sum_{E_k'}^{} c (E_1, \dots, E_k', \dots, E_N, t)
+  \bra{\varphi _{E_k}} T \ket{\varphi _{E_k'}}= \\
+  &= \sum_{k=1}^{N} \sum_{E_k'}^{} \bar{c} (n_1, n_2, \dots, (n_{E_k} -1), \dots, (n_{E_k}+1), \dots,t) \bra{\varphi _{E_k}} T \ket{\varphi _{E_k'}}
+\end{split}
+\end{equation*}
+Now we can replace the sum over \( k \)  (sum of total number of particles, \( k=1, \dots,N \)) with the sum over \emph{states} that forms an infinite set of levels (the sum is infinite).
+We can do this because every time we observe that \( E_k \) assume the same value in the summation over \( k \) (for ex. \( E \)), it gives the same contribution to the sum (since the particles are indistinguishable); if it occurs \( n_E \) times:
+\begin{equation*}
+  \sum_{k=1}^{N} \rightarrow \sum_{E}^{} n_E
+\end{equation*}
+To make the notation more symmetric we replace \( E'_k \) with \( w \).
+Eventually, we obtain
+\begin{equation}
+  \sum_{E}^{} \sum_{w}^{} n_E \bar{c} (n_1, \dots, (n_E -1), \dots, (n_w+1), \dots, n_ \infty ,t) \bra{E} T \ket{w}
+  \label{eq:2_1}
+\end{equation}
+
+\begin{example}{}{}
+The last procedure is not completely easy to understand at first glance and to better understand why it works it is better to make an exercise.
+Let us consider for instance the simple case of \( N=3 \) particles.
+The occupation numbers in this quantum states are \( n_1 = 2, n_2 =1 \).
+If we try to repeat the procedure followed for the general case for a very simple case, by considering all the possibilities of the sum, we should easily understand that we can replace the sum by multiplying it for the occupation number of the state \( n_E \).
+\end{example}
+
+Now, we remember that the \( \bar{c}  \) cofficients are also defined by \( f \)  cofficients. The relation is:
+\begin{equation*}
+  \bar{c} (n_1, \dots, n_ \infty , t) = \sqrt{\frac{\prod_{i}^{} n_i!}{N!}  } f(n_1, \dots, n_ \infty , t)
+\end{equation*}
+
+To make the notation even more symmetric (using the same notation of \cite{fetter}), in the double sum we replace the \( E \) and \( w \) state with \( i \) and \( j \). If we consider the result in Eq. \eqref{eq:2_1} and if we consider the relation between \( \bar{c}  \) and \( f \), we arrive easily at the new form of the Schr$\ddot{o}$dinger equation as a function of the \( f \) coefficients:
+\begin{equation}
+\begin{split}
+  i \hbar \pdv{}{t} f (n_1, \dots, n_ \infty, t)  \sqrt{\frac{\prod_{i}^{} n_i! }{N!}} &= \sum_{i,j=1}^{\infty }  n_i f (n_1, \dots, (n_i -1), \dots, (n_j+1), \dots, n_ \infty ,t) \vdot   \\
+   & \vdot \sqrt{ \frac{ \prod_{l}^{}" n_l! }{N!} (n_j + 1 )! (n_i + 1)! }
+  \bra{i} T \ket{j} + \qty(\dots V \dots)
+\end{split}
+\end{equation}
+where, as said, for the potential energy term contribution we have assumed to have done the same procedure however we have not done it explicitely. In particular, the \( \prod_{}^{}" \)  means  the productory with \( l \neq i \)  and \( l \neq j \). In fact, we have:
+\begin{subequations}
+\begin{align*}
+   \prod_{i}^{} n_i! &= \prod_{l}^{}" n_l! n_i! n_j! \\
+    (n_j+1)!  & = (n_j+1) n_j! \\
+    (n_i - 1)! & = \frac{n_i!}{n_i}
+\end{align*}
+\end{subequations}
+and we can rewrite very easily the constant factor in this way:
+\begin{equation*}
+n_i \sqrt{\prod_{l}^{}" n_l ! (n_j+1)! (n_i-1)!  } = \sqrt{n_i} \sqrt{(n_j+1)} \sqrt{\prod_{i}^{} n_i!  }
+\end{equation*}
+The Schr$\ddot{o}$dinger becomes:
+\begin{equation*}
+\begin{split}
+  i \hbar \pdv{}{t} f (n_1, \dots, n_ \infty , t) & = \sum_{i,j}^{\infty } \sqrt{n_i} \sqrt{n_j+1}   \\ & \vdot f (n_1, \dots, (n_i -1), \dots, (n_j+1), \dots, n_ \infty ,t) \bra{i} T \ket{i} + (\dots V \dots)
+\end{split}
+\end{equation*}
+We can also consider
+\begin{equation*}
+  \ket{ \psi  (t)} = \sum_{n_1 \dots n_ \infty }^{} f(n_1, \dots, n_ \infty , t ) \ket{n_1, \dots, n_ \infty }
+\end{equation*}
+and write
+\begin{equation*}
+\begin{split}
+  i \hbar \pdv{}{t} \ket{ \psi (t)} &= \sum_{n_1, \dots, n_ \infty }^{} \bra{i} T \ket{j}  f (n_1, \dots, (n_i -1), \dots, (n_j+1), \dots, n_ \infty ,t) \vdot  \\& \vdot \sqrt{n_i}  \sqrt{n_j+1} \ket{n_1, \dots, n_ \infty } + ( \dots V \dots)
+\end{split}
+\end{equation*}
+Now, let us change the occupation numbers by introducing a new set: \marginpar{Change occupation numbers} 
+\begin{equation*}
+  \begin{cases}
+   n_i' \equiv n_i -1 \\
+   n_j' \equiv n_j +1 \\
+   n_k' \equiv n_k & (k \neq i,j)
+  \end{cases}
+\end{equation*}
+with the constraint
+\begin{equation*}
+  \sum_{l}^{} n_l' = \sum_{l}^{} n_l = N
+\end{equation*}
+
+\begin{remark}
+It is possible to sum the new occupation numbers over exactly the same values of the original ones, because \( \sqrt{n_i} \sqrt{n_j +1} = 0   \) for \( n_j'=0 \) and \( n_i' = -1 \).
+In fact,
+\begin{itemize}
+\item \( n_j'=0 \) would correspond to \( n_j = -1 \) that is absent in the original sum, because occupation numbers can be not negative. Hence, \( \sqrt{n_j+1}=0  \).
+\item \( n_i'=-1 \) is absent in the new sum, but \( n_i = 0 \)  implies \( \sqrt{n_i}=0  \).
+\end{itemize}
+\end{remark}
+By considering now the \( n' \) occupation number we arrive to this expression:
+\begin{equation}
+\begin{split}
+  i \hbar \pdv{}{t} \ket{\psi (t)} &= \sum_{\substack{n_1' \dots n_ \infty ' \\ \qty(\sum_{i}^{}n_i' = N  )  } }^{} \sum_{i,j}^{}
+  \bra{i} T \ket{j} f(n_1', \dots, n_i', \dots, n_j', \dots, n_ \infty',t)  \vdot \\
+  & \vdot \sqrt{\qty(n_i'+1) } \sqrt{n_j'} \ket{ \dots (n_i'+1) \dots (n_j' +1) \dots}  + \qty(\dots V \dots)
+\end{split}
+\end{equation}
+If we now recall the definition of the (bosonic) creation and destruction  operators (with the proper normalization):
+\begin{subequations}
+\begin{align*}
+   b_k \ket{n_k} &=  \sqrt{n_k} \ket{n_k -1} \\
+   b_k^\dag \ket{n_k} &= \sqrt{n_k+1} \ket{n_k+1}
+\end{align*}
+\end{subequations}
+clearly we see that we can write:
+\begin{equation*}
+  \sqrt{(n_i'+1)} \sqrt{n_j'} \ket{\dots (n_i'+1) \dots (n_j' -1) \dots} = b_i^\dag b_j \ket{\dots n_i ' \dots n_j' \dots}
+\end{equation*}
+Eventually, we rewrite the Schr$\ddot{o}$dinger equation in a very compact way: \marginpar{Final result} 
+\begin{equation}
+  i \hbar \pdv{}{t} \ket{\psi (t)} = \sum_{i,j}^{} \bra{i} T \ket{j} b_i^\dag b_j \ket{\psi (t)} + \qty(\dots V \dots)
+\end{equation}
+In conclusion, we have explicitely seen how we can transform the Schr$\ddot{o}$dinger equation, by expressing the kinetic term in terms of the creation and destruction operators. We can say that the kinetic part of \( H \) is expressed in the \textbf{second quantization form}!
+We can repeat exactly the same procedure for the potential term but it is much complicated and longer. However, the strategy is very similar so we do not do it explicitely (for the final result look at \cite{fetter}).
+
+
+
+
+\end{document}

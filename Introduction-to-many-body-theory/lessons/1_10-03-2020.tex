@@ -1,0 +1,193 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{10}{03}{2020}
+
+\begin{document}
+
+\chapter{Second quantization}
+
+\marginpar{ \textbf{Lecture 1.} \\  \displaydate{date}. \\ Compiled:  \today.}
+
+\section{Introduction}
+The classical picture of the world, that essentially could be described by the Netwon's laws, is that the world is made by \emph{many} (\( N \gg 1 \)) \emph{interacting} particles that move in space and in time.
+In the past years, this scenario has changed. Firstly, some scientists (as Faraday, Maxwell\( \dots \)) have introduced the concept of field, then space and time, that were two distinct concepts, were unified by Einstein. After that, the concept of quantum mechanics was developed (by Schr$\ddot{o}$dinger, Bohr, Dirac, Einstein, Planck, Jordan) and in this scenario all the property of a system are fully described by a time dependent Schr$\ddot{o}$dinger equation as
+\begin{equation*}
+  i \hbar \dv{\psi(\dots)}{t}  = H \psi (\dots)
+\end{equation*}
+A further step was trying to unify the concept of field with the one of quantum mechanics: we arrive at the definition of a \textbf{quantum field theory} (Dirac, Feymann, Dyson\( \dots \)). In this formalism, the classical particles are described in term of quanta of a given field.
+We emphasize that in this course, we will use the formalism of quantum field theory, even if our approach will be a \emph{non-relativistic} one.
+
+\section{Quantum many-body problem}
+Let us describe the the property of a quantum many-body system.
+In principle, the solution of a quantum many-body problem is very easy. Let us consider a \( N \)-body quantum wave function that is a function of the coordinates of all the particles of the system, the solution of the problem is given by the \( N \)-body Schr$\ddot{o}$dinger equation:
+\begin{equation*}
+  i \hbar \pdv{}{t} \psi (x_1,\dots,x_N,t) = H \psi (x_1,\dots,x_N,t)
+\end{equation*}
+If we are able to solve the equation, we will have all the properties of our system, but in practice it is not possible in an exact way, even using the most powerful computers. In order to deal with such a problem, we can:
+\begin{itemize}
+\item use approximations;
+\item use alternative approaches as:
+  \begin{itemize}
+  \item adopting some concepts by quantum field theory (non-relativistic approach) as the formalism of the second quantization;
+  \item or, adopting the formalism of quantum statistical mechanics (we have a lot of particles, so it is important the collective behaviour of the particles);
+  \item or, even by using the concept of the Green's function.
+  \end{itemize}
+\end{itemize}
+To summarize, we can quote Paul Dirac:
+\begin{displayquote}
+The fundamental law necessary for the mathemtical treatment of a large part of physics and the whole of chemistry are thus completely known, and the difficultly lies only in the fact that application of these laws leads to equations that are too complex to be solved.
+\end{displayquote}
+Hence, in principle we know what we have to do, but we are unable to do it in practice.
+
+\subsection{Green's function}
+Typically if we know the Green's function, we are able to compute:
+\begin{itemize}
+\item the expectation value of single-particle operators (as the kinetic term);
+\item the ground state energy of the system;
+\item describe the excitations (elementary excitation spectrum);
+\item finally, we are able to have results to use in a linear response theory, that is important for connections with the experiments. Indeed, the way we are able to investigate systems is by exciting them: we send a beam (an excitation, as electromagnetic radiation) to the system, then the system is excited (it is no longer in a ground state) and it has, if the temperature is not too high, a response. In particular, we want a linear response (i.e. linear with respect to this perturbation): this happens if the perturbation is small enough and it is not a general situation.
+\end{itemize}
+In general, we will assume that the temperature is \( T=0 \), but eventually we will see what happens when the system as a finite temperature \( T>0 \).
+
+Unfortunately, we cannot exactly determine the interacting \( N \)-body Green's function. One is forced to use approximations and, in particular, one of the most useful approach is the \textbf{perturbative} one: typically we start from a non interacting system and we extend the study to an interacting system by tuning on the perturbation.
+In general, we not only need many term in the expansion, but even an \emph{infinite} number of terms, because usually the interaction is a Coulomb one that is a strong interaction.
+To deal with such perturbative approach we will introduce very useful tecniques as the Feymann diagrams, that are very useful tools to emphasize the most important concepts of the derivation of the expansion.
+
+Typically, our reference system is the \emph{degenerate electron gas}, or "\textbf{Jellium}", that is a system made by interacting electrons (fermions) on top of uniform positive background which is introduced using all terms neutral (???). This system could be useful also to describe plasma or metal and most of our work will be on such a model system. Since it is a system made by fermions (electrons), it is better that we image the system at a zero temperature, but in the course we will briefly see what change when we increase the temperature.
+
+
+\section{Second quantization formalism}
+The first subject of the course is the topic of second quantization, which is an alternative way to study quantum system using quantum field theory (chapter 1 Fetter).
+This topic is important because we define a new approach which of course is the same of the approaches to solve Schr$\ddot{o}$dinger equation, but it gives great simplification to deal with many body quantum interacting bodies. In particular, it introduces the concept of 'creation' and 'annichilation' of particles by using suitable operators and it allows to keep track of the proper symmetry of wave function in a very efficient and confortable way. Even if we do not use relativistic approach, the concept of creation and annichilation of particles is very useful to manage with the difficult problem of interacting particles.
+\begin{remark}
+By convention the original form of quantum mechanics is denoted \emph{first quantization}, while quantum field theory (that, as said, is the formalism we adopt to study many body interactin particles) is formulated in the language of \emph{second quantization}.
+\end{remark}
+
+Let us consider a \( N \)-body problem, we have to solve the time dependent Schr$\ddot{o}$dinger equation:
+\begin{equation}
+  i \hbar  \pdv{}{t} \psi (x_1,\dots,x_N,t) = H \psi (x_1,\dots,x_N,t) + \text{boundary conditions for }\psi
+\end{equation}
+where \( \psi  \) is the \( N \)-body wave function and it is suitable to specific boundary conditions that depend in the system we are studying. In particular, the typical form of the Hamiltonian is the following:
+\begin{equation}
+  H = \mathcolorbox{green!20}{\sum_{k=1}^{N} T(x_k)} + \mathcolorbox{yellow!40}{\frac{1}{2} \sum_{\substack{k,l=1 \\(k \neq l) } }^{N} V(x_k,x_l)}
+\end{equation}
+where the green term incorporates the kinetic term and the single particle 1-body potential, while the yellow term corresponds to the potential term characterizing the interaction of the particles. In front of this factor there is the term \( 1/2 \) to avoid to count twice every interaction between a pair of particles and of course we have also to omit the self interaction (a particle is not allowed to interact with itself and we have to neglect that term). Moreover, the coordinates \( x_k \) has to be considered as 'general' coordinates, i.e. all the coordinates that are necessary to characterize a single particle. For instance, if we consider a fermion with spin, the generalized coordinates could be the space coordinates of the particle (a vector with 3 component), but we should also incorporate the spin variable for fermions. Similar considerations are applied to all the other particles.
+
+We have also satisfy the following properties:
+\begin{itemize}
+\item the Hamiltonian that characterize the system should be \emph{symmetric} under exchange of particles, because we are considering indistinguishable particles;
+\item we should consider \emph{normalized} wave functions, i.e.
+\begin{equation}
+  \norm{\psi }^2 = \int_{}^{} \dd[]{x_1} \dots \dd[]{x_N} \abs{\psi (x_1,\dots,x_N)}^2 = 1
+\end{equation}
+\end{itemize}
+
+The first step is to expand the \( N \)-body wave function \( \psi  \) using a complete basis set of time-independent single particle wave functions (with periodic boundary conditions): \( \{ \psi_{E_k} (x_k) \}   \). We do this expansion because if we omit the interaction potential term in the Hamiltonian, we obtain a 1-body problem (non interacting problem), which solution is a product of a sequence of single particle wave functions and depending on the system, we should consider proper boundary condition. After we have solved this problem, we try to turn on the interaction.
+\begin{example}{}{}
+For instance let us consider an homogeneous system inside a cubic box characterized by the length of the side of the box \( L \) of volume \( V=L^3 \). The complete basis set for such a system is completely made by plane-waves. In general, we consider the thermodynamic limit for which we have \( N \rightarrow \infty, V \rightarrow \infty   \) with the constraint \( n = N/V \) finite.
+
+Another example is a crystal lattice whose most useful basis set can be represented by Block-functions.
+\end{example}
+
+The index \( E_k \) denotes a \emph{complete set of single particles quantum numbers} and it is again a general expression that depends on the specific system we are considering.
+\begin{example}{}{}
+For example, if we have spinless bosons in a box the complete set of quantum numbers is \( \{ \va{p} \}   \).
+
+Instead, for a homogeneous system of fermsions we have to add also the spin variable \( \{ \va{p},s_z \}   \).
+\end{example}
+
+Now, let us expand the \( N \)-body function as a function of the complete basis set:
+\begin{equation}
+  \psi (x_1, \dots, x_N, t) = \sum_{E_1, \dots, E_N}^{} c(E_1,\dots,E_N,t) \varphi _{E_1} (x_1) \dots \varphi _{E_N} (x_N)
+\end{equation}
+where the first particle in the quantum state is denoted by \( E_1 \). Note that the single particle wave functions are time independent, while the coefficients \( c \) are time dependent due to the presence of the interactions. We have to force that the basis set is orthonormal:
+ \begin{equation}
+   \bra{\varphi _{E_i}}\ket{\varphi _{E_j}} = \delta _{ij}
+ \end{equation}
+ The completeness relations are:
+\begin{subequations}
+\begin{align}
+  \sum_{i}^{} \ket{\varphi _{E_i}}\bra{\varphi _{E_i}} &= \mathbb{1}\\ \sum_{i}^{} \varphi _{E_i}^{\dagger}(x) \varphi _{E_i}(x')  &= \sigma (x-x')
+\end{align}
+\end{subequations}
+It is trivial to show that the orthonormality condition on the single particle basis set leads to a similar orthonormality condition on the expansion coefficients:
+\begin{equation}
+  \sum_{E_1, \dots, E_N}^{} \abs{c(E_1,\dots,E_N,t)}^2 = 1
+\end{equation}
+This means that the square modulus is nothing else than the probability and that the coefficients can be interpeted as \emph{probability amplitude}.
+
+Moreover, we suppose that the particles are indistinguishable: it means that if we take the square modulus of the particles wave function and we interchange the pair of particles we should obtain the same quantity:
+\begin{equation*}
+  \abs{\psi (x_1,\dots,x_i, \dots,x_j,\dots,t)}^2 = \abs{\psi (x_1,\dots,x_j, \dots,x_i,\dots,t)}^2
+\end{equation*}
+so \( \psi  \) incorporates the particle statistics. The \( N \)-body wave function could be \emph{symmetric} or \emph{antisymmetric} in the upon the exchange of two particles.
+\begin{equation}
+\psi (x_1,\dots,x_i, \dots,x_j,\dots,t) = \pm \psi (x_1,\dots,x_j, \dots,x_i,\dots,t)
+\end{equation}
+Again, since we are considering the expansion of \( \psi  \), we obtain the same condition for the expansion coefficients:
+\begin{equation}
+  c (E_1,\dots,E_i,\dots,E_j,\dots,t) = \pm c (E_1,\dots,E_j,\dots,E_i,\dots,t)
+\end{equation}
+where the \( + \) sign refers to the kind of particles called \textbf{boson}, while the \( - \) sign refers to \textbf{fermion}.
+
+We assume that the \( \{ E_k \}   \) sum over an infinite set of \emph{ordered} quantum numbers \( \varepsilon _1, \varepsilon _2, \dots \) with values increasing. For example, if we consider the energy, we suppose that the quantum numbers go to increasing single particles energies (essentially they are the eigenvalues of the single particle of the system).
+
+In this description, we have included both bosons and fermions, but now, for a while, we will consider only bosons. Indeed, since in the case of boson we have a plus sign the situation, it is simpler to introduce the new formalism of second quantization.
+
+\subsection{Case: bosons particles}
+
+Let us consider the case of only bosons particles.
+Another important concept to introduce, in order to write the Schr$\ddot{o}$dinger equation in second quantization, is the one of \textbf{occupation number}. Let us start with an example. \marginpar{Occupation number}
+
+\begin{example}{}{}
+How many times is \( \varepsilon _i \)  present in the particular set \( \{ E_1,\dots,E_N \}   \) (where \( i=1,\dots,N \) is a single particle index)?
+Let us consider a system with only three particles (\( N=3 \)) and let us suppose that our coefficients can be written as:
+\begin{equation*}
+  c (E_1,E_2,E_3,t) = c (\varepsilon _5,\varepsilon _3,\varepsilon _2,t)
+\end{equation*}
+This means that
+\begin{itemize}
+\item \( E_1 = \varepsilon _5 \), hence the \( 1^{st} \) particle is in the \( \varepsilon _5  \) state;
+\item \( E_2 = \varepsilon _3 \), hence the \( 2^{nd} \) particle is in the \( \varepsilon _3  \) state;
+\item \( E_3 = \varepsilon _2 \), hence the \( 3^{rd} \) particle is in the \( \varepsilon _2  \) state.
+\end{itemize}
+Then, by expliciting the syemmtry of \( c \) we can order (for example by assuming creasing values of \( \varepsilon _i \) numbers) and re-group (in case of multiple occupation) the eigenvalues:
+\begin{itemize}
+\item eiganvalue 1: empty;
+\item eigenvalue 2: occupied (1);
+\item eigenvalue 3: occupied (1);
+\item eigenvalue 4: empty;
+\item eigenvalue 5: occupied (1);
+\item eigenvalue \( i \ge 6\): empty. Let us note that the index \( i \) now refers to the eigenvalue index that is different from the particle index.
+\end{itemize}
+\end{example}
+
+Now, it is convenient to introduce new coefficients which emphasize the occupation numbers:  \marginpar{\(\bar{c}\) coefficients}
+\begin{equation*}
+  \bar{c} (n_1,n_2, \dots, n_ \infty, t )
+\end{equation*} 
+where \( n_1 \) refers to the occupation number of the \( 1^{st} \) level. For instance, in the above example we can write the new coefficients as \( \bar{c} (0,1,1,0,1,0,\dots,0,t)  \).
+The occupation number concept is a crucial point. In fact, given that we cannot distinguish particles, what is important is how many particles occupied a given state rather than which state a given particle occupies.
+\begin{remark}
+This is the first step to introduce a quantum field theory approach, where the particles are to be interpreted as quanta of a specific field.
+\end{remark}
+
+Using the normalization condition, we arrive to the result:
+\begin{equation}
+  \sum_{E_1,\dots,E_N}^{} \abs{c(E_1,\dots,E_N,t)}^2 = 1
+  = \mathcolorbox{green!20}{\sum_{\substack{n_1,n_2,\dots,n_ \infty  \\ \qty(\sum_{i=1}^{\infty } n_i = N ) } }^{}} \mathcolorbox{yellow!40}{\sum_{\substack{E_1,\dots,E_N \\ (n_1,n_2,\dots,n_ \infty ) } }^{}}  \abs{c(E_1,\dots,E_N,t)}^2
+\end{equation}
+where the green sum is a sum over occupation number set consistent with the total particle number \( N \) costraint, while the yellow sum is the sum over quantum number set consistent with the particular occupation number set fixed.
+
+Then, by exploiting the symmetry of \( c \) we obtain new \( \bar{c} \) coefficients:
+\begin{equation}
+\sum_{\substack{n_1,n_2,\dots,n_ \infty  \\ \qty(\sum_{i=1}^{\infty } n_i = N ) } }^{} \abs{\bar{c}(n_1,n_2,\dots,n_ \infty ,t) }^2 \mathcolorbox{red!20}{ \sum_{\substack{E_1,\dots,E_N \\ (n_1,n_2,\dots,n_ \infty ) } }^{} 1 }  = 1
+\end{equation}
+where the red term is equivalent to the problem of locating \( N \) identical objects in an infinite number of boxes, so that we have \( n_1 \) objects in the first box, \( n_2 \) objects in the second box and so on.
+By considering all the possibilities, this can be done in a number of ways that is equal to
+\begin{equation*}
+  \frac{N}{n_1!n_2! \dots n_ \infty !}
+\end{equation*}
+
+
+\end{document}

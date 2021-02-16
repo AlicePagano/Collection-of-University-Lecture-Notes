@@ -1,0 +1,432 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{10}{04}{2020}
+
+\begin{document}
+
+\marginpar{ \textbf{Lecture 10.} \\  \displaydate{date}. \\ Compiled:  \today. \vspace{0.5cm}}
+
+\subsection{Case: translational invariance}
+As previously supposed, our hamiltonian does not depend on time, hence the system is homogeneous in time.
+Now, let us consider a more particular case of also translational invariance,  \marginpar{Translational invariance} namely the total momentum of the system commutes with the total hamiltonian: \( [\hat{\va{p}}, \hat{H}  ] = 0 \).
+Thus, the Green's function is expected to be \textbf{homogeneous} both in \textbf{time} and \textbf{space}.
+
+In second quantization, the total momentum can be expressed in terms of the field operators (or in terms of the creation and destruction operators) as:
+\begin{equation*}
+  \hat{\va{p}} = \sum_{\alpha }^{} \int_{}^{} \dd[3]{\va{x}}
+  \hat{\psi }_ \alpha ^\dag (\va{x}) \qty(- i \hbar \va{\grad }) \hat{\psi }_ \alpha (\va{x})
+  = \sum_{\va{k}, \alpha }^{} \hbar \va{k} c_{\va{k} \alpha } ^\dag c_{\va{k} \alpha }
+\end{equation*}
+It is easy to demonstrate that:
+\begin{equation*}
+  \qty[ \hat{\psi }_ \alpha (\va{x}), \hat{\va{p}}  ]
+  = - i \hbar \va{\grad } \hat{\psi }_ \alpha (\va{x})
+\end{equation*}
+and that the integral form of the last relation is the following
+\begin{equation*}
+  \hat{\psi }_ \alpha (\va{x}) = e^{-i \frac{\hat{\va{p}} \vdot \va{x}}{\hbar }}
+  \hat{\psi }_ \alpha (0)   e^{i \frac{\hat{\va{p}} \vdot \va{x}}{\hbar }}
+\end{equation*}
+where \( \hat{\psi }_ \alpha (0)  \) is the field operator acting on the origin of our system. This allowed us to extract the explicit space dependence from the field operator.
+
+Now, we rewrite the Heisenberg field operator by explicitly writing the dependence on time and space:
+\begin{equation*}
+  \hat{\psi }_{H_ \alpha } (\va{x},t) = e^{i \frac{ (\hat{H}t - \hat{\va{p}} \vdot \va{x})}{\hbar }} \hat{\psi }_ \alpha (0) e^{-i \frac{ (\hat{H}t - \hat{\va{p}} \vdot \va{x})}{\hbar }}
+\end{equation*}
+The complete set of states \( \{ \ket{\psi _n}  \}   \), that we use in the Lehmann representation, can be taken as a set of eigenstates of momentum and, at the same time, as eigenstates of the total hamiltonian.
+For example, this means that if we apply the total momentum operator on the states \( \ket{\psi _n}  \) and \( \ket{\psi _0}  \), we get:
+\begin{equation*}
+  \hat{\va{p}} \ket{\psi _n } = \va{p}_n \ket{\psi _n},   \qquad \hat{\va{p}} \ket{\psi _0} = 0
+\end{equation*}
+where clearly in the ground state the total momentum is zero, because otherwise it would not be the ground state.
+Using those relations we can rewrite the first matrix element of Eq.\eqref{eq:9_8} in this way:
+\begin{equation*}
+  \bra{\psi _0} \hat{\psi }_ \alpha (\va{x}) \ket{\psi _n}
+  = \bra{\psi _0}  e^{-i \frac{\hat{\va{p}} \vdot \va{x}}{\hbar }}
+  \hat{\psi }_ \alpha (0)   e^{i \frac{\hat{\va{p}} \vdot \va{x}}{\hbar }} \ket{\psi _n}
+  = \bra{\psi _0} \hat{\psi }_ \alpha (0) \ket{\psi _n} e^{i \frac{\va{p}_n \vdot \va{x}}{\hbar }}
+\end{equation*}
+and similarly for the second matrix element
+\begin{equation*}
+  \bra{\psi _n} \hat{\psi }_ \beta ^\dag (\va{x}') \ket{\psi _0}
+  = \bra{\psi _n}  e^{i \frac{\hat{\va{p}} \vdot \va{x}}{\hbar }}
+  \hat{\psi }_ \beta ^\dag (0)   e^{-i \frac{\hat{\va{p}} \vdot \va{x}}{\hbar }} \ket{\psi _0}
+  = e^{i \frac{\va{p}_n \vdot \va{x}}{\hbar }}   \bra{\psi _n} \hat{\psi }_ \beta ^\dag  (0) \ket{\psi _0}
+\end{equation*}
+In this way we have extracted the space dependence from the matrix elements.
+
+Now, we can rewrite the mixed green function in Eq.\eqref{eq:9_8} by explicitly writing the space dependence. Moreover, since the system is homogeneous in space we note that actually this function depends just on \( z \equiv \va{x}-\va{x}' \):
+\begin{equation*}
+\begin{split}
+\widetilde{G}_{\alpha \beta } (\va{x},\va{x}', \omega )   =
+ \widetilde{G}_{\alpha \beta } (\underbrace{\va{x}-\va{x}'}_{\va{z}}, \omega )
+ =
+\sum_{n}^{} &\Big[
+e^{i \frac{\va{p}_n \vdot (\va{x}-\va{x}')}{\hbar }}
+\frac{\bra{\psi _0} \hat{\psi }_ \alpha
+ (0) \ket{\psi _n} \bra{\psi _n} \hat{\psi }_ \beta ^\dag (0) \ket{\psi _0}  }{\omega - \frac{\varepsilon _n (N+1)}{\hbar } - \frac{\mu }{\hbar } + i \eta }
+  + \\
+&
++ e^{i \frac{\va{p}_n \vdot (\va{x}-\va{x}')}{\hbar }}
+ \frac{\bra{\psi _0} \hat{\psi }_ \beta ^\dag (0) \ket{\psi _n} \bra{\psi _n}  \hat{\psi }_ \alpha
+ (0)  \ket{\psi _0}  }{  \omega + \frac{\varepsilon _n (N-1)}{\hbar } - \frac{\mu }{\hbar } - i \eta }
+ \Big]
+\end{split}
+\end{equation*}
+Now, it it is convenient to shift to the complete fourier transform of the Green's function using the usual relation used to go from real space to reciprocal space:
+\begin{equation*}
+  \widetilde{G}_{\alpha \beta } (\va{x},\va{x}', \omega )   =
+   \widetilde{G}_{\alpha \beta } (\underbrace{\va{x}-\va{x}'}_{\va{z}}, \omega )
+   = \frac{1}{(2 \pi )^3} \int_{}^{} \dd[]{\va{k}}
+   e^{i \va{k} \vdot \va{z}} G_{\alpha \beta } (\va{k}, \omega )
+\end{equation*}
+The Fourier transform is:
+\begin{equation*}
+  \begin{split}
+  G_{\alpha \beta } (\va{k}, \omega )
+  = \int_{}^{} \dd[]{\va{z}} e^{-i \va{k}\vdot \va{z}} \widetilde{G}_{\alpha \beta } (\va{z},\omega )
+  \end{split}
+\end{equation*}
+If we substitute the explicit form of \(  \widetilde{G}_{\alpha \beta } (\va{z},\omega ) \), we obtain:
+\begin{equation}
+  \begin{split}
+  G_{\alpha \beta } (\va{k}, \omega )
+  =  \int_{}^{} \dd[]{\va{z}} \sum_{n}^{} &
+  \Big[
+  \mathcolorbox{green!20}{e^{i \qty(\frac{\va{p}_n}{\hbar }-\va{k})\vdot \va{z} }}
+  \frac{\bra{\psi _0} \hat{\psi }_ \alpha
+   (0) \ket{\psi _n} \bra{\psi _n} \hat{\psi }_ \beta ^\dag (0) \ket{\psi _0}  }{\omega - \frac{\varepsilon _n (N+1)}{\hbar } - \frac{\mu }{\hbar } + i \eta }
+   +
+  \\
+  &+ \mathcolorbox{green!20}{e^{-i \qty(\frac{\va{p}_n}{\hbar }+\va{k})\vdot \va{z} }}
+  \frac{\bra{\psi _0} \hat{\psi }_ \beta ^\dag (0) \ket{\psi _n} \bra{\psi _n}  \hat{\psi }_ \alpha
+  (0)  \ket{\psi _0}  }{  \omega + \frac{\varepsilon _n (N-1)}{\hbar } - \frac{\mu }{\hbar } - i \eta } \Big]
+  \end{split}
+  \label{eq:10_3}
+\end{equation}
+where we highlighted the most important parts which depend on \( \va{z} \).
+Let us focus on this integral over the space, we can exploit the usual properties:
+\begin{subequations}
+\begin{align*}
+  \int_{}^{} \dd[]{\va{z}} e^{i \qty(\frac{\va{p}_n}{\hbar }-\va{k})\vdot \va{z} }   &= V \delta _{\frac{\va{p}_n}{\hbar },\va{k}} \\
+  \int_{}^{} \dd[]{\va{z}} e^{-i \qty(\frac{\va{p}_n}{\hbar }+\va{k})\vdot \va{z} }   &= V \delta _{\frac{\va{p}_n}{\hbar },-\va{k}}
+\end{align*}
+\end{subequations}
+Using the last properties and dividing and multiplying by \( \hbar  \) Eq.\eqref{eq:10_3} we obtain:
+\begin{small}
+\begin{equation}
+  G_{\alpha \beta } (\va{k}, \omega )
+  =  \hbar V \sum_{n}^{}
+  \qty[
+  \frac{\bra{\psi _0} \hat{\psi }_ \alpha
+   (0) \ket{ n \va{k}} \bra{n \va{k}} \hat{\psi }_ \beta ^\dag (0) \ket{\psi _0}  }{ \hbar \omega - \qty( \mu + \varepsilon _n^{(N+1)}(\va{k})) + i \eta }
+   +
+  \frac{\bra{\psi _0} \hat{\psi }_ \beta ^\dag (0) \ket{n, -\va{k}} \bra{n, -\va{k}}  \hat{\psi }_ \alpha
+  (0)  \ket{\psi _0}  }{  \hbar \omega - \qty( \mu - \varepsilon _n^{(N-1)} (-\va{k})) - i \eta } ]
+  \label{eq:10_4}
+\end{equation}
+\end{small}
+where \( \ket{ n \va{k}} \), \( \ket{ n,- \va{k}} \) indicate that the momentum of the intermediate state \( \ket{\psi _n}  \) must correspond to the wave number \( \va{k}, -\va{k} \) as dictating by the two delta functions.
+In this way,  also \( G(\va{k}, \omega ) \) has poles and these correspond to the exact excitation energy of the system with \( N \pm 1\) particles with momentum \( \pm \hbar \va{k} \) (since we have specified the \( \va{k} \) wave vector).
+
+\subsection{Case: spin 1/2}
+Now let us consider a more specific case of a system of particles with spin \( 1/2 \) (it is the most interesting situation of electrons). 
+ In the Green's function definition \( \alpha, \beta  \) are spin indexes, hence if the spin is \( 1/2 \) the \( \alpha ,\beta  \) can take two values (the only two possible orientations are up an down) and so \( G_{ \alpha \beta } \) is a \( 2 \times 2 \) matrix.
+The \( G_{\alpha \beta } \) spin matrix can be expanded in the complete set consisting of the unit matrix and the 3 Pauli spin matrices \( \va{\sigma }= (\sigma _x, \sigma _y, \sigma _z)\) where the components are:
+\begin{equation}
+  \sigma _x = \begin{pmatrix}
+  0   & 1 \\
+  1   & 0
+  \end{pmatrix}, \quad
+  \sigma _y = \begin{pmatrix}
+  0   & -i \\
+  i   & 0
+  \end{pmatrix}, \quad
+  \sigma _z = \begin{pmatrix}
+  1   & 0 \\
+  0   & -1
+  \end{pmatrix}
+\end{equation}
+
+Now, let us make not a rigourous demonstration but just a plausibility argument to show that the Green's function must be diagonal in the spin indexes.
+First of all, since our system is homogeneous we also expected that there is no preferred direction, so \( G  \) must be scalar under spatial rotations.
+The directions can be determined just by \( \va{k} \), vector made by wave numbers which appear in the definition of the Fourier transformed Green's function, and \( \va{\sigma } \), vector of spin matrices. This means that the only possibility is to combine them.
+To summarize, if there is no preferred direction \( G \) must be \emph{scalar} under \emph{spatial rotations}, and since \( \va{k} \) is the only vector available to combine with \( \sigma  \), we have:
+\begin{equation}
+  G (\va{k}, \omega ) = a \mathbb{1} + b \va{\sigma } \vdot \va{k}
+\end{equation}
+with \( a \) and \( b \) parameters function of \( \absvec{k}^2  \) and \( \omega  \).
+
+However, if the Hamiltonian \( \hat{H}  \) is also \emph{invariant} under \textbf{spatial reflections} 
+\marginpar{Invariance under spatial reflections} (as in case of Coulomb interaction), one can easily show that \( b=0 \) because \( \va{\sigma } \vdot \va{k} \) is a “\textbf{pseudo-scalar}” (changes sign under spatial reflection). Indeed, if the Hamiltonian is invariant under spatial reflection also the Green's function should be, so the only possibility is that \( b=0 \). Hence, basically the Green's function is just a diagonal object and in practice we can write:
+\begin{equation}
+  G_{\alpha \beta } (\va{k}, \omega ) = \delta _{\alpha \beta } G(\absvec{k}, \omega   )
+\end{equation}
+where the delta makes the Green's function diagonal.
+We can also introduce a more compact notation where \( G \) without any index means the trace over the spin indexes divided by a factor:
+\begin{equation}
+  G \equiv  \frac{\sum_{\alpha }^{} G_{\alpha \alpha }  }{(2 \delta +1)}
+  = \frac{G_{\alpha \alpha }}{(2 \delta +1)}
+  \label{eq:10_6}
+\end{equation}
+where in the last step we have simplified the notation by using the Einstein convention that the repeated indices are considered to be summed.
+
+
+Now if \( \beta = \alpha  \), actually in Eq.\eqref{eq:10_4} we have that the second matrix element of the first term can be written as:
+\begin{equation*}
+  (\beta =\alpha ) \quad \Rightarrow \bra{n \va{k}} \hat{\psi }_ \beta ^\dag (0) \ket{\psi _0}
+  = \qty( \bra{\psi _0} \hat{\psi }_ \alpha (0) \ket{n \va{k}}   )^\dag
+\end{equation*}
+If we multiply the two matrix elements of the first term considering this relation, we get just the square modulus of this matrix element. Similarly for the second term. Thus we can rewrite Eq.\eqref{eq:10_4} as:
+\begin{equation}
+  G (\va{k}, \omega )
+  =  \frac{\hbar V}{2 \delta +1} \sum_{n}^{}
+  \qty[
+  \frac{ \abs{\bra{\psi _0} \hat{\psi }_ \alpha
+   (0) \ket{ n \va{k}}}^2 }
+   { \hbar \omega - \qty( \mu + \varepsilon _n^{(N+1)}(\va{k})) + i \eta }
+   +
+  \frac{\abs{\bra{\psi _0} \hat{\psi }_ \alpha  ^\dag (0) \ket{n, -\va{k}}}^2  }
+  {  \hbar \omega - \qty( \mu - \varepsilon _n^{(N-1)} (-\va{k})) - i \eta } ]
+  \label{eq:10_5}
+\end{equation}
+where we omit the indexes writing just \( G(\va{k},\omega ) \) because of Eq.\eqref{eq:10_6}. Indeed, in the square modulus we have two \( \alpha  \) indexes, so implicitly we have a sum.
+
+In the thermodynamic limit  \( V \rightarrow \infty  \) and \( N \rightarrow \infty  \), 
+\marginpar{Thermodynamic limit} hence \( \va{k} \) wave vector becomes  a continuous variable and the same for the variable \( n \). In particular, the sum over a discrete set \( \sum_{n}^{}   \) tends to become a sum over a continuous set of states, or in other words becomes an integral. So it is convenient to introduce \( \dd[]{n}  \) which denotes the number of energy levels inside the small energy interval:
+\begin{equation*}
+  \varepsilon < \varepsilon _{n \va{k}} < \varepsilon  + \dd[]{\varepsilon }
+\end{equation*}
+where \( \dd[]{\varepsilon }  \) is an infinitesimal quantity.
+This means that the sum over \( n \), can be replaced by an integral that we can formally write as:
+\begin{equation*}
+  \sum_{n}^{} \dots \longrightarrow \int_{}^{} \dd[]{n} \dots =
+  \int_{}^{} \mathcolorbox{yellow!40}{\frac{\dd[]{n(\varepsilon )} }{\dd[]{\varepsilon } }}\dd[]{\varepsilon } \dots
+\end{equation*}
+where the yellow term as a form of a typical \emph{density of levels}.
+
+Let us define the positive-definite \textbf{weigth functions}: \marginpar{Weigth functions}
+\begin{subequations}
+\begin{align}
+  A (\va{k}, \omega ) & \equiv  \lim_{V \rightarrow \infty } \frac{\hbar V}{(2 \delta +1)} \abs{\bra{\psi _0} \hat{\psi }_ \alpha (0) \ket{n \va{k}}   }^2  \frac{\dd[]{n(\varepsilon )} }{\dd[]{\varepsilon } } \ge 0 \label{eq:10_01}  \\
+  B (\va{k}, \omega ) & \equiv  \lim_{V \rightarrow \infty } \frac{\hbar V}{(2 \delta +1)} \abs{\bra{\psi _0} \hat{\psi }_ \alpha ^\dag  (0) \ket{n \va{k}}   }^2  \frac{\dd[]{n(\varepsilon )} }{\dd[]{\varepsilon } } \ge 0 \label{eq:10_02}
+\end{align}
+\end{subequations}
+that are in the thermodynamic limit. They are defined in such a way to have the square modulus of the matrix elements that appear in the definition of the Green's function and to be expressed as a function of the density levels.
+
+
+Now, let us consider for instance the first term of the Green's function in Eq.\eqref{eq:10_5} and let us take the thermodynamic limit, substituting the sum with an integral:
+\begin{equation*}
+  \frac{V}{(2 \delta +1)} \sum_{n}^{}  \abs{\bra{\psi _0} \hat{\psi }_ \alpha
+   (0) \ket{ n \va{k}}}^2
+   = \frac{V}{(2 \delta +1)} \int_{}^{} \dd[]{\varepsilon }\abs{\bra{\psi _0} \hat{\psi }_ \alpha
+    (0) \ket{ n \va{k}}}^2 \frac{\dd[]{n} }{\dd[]{\varepsilon } }
+\end{equation*}
+If we consider that \( \varepsilon = \hbar \omega  \) and the definition of the weigth function Eq.\eqref{eq:10_01}, we can easily rewrite the last quantity as an integral over the energy and then over the frequency, as:
+\begin{equation*}
+  \frac{V}{(2 \delta +1)} \int_{}^{} \dd[]{\varepsilon }\abs{\bra{\psi _0} \hat{\psi }_ \alpha
+   (0) \ket{ n \va{k}}}^2 \frac{\dd[]{n} }{\dd[]{\varepsilon } }
+   = \frac{1}{\hbar } \int_{}^{} \dd[]{\varepsilon } A \qty(\va{k}, \frac{\varepsilon }{\hbar })
+   = \int_{0}^{\infty } \dd[]{\omega } A \qty(\va{k}, \omega )
+\end{equation*}
+Similarly for the other term of the Green's function in Eq.\eqref{eq:10_5}, but now using  Eq.\eqref{eq:10_02}.
+
+Eventually, we can rewrite Eq.\eqref{eq:10_5} as: \marginpar{Spectral representation}
+\begin{equation}
+  G(\va{k}, \omega ) = \int_{0}^{\infty } \dd[]{\omega'}
+  \qty[ \frac{A(\va{k},\omega' )}{\omega - \frac{\mu }{\hbar } - \omega' + i \eta  }
+  +
+  \frac{B(\va{k},\omega' )}{\omega - \frac{\mu }{\hbar } + \omega' - i \eta  }]
+  \label{eq:10_1}
+\end{equation}
+that is  called \textbf{spectral representation}. In particular, in the infinite volume limit the discrete the analytical properties of the Green's function are changed: the discrete poles have merged into a continuum branch line (because the frequency changes continuously).
+
+Moreover, it is easy to show that:
+\begin{equation}
+  \int_{0}^{\infty } \dd[]{\omega } \qty[ A(\va{k}, \omega ) + B (\va{k}, \omega )] =1
+  \label{eq:10_7}
+\end{equation}
+which is consistent with the definition of these quantities as weight functions.
+
+In conclusion, we have written the Green's function also in the spectral representation. However, we get a problem: both in the original and in spectral representation the Green's function is analytic in neither the upper nor the lower \( \omega  \) frequency plane, because it has poles both below and above the real frequency axis.
+This is not convenient for practical calculations where you have to choose suitable contour of integration, so it is useful to define new functions that are similar to the original Green's function but that are analytic in one half plane or the other.
+
+\subsection{Retarded and Advanced Green's function}
+
+Assuming that the ground state is normalized (\( \braket{\psi _0}{\psi _0}  \)), we define a new pair of functions called \textbf{retarded} and \textbf{advanced} Green's functions:
+\begin{subequations}
+\begin{align}
+   i G^R (\va{x}t, \va{x}'t') & \equiv
+   \bra{\psi _0} \{ \hat{\psi }_{H_ \alpha } (\va{x},t), \hat{\psi }_{H_ \beta } ^\dag  (\va{x}',t')  \} \ket{\psi_0} \Theta (t-t')      \\
+   i G^A (\va{x}t, \va{x}'t') & \equiv
+   -
+   \bra{\psi _0} \{ \hat{\psi }_{H_ \alpha } (\va{x},t), \hat{\psi }_{H_ \beta } ^\dag  (\va{x}',t')  \} \ket{\psi_0} \Theta (t'-t)
+\end{align}
+\end{subequations}
+Let us note that they are similar to the definition of the original Green's function (Eq.\eqref{eq:7_1}), but with important differences:
+\begin{itemize}
+\item first of all, in place of the time order operator we have the anticommutator;
+\item there is also the \( \Theta  \) function which means that the first term does not vanish only for \( t>t' \) while the second for \( t>t' \);
+\item the advanced Green's function has a minus sign.
+\end{itemize}
+
+By applying the same procedure as for the original Green's function, one obtains, for a homogeneous system, the Lehmann representation of \( G^R \) and \( G^A \):
+\begin{small}
+\begin{equation}
+  G_{\alpha \beta }^{R,A} (\va{k}, \omega )
+  =  \hbar V \sum_{n}^{}
+  \qty[
+  \frac{\bra{\psi _0} \hat{\psi }_ \alpha
+   (0) \ket{ n \va{k}} \bra{n \va{k}} \hat{\psi }_ \beta ^\dag (0) \ket{\psi _0}  }{ \hbar \omega - \qty( \mu + \varepsilon _n^{(N+1)}(\va{k})) \mathcolorbox{green!20}{\pm} i \eta }
+   +
+  \frac{\bra{\psi _0} \hat{\psi }_ \beta ^\dag (0) \ket{n, -\va{k}} \bra{n, -\va{k}}  \hat{\psi }_ \alpha
+  (0)  \ket{\psi _0}  }{  \hbar \omega - \qty( \mu - \varepsilon _n^{(N-1)} (-\va{k})) \mathcolorbox{green!20}{\pm} i \eta } ]
+  \label{eq:10_8}
+\end{equation}
+\end{small}
+where the upper sign referes to the retarded Green's function while the minus sign to the advanced one. In particular:
+\begin{itemize}
+\item \( G^R \) has poles all in the \emph{lower} half plane (since here there are only plus sign, while in the original Green's function both plus and minus)\footnote{When you take the pole you have to take the denominator equal to zero, so we have \( + i \eta \rightarrow -i \eta  \)}. We can conclude that \( G^R \) is analytic for \( \Im \omega  >0 \).
+
+\item \( G^A \) has poles in the \emph{upper} half plane. It is analytic for \( \Im \omega <0 \).
+\end{itemize}
+Moreover, since the difference between retarded and advanced Green's function is just in the sign of the imaginary part,  it is easy to conclude that for \emph{real} \( \omega  \):
+\begin{equation*}
+  \qty[ G_{\alpha \beta }^R (\va{k}, \omega )]^* = G_{\alpha \beta }^A (\va{k}, \omega)
+\end{equation*}
+
+Then, supposing again to have \emph{real} \( \omega  \), if we compare Eq.\eqref{eq:10_8} with the original Green's function in Eq.\eqref{eq:10_4} it is easy to conclude that:
+
+\begin{itemize}
+\item The retarded Green's function coincides with the original one for real frequencies larger than the chemical potential (divided by hbar):
+\begin{equation*}
+  G_{\alpha \beta }^R (\va{k}, \omega ) = G_{\alpha \beta } (\va{k}, \omega ) \quad \omega > \mu /\hbar
+\end{equation*}
+\item The advanced Green's function coincides with the original one for real frequencies smaller than the chemical potential (divided by hbar):
+\begin{equation*}
+  G_{\alpha \beta }^A (\va{k}, \omega ) = G_{\alpha \beta } (\va{k}, \omega ) \quad \omega < \mu /\hbar
+\end{equation*}
+\end{itemize}
+In the thermodynamic limit we can also obtain the spectral representation of the retarded and advanced Green's functions (repeating the same step as for the original Green's function):
+\begin{equation}
+  G^{R,A} (\va{k}, \omega ) = \int_{0}^{\infty } \dd[]{\omega'}
+  \qty[ \frac{A(\va{k},\omega' )}{\omega - \frac{\mu }{\hbar } - \omega' \pm i \eta  }
+  +
+  \frac{B(\va{k},\omega' )}{\omega - \frac{\mu }{\hbar } + \omega' \pm i \eta  }]
+  \label{eq:10_9}
+\end{equation}
+which is of course quite similar to the original spectral representation (Eq.\eqref{eq:10_1}) with the clear difference in the signs of these imaginary corrections.
+
+Let us consider the symbolic identity (for \emph{real} \( \omega  \)): \marginpar{Cauchy Principal Value}
+\begin{equation}
+  \frac{1}{\omega \pm i \eta } = \mathcal{P} \frac{1}{\omega }\mp i \pi \delta (\omega )
+  \label{eq:10_2}
+\end{equation}
+where \( \mathcal{P} \) is the Cauchy Principal Value.
+In particular, the \textbf{Cauchy Principal Value} is a “generalized function” that  makes sense only if it is included in an integral, under an integration operation. In practice, it means:
+\begin{equation*}
+  \mathcal{P} \int_{-\infty }^{+ \infty } \frac{\dd[]{\omega } }{\omega }
+  = \lim_{\varepsilon \rightarrow 0}
+  \qty[ \int_{- \infty }^{- \varepsilon } \frac{\dd[]{\omega } }{\omega }
+  + \int_{\varepsilon }^{+ \infty } \frac{\dd[]{\omega } }{\omega }   ]
+\end{equation*}
+if the limit exists.
+
+\begin{remark}
+Let us recall that the weight functions (Eq.\eqref{eq:10_01} and Eq.\eqref{eq:10_02}) make sense only for positive frequencies, because because \( \omega'  \) correspond to the excitation energies (which are positive by definition).
+\end{remark}
+
+Now, we apply the symbolic identity of Eq.\eqref{eq:10_2} in the spectral representation in Eq.\eqref{eq:10_9}:
+\begin{equation*}
+\begin{split}
+G^{R,A} (\va{k}, \omega )  = &\mathcal{P} \int_{0}^{\infty } \dd[]{\omega'}
+\frac{A(\va{k}, \omega')}{\omega - \frac{\mu }{\hbar } - \omega'}
+\mp i \pi \int_{0}^{\infty } \dd[]{\omega'} \delta \qty( \omega - \frac{\mu }{\hbar } - \omega') A(\va{k}, \omega')   +   \\
+& + \mathcal{P} \int_{0}^{\infty } \dd[]{\omega'}
+\frac{B(\va{k}, \omega')}{\omega - \frac{\mu }{\hbar } + \omega'}
+\mp i \pi \int_{0}^{\infty } \dd[]{\omega'} \delta \qty( \omega - \frac{\mu }{\hbar } + \omega') B(\va{k}, \omega')
+\end{split}
+\end{equation*}
+By exploiting the property of the delta function, we get:
+\begin{equation*}
+\begin{split}
+G^{R,A} (\va{k}, \omega )  = &\mathcal{P} \int_{0}^{\infty } \dd[]{\omega'}
+\frac{A(\va{k}, \omega')}{\omega - \frac{\mu }{\hbar } - \omega'}
+\mp i \pi A(\va{k}, \omega' - \frac{\mu }{\hbar })   +   \\
+& + \mathcal{P} \int_{0}^{\infty } \dd[]{\omega'}
+\frac{B(\va{k}, \omega')}{\omega - \frac{\mu }{\hbar } + \omega'}
+\mp i \pi B(\va{k}, \frac{\mu }{\hbar } - \omega' )
+\end{split}
+\end{equation*}
+The imaginary part of the last expression is given just by:
+\begin{equation*}
+  \Im G^{R,A} (\va{k}, \omega') = \mp \pi  A (\va{k}, \omega' - \frac{\mu }{\hbar }) \mp \pi B (\va{k}, \frac{\mu }{\hbar } - \omega' )
+\end{equation*}
+By taking the principal value of this imaginary part :
+\begin{equation*}
+\begin{split}
+  \mp \mathcal{P} \int_{- \infty }^{+ \infty } \frac{\dd[]{\omega'} }{\pi } \frac{\Im G^{R,A} (\va{k}, \omega')}{\omega - \omega'}
+  &=
+  \mathcal{P} \int_{- \infty }^{+ \infty } \dd[]{\omega'}  \qty[ \frac{ A (\va{k}, \omega' - \frac{\mu }{\hbar })}{\omega - \omega'}  +
+  \frac{ B (\va{k}, \frac{\mu }{\hbar } - \omega' ) }{\omega - \omega'}
+  ]  \\
+  & \overset{\omega''= \omega' - \frac{\mu }{\hbar }}{=}
+  \mathcal{P} \int_{0 }^{+ \infty } \dd[]{\omega''}  \qty[ \frac{ A (\va{k}, \omega'')}{\omega - \omega'' - \frac{\mu }{\hbar }}  +
+  \frac{ B (\va{k},  \omega'' ) }{\omega + \omega'' - \frac{\mu }{\hbar }}
+  ] \\
+  & \overset{\omega'' \rightarrow \omega'}{=}
+  \mathcal{P} \int_{0 }^{+ \infty } \dd[]{\omega'}  \qty[ \frac{ A (\va{k}, \omega')}{\omega - \omega' - \frac{\mu }{\hbar }}  +
+  \frac{ B (\va{k},  \omega' ) }{\omega + \omega' - \frac{\mu }{\hbar }}
+  ]
+\end{split}
+\end{equation*}
+where \( \omega'' \) is just a dummy variable, then we have changed again it in \( \omega'' \rightarrow \omega' \).
+Finally we note that: \marginpar{Dispersion relations}
+\begin{equation}
+  \mp \mathcal{P} \int_{- \infty }^{+ \infty } \frac{ \dd[]{\omega'}}{  \pi } \frac{\Im G^{R,A} (\va{k}, \omega')}{\omega - \omega'}
+  = \Re  G^{R,A} (\va{k}, \omega)
+  \label{eq:10_10}
+\end{equation}
+This expression is important because it means that  \( G^R \) and \( G^A \) satisfy the \textbf{dispersion relations} (or Kramers-Kronig relations).
+Thus, if we know \( \Im G^{R,A} (\va{k}, \omega ) \) for \emph{all} \( \omega  \) values, we know also \( \Re G^{R,A} (\va{k}, \omega ) \) and therefore the whole \( G^{R,A} \) and  from it the original Green's function the \( G \) function.
+
+
+In summary, in order to know the other quantities we must know the imaginary part for all the possible frequencies. In practice, the imaginary part is often connected to experiments : for instance it is related with the absobtion spectrum in experiments.
+
+Moreover:
+\begin{equation*}
+  \frac{A(\va{k}, \omega')}{\omega - \frac{\mu }{\hbar } - \omega' \pm i \eta }
+  = \frac{A(\va{k}, \omega')}{\omega \qty( 1 - \frac{\mu/\hbar + \omega' \mp i \eta }{\omega }) }
+  \overset{\omega \rightarrow \infty }{=}
+  \frac{A(\va{k}, \omega')}{\omega }  \qty( 1 + \frac{\mu/\hbar + \omega' \mp i \eta }{\omega } + \dots)
+\end{equation*}
+where in the last step we have taken the expansion of the denominator for large frequencies.
+If we come back to the spectral reperesentation of the Green's function in Eq.\eqref{eq:10_1}, in the high freuqnecy limit we have:
+\begin{equation*}
+  \begin{split}
+  G(\va{k}, \omega ) &= \int_{0}^{\infty } \dd[]{\omega'}
+  \qty[ \frac{A(\va{k},\omega' )}{\omega - \frac{\mu }{\hbar } - \omega' + i \eta  }
+  +
+  \frac{B(\va{k},\omega' )}{\omega - \frac{\mu }{\hbar } + \omega' - i \eta  }]\\
+  & \overset{\omega \rightarrow \infty }{=}
+  \frac{1}{\omega }
+  \underbrace{ \qty[ \int_{0}^{\infty } \dd[]{\omega'}
+   \qty( A(\va{k}, \omega' ) + B (\va{k}, \omega' ) ) ]}_{=1} + O \qty(\frac{1}{\omega ^2})  \\
+  & \overset{\omega \rightarrow \infty }{\sim}   \frac{1}{\omega } + O \qty(\frac{1}{\omega ^2})
+  %\label{eq:10_11}
+  \end{split}
+\end{equation*}
+where in the last step we used Eq.\eqref{eq:10_7}.
+Thus, we know the behaviour of the Green's function in the high frequency limit.
+This is a general result for every interacting system (we have considered a general system). This relation is valid both for the original Green's function and for the retarded \( G^R \) and advanced \( G^A \) ones (one can easily demonstrate it).
+
+
+
+
+
+
+
+
+
+
+\end{document}
