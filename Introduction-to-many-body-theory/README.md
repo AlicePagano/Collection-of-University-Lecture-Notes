@@ -1,4 +1,4 @@
-# Lectures Notes of Introduction to many-body theory
+# Lecture Notes of Introduction to many-body theory
 
 Lectures notes of the Master degree course "Introduction to many-body theory" of professor at the University of Padova (Academic Year 2010/2020).
 
