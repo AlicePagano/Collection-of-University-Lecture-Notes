@@ -1,0 +1,157 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{02}{04}{2020}
+
+\begin{document}
+
+\section{Lecture 8}
+ \displaydate{date}. Compiled:  \today. Alice.
+
+\subsubsection{Slide 115}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[page=1,width=0.9\textwidth]{../lessons/pdf_file/8_lesson.pdf}
+\end{figure}
+
+In the previous lesson we described the temperal evolution for spherical nanoparticle of nucleation growth. In particular, the two regimes in which we can decompose the evolution of the growth of nanoparticle.
+
+Today we discuss the importance of energetics in controlling those processes. In DLA and OR we have a strong effect of diffusion coefficients of the precipitating specieces, that control the speed of growth as a function of time. They are strongly temperature dependence. In order to observe the two regime we should regulate the temperature in a proper way, to get access to them.
+
+In the first part we discuss the energetic part of nucleation and growth regime and we give some experimental concept.
+
+\newpage
+
+\subsubsection{Slide 116}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[page=2,width=0.9\textwidth]{../lessons/pdf_file/8_lesson.pdf}
+\end{figure}
+
+These are cross section electron microscopy images of silica implanted with gold. The implantation energy is \( 190Kev \) and the fluence is \( 3e16 ...\). These numbers control the penetration depth.  The scale marker is the same for the four images. You can see we have these sort of dark contrast around \( 70nm \) belowe the surface and those are the small nanoparticles obtained by nucleation and successive growth of gold ions into the silica matrix. Of course we have a sort of distribution in the concentration which more or less follow a guassian like profile. We will see in the following how ion implantation is expected to obtain such concentration profile. For the moment it is important that we are able to create a region in our material in which we have supersaturated solid solution of gold atoms in silica.
+
+The image (a) has thermally treated at \( 400° \) in air for \( 1 \) hour. Counting the size of each individual black here (gold nanoparticle) we obtain an average size \( \expval{D}  \), where this is not the error but the size dispersion that is the standard deviation of the distribution of the diameters.
+
+The image (b) is the very same sample but treated at \( 700° \) in air for the same \( 1 \) hour. Those are isocro annealing, that is annealing which last the same amount of time of 1 hour. As expected higher the temperature, higher the diffusion coefficient so we found that the average diamater is slightly larger.
+
+The situation changes drastically at \( 900° \) in air for 1 hour. We see clearly the evidence of the nanoparticles which are much larger than the previous ones. In this case the average diameter is large.
+The centroid at which the largest nanoparticle occur is unaffected by the thermal annealing, but now you have a larger aggregation of nanoparticle and a diffusion of nanoparticles toward the surface.
+
+The image (d) is different because we are annealed at \( 900° \) for 1 hour but in earth athmosphere of Argon. We have an average size which is comparable with  the size obtained at much lower temperature. Why do we have this remarkable difference?
+In general it means that the temperature is not the only ingredient to control the size!
+
+\newpage
+
+\subsubsection{Slide 117}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[page=3,width=0.9\textwidth]{../lessons/pdf_file/8_lesson.pdf}
+\end{figure}
+
+If we better look at the histogram of the size ditribution in the samples treated at \( 900° \) for 1 hour, the fraction refers to the probability of finding that specific diameter in our system. The three plot differs for gas.  In particular, we tried to annealed this sample in a reduced athmosphere \( H_2-Ar \) and more or less we obtain the same result of Argon athmosphere. We try to understand we we have this.
+
+\newpage
+
+\subsubsection{Slide 118}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[page=4,width=0.9\textwidth]{../lessons/pdf_file/8_lesson.pdf}
+\end{figure}
+
+For that reason we try to use the plot to describe the evolution of the radius as a function of the inverse of the temperature (Arranius plot). Usually, when you use an Arranius plot you want to obtain an energy activated process and you want to measure from the slope of the linear dependence the activation energy of the process.
+We are working at a constant time.
+We should obtain a linear evolution of the quantity and the slope is just the activation energy. If we look at the annealing under Argon athmosphere, we see a linear proportion he nce we have a single activation function. On the contrary if we look at the oxidizing athmosphere, we have the very same evolution up to \( 700° \), but then we have a change on the slope of this evolution: we are entering in a different regime. In the case of the oxidizing athmosphere something speed up the growth. We obtain from the slope of this point an activation energy which is dramatically different with respect to the gold diffusion \( SiO_2 \). We should expect that if the growth is controlled by the diffusion coefficient we should expect the value of \( 2.4 eV \) instead of \( 1.2 eV \) for the activation energy because ultimately we have diffusion in silica when the particles growth. On the contrary we obtain a much lesser value, but we know that this value is very similar to the value of the oxigen diffusion in silica of \( 1.1-1.3eV \), this means that probably we need to describe the growth of the cluster not in a simple picture in which we do not have distribution of gold atoms which tends to aggregate toward the formed nuclei and tend to growth, but we need to think about that we have an additional agent which promotes this diffusion. As seen before we have an increased diffusiving under Air (oxidizing). To explain why we should consider this effect and why it starts at \( 700° \)and not before, awe consider the theory of correlated diffusion by Onsager. This theory tells us that when we have more than one diffusing species, we need to generalize the diffusion equation.
+If we have a species with concentration \( C_1 \) and with diffusion coefficient \( D_{11} \) we can obtain the local variation of the concentration by the second derivative of the concentration. If we have another species with a concentration \( C_2 \) we should add also the second derivative of this concentration. We have to add this even if the two system does not interact with each other.
+
+Evebntually, we obtain a sort of generalization of the diffusion equation and the net effect of the other terms is a speed up of the effective coefficients that we see for the conventional diffusion. We have a sort of decreasing in the activation energy of this process. Remind that \( D \) is exponentially related to the activation energy divided by \( KT \) coefficient (?).
+
+At lower temperature the effect of oxigen is not evident because of the permeability effect, that is oxigen comes from the external athmosphere is not inside the silica. So that oxigen need to enter the silica matrix in order to produce a gradient in the concentration which promotes the correlated diffusion effect. The permeability which is the ability of an external species to enter and to diffuse in the material, for oxigen in silica stars to occurs significantly axatly at \( 700° \). That was measured by using activated oxigen (radiocative oxigen) which can be traces within the silica matrix and discriminated with respect to the natural oxigen in the silica and it is possible to measure the penetration depth of the external oxigen as a function of the temperature and what was demostrated it is that the external oxigen is able to enter to a significant fraction into the silica at \( 700° \) and in that moment we expect a variation of the activation energy of the process because the correlated diffusion starts to occure in the system with respect to the purely thermal activated diffusion which involves just one species. This occur at lower temperature when the only effect is the thermal effect that is all the process is controlled by the standard thermally diffusion of gold in silica (no correlated diffusion). Above \( 700° \) we have a boost in the diffusion coefficient and the activation is the activation energy is the activation energy of the most probable of the two process which is the diffusion of oxigen in silica. So for that reason we measured 1.2 instead of 2.4 (for standard gold diffusion into silica).
+
+This is an important result, because it means that temperature is not the only variable to control the growth. Also the physical and chemical nature can have an impact on the growth.
+We were able to find a correlated diffusion with the three species  that is we implanted gold and copper and we obtained a layer of gold-copper metallic nanoparticle and under air annealing we were able to obtain correlated diffusion of the three species that is oxigen is able to speed up the diffusion coefficient of copper and gold on the silica matrix. So this correlated diffusion theory can be generalized to an aribtrary number of species. It is a clear demostration that we need to take into account the full complexity of our system when we deal with nucleation and growth.
+
+\newpage
+
+\subsubsection{Slide 119}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[page=5,width=0.9\textwidth]{../lessons/pdf_file/8_lesson.pdf}
+\end{figure}
+
+We can use the last result to set the work temperature at \( 900° \) to have the fastest growth of our nanoparticles and to see if we are able by looking at the time evolution to see if we can experimentally demonstrate the presence of difffusion limited aggregation growth and ostwalrd rippening regime.
+For that reason we did a very same experiment with a very same system of gold implanted into silica at 190 keV etc... We use that for studying the kinetics of our system, the nucleion growth of gold nanoparticle in silica. Instead of performing an annealing at a fixed time, isocronal annealing, we are in a isothermal annealing.
+
+\newpage
+\subsubsection{Slide 120}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[page=6,width=0.9\textwidth]{../lessons/pdf_file/8_lesson.pdf}
+\end{figure}
+
+We use the cross section images in which we have the sample produced just with ion implantation. We see the growth of the nanoparticle going on with the time interval. We remind that the scale marker is the same for the four images.
+
+An insteresting obstervation is that we have already nanoparticles in the as-implanted system. This is quite expected since we use large fluence, so large number of gold atoms implanted into silica and so we are able to obtain precipitation and growth even at room temperature because we have a system with a large of energy trough the ion implantation which produce defects. Since we are breaking the silicon oxigen ban, because we are entering with gold ions into the silica, we perform random binary collision between the silica and oxigen atoms in the matrix, so the ban breaking occurs and we are able to obtain a sort of heterogeneous nucleation. We remember that has a lower barrier for nucleation and growth so even at room temperature we can have this effect.
+
+We can see that the centroid of the maximum concentration (we remember that the concentration profile is as a gaussian-like profile) with the maximum controlled by the energy. The centroid is more or less uneffected by the annealing, indeed we obtain the largest nanoparticles precisely at that depth. Of course we start to see the groth of the nanoparticles, which is really remarkable at 12h. The number of nanoparticles decreases drammatically. This is a clear signature that since the number of clusters is decreasing the largest clusters growth at the expensive of smallers one (ostwalrd rippening regime).
+
+Se if we are able to follow in more detail the evolution of the system under thermal annealing  at the same temperature under oxidizing athmosphere to boost up the diffusion coefficient for increasing time intervals.
+
+\newpage
+\subsubsection{Slide 121}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[page=7,width=0.9\textwidth]{../lessons/pdf_file/8_lesson.pdf}
+\end{figure}
+
+ If we look at the distribution of the diamaters of the four samples measured by electron microscopi we see the following results.
+
+ In the as-implented sample we have the evolution of the size which follows not a gaussian profile, but there are thermodynamic argument which demostrate that the actual distribution that we need to obtain is this kind of asymmetric distribution called log-normal distribution. It is similar to a gaussian distribution but for the logarithm of the sizes. It has a long tail toward the larger cluster diameters and thermodynamically we can demostrate that is the distribution we should expect for the growth of the nanoparticle.
+ In the following we will always use the \textbf{log-normal dateistribution} to describe our historgram of the size distribution.
+
+ In the as-implanted sample we have clusters with an average radius of 2 nm and under annealing in for 1h the size increases and the distribution is still log-normal (single mode distribution). After 3h we still see single normal distribution but at larger cluster size something is going on. For 12h the avrage size is increased a lot and we have a bimodal distribution: we have two peaks. It tells us that probably at that time, as we expected from the dramatic decrease of the clusters for unit of volume, that something different is goin on. Actually this is a clear fingerprint of the ostwalrd rippening regime.
+
+\newpage
+
+\subsubsection{Slide 122}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[page=8,width=0.9\textwidth]{../lessons/pdf_file/8_lesson.pdf}
+\end{figure}
+
+We were able to build the first plot in which we have on the x axis the annealing time interval and we plot the \( R^2 \) evolution with respect to the initial value. We detect in which regime we are.
+
+The red dots are the experimental points and after 4h we see that there is a sudden change in the slope of the evolution. This means that something is occuring around this time interval. We could assign into the first part of the evolution a linear increase which is consisted with the Diffusion limited aggregation picture and to the second part an ostwald rippening regime (the evolution goes not with the square of the radius but with the cube).
+
+If we plot the evolution of the cube of the radius with respect to the annealing time we obtain the second plot in which we report just the second part of the evolution and the linear fit is quite nice as expected for the ostwald rippening regime.
+
+This is a schematic way to see the process. If we look in a more quantitavely to the number of clusters for unit of bolume we obtain the third plot. We see that the number of clusters changes dramatically even with the shortest annealing time interval.
+
+It is a fignerprint of the fact that actually the ostwald rippening regime starts to occur immeadiately in the system, so the decomposition that we have proposed in the first and second plot is not a very good representation of the system. This is for two reasons:
+\begin{itemize}
+\item we are not dealing exactly with an homogeneous distribution of initial concentration of atoms. We used a gaussian like profile of concentration which locally can be considered constant but globally is not constant. So for details of the distribution the degree of supersaturation starts to occur earlier. So we need to expect to promote the ostwald rippening regime already in the initial stages of the growth. (?)
+
+\item the system tends to evolve and we are at quite high temperature. In the first part of our course, we have introduced the thermodynamic size effect that is the depression of the melting temperature as a function of the size. This is another manifestation of the Ostwald rippening. This process occur in our system. As we remember the melting temperature of gold is around \( 1100° \) and we are only \( 200° \) below that value. So we should expect a particular kind of process.
+\end{itemize}
+Ultimately the net effect that we could obtain in an experimental system is that we have hints that there is a sort of change in the growth regime but of course the separation of these two regimes is not that sharp as we may think from a purely thermodynamic description.
+
+We could imporve the degree of ideality of our system by performing the experiment not with a gaussian like profile but with a flat profile.
+
+What is interesting is that from our general approach in this course, we can obtain a controlled evolution of the size. We can control the size of our system if we can control the processing of our materials. This is important when we need to control the properties of the system that we want to investigate because we can stop the growth at a specific value of the size if we need for instance obtain the property which is related to that specific size.
+
+In the following lesson we will see how to control the optical properties of those systems that we have seen here and to see how the interaction between ligth and nanostructure can be used to see and control the resonant interaction between light and matters at the nanoscale.
+
+
+
+
+\clearpage
+
+
+
+\end{document}

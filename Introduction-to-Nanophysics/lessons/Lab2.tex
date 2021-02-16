@@ -1,0 +1,306 @@
+\documentclass[../main/main.tex]{subfiles}
+
+\newdate{date}{29}{05}{2020}
+
+\begin{document}
+
+\section{Laboratory 2 }
+
+\displaydate{date}. Compiled: \today. Alice
+
+\subsubsection{Slide 16}
+
+The next technique that we use to characterize our nanoparticle is X-ray diffraction. Normally, X-ray is used to obtain information of the structure of a given compound.
+We will see how to obtain information about the size: in particular, we will see how to combine the information on the structure with the information on the nanoparticle size.
+
+
+\subsubsection{Slide 17}
+A recap on the diffraction theory. We have a set of planes (\( d \) is the distance). If we shine light with a plane wave with a given \( \va{k} \) (which forms an angle \( \theta  \)), we obtain the Bragg reflection from the plane. We are considering the elastic scattering. The angle is relatet to \( d \) by:
+\begin{equation*}
+  n \lambda  = 2d \sin(\theta )
+\end{equation*}
+which is the \textbf{Bragg Law}.
+The most fundamental equation relating \( \va{k} \) and \( \va{k}' \) is the:
+\begin{equation*}
+  \va{k}' - \va{k} = \Delta \va{k} = \va{G}
+\end{equation*}
+ where \( \va{G} \) is perpendicular to the planes in the reciprocal space.
+
+ \subsubsection{Slide 18}
+If we want to calculate the interplanar space for gold (311), we obtain 0.123nm.
+
+If we work with electrons instead of X-rays, we can obtain the very same diffraction set.
+
+We will work with X-rays of \( \lambda \sim 0.1nm \).
+
+\subsubsection{Slide 19}
+Let us see how normally we can obtain information on the size of our nanoparticle. We have seen how to relate diffraction peak with the particular structure, because this link between planes and reciprocal space vectors in the Bragg law.
+
+Let us see why we should expect an effect of the size on the path.
+
+\subsubsection{Slide 20}
+In any scattering theory, the function emerging from a scattering event is the incoming plane (trasmitted plane wave, in this case directed along the z direction) plus the scattering spherical wave emergin from the central scattering potential (which is a spherical wave, modulated by the scattering amplitude \( i f(\theta ) \) ).
+Hence, the asimptotic function at the exit is:
+\begin{equation*}
+  \psi _{out} = \psi _{in} + i\psi _{sc}
+\end{equation*}
+and so it is the incident function plus the scattering function.
+
+The quantum mechanical link with the probability of scattering is in the \textbf{scattering amplitude} \( f(\theta ) \), which is  in general a complex function, which its modulus is just:
+\begin{equation*}
+  \abs{f(\theta )}^2 = \dv{\sigma (\theta )}{ \Omega }
+\end{equation*}
+which is the probability to have a scattering event in a given direction forming an angle of \( \theta  \) with respect to the incident beam, withing a solid angle \( \dd[]{\Omega }  \) (infinitesimal solid angle around the direction \( \theta  \)).
+
+\subsubsection{Slide 21}
+The typical shape of those coming scattering is this one (this is for electrons!).
+
+It is a monotonic decreasing function of the scattering angle.
+It is larger as a function of the atomic number of the scattered atoms.
+
+
+\subsubsection{Slide 22}
+
+The last is the atomic scattering, but if we have not a single atoms, but an arrangement of ordered replicas of atoms (in a ordered unit cell, so that we can define a Bravais lattice for the symmetry of our system:
+\begin{equation*}
+  \va{R} = n_1 \va{a} + n_2 \va{b} + n_3 \va{c}
+\end{equation*}
+so if we had an fcc structure like the one of gold, we will have the conventional unit cell as the yellow atoms in figure.
+
+\subsubsection{Slide 23}
+If we rebuild the entire scattering from an atom, the cell scattering function is now build with as a spherical wave emerging from the cell, but now we have a \textbf{structure factor}, which is the sum of the scattering factor of individual atoms at position \( j \), avereged over the relative phase given by the reciprocal space vector \( \va{G} \) with a scalar product with the relative coordinates of the atoms within the unit cell.
+
+
+ \subsubsection{Slide 24}
+For the monoatomic f.c.c. structure (like for gold), the structure factor \( F(\theta ) \) is reduced to a simple geometric calculation.
+The result is the value of the allowed reflection on the Bragg formulation from the extinction condition of the structure like this one.
+
+The extinction condition is when these terms cancel each other. If we collect all the condition in which we have this true, we can summarize all in just two cases.
+
+So for the case of gold, the first most intense reflection will come from the (1,1,1) planes, the second most intense will be (2,0,0). In (1,1,2) we will have 0 reflections.
+
+The smaller \( h,k,l \) the larger is normally the intensity of the diffraction peak. The diffraction peak intensity is proportional to the square modulus of this quantity just calculated. So you can obtain informations not only on the cristalline structures, but also on the degree of ordering in your system.
+
+
+\subsubsection{Slide 25}
+The typical values of those structures factor coming from amorfous samples is a sort of modulated intensity which goes to zero as a function of the scattering angle. You may remember that the atomic scattering is a monoatomic function of the scattering angle \( \theta  \). This modulated intensity is due to the short-range order in any amorfous system. For instance you may remember the silica (silica matrix is made by a tetraedra SiO4, randomly oriented and connected by the oxigen vertex). So even if globally the material is amorfous you have a local short-range order within the tetraedra, in which the distances between silicon atoms and oxigen atoms are fixed.
+
+
+When you have crystalline samples, \( F(\theta ) \) is peaked at specific scattering angle as we have already seen in our simple calculations.
+Instead of having a delta function, as predicted by the Bragg law, we need to expect a sort of broadening of those delta functions.
+This is normally due to the fact that we do not have always a perfect plane wave, instead we have an average \( \va{k} \) plus or minus small deviations from collimation, so that we cannot obtain even in the best systems (which are the sinctrontrons) a perfectly collimated beam. So we need to consider a beam broadening due to the non-perfect collimation of the system (intrumental broadening).
+
+\subsubsection{Slide 26}
+This is the simple geometry of diffraction.  The emerging angle will be of \( 2 \theta  \) with respect the planes.
+
+\subsubsection{Slide 27}
+This is for for electron diffraction.
+When you have a sample producing diffraction in a given direction, if you have an objective lens, you are able to focus beams coming from different directions in the very same SPOT. So in the back focal plane of a lens, you will see the effect of diffraction. If you are able to collect, in the far-field, beams emerging from the very same angle, you can measure the intensity in a screen, but you can see them as forming a set of spots.
+
+\subsubsection{Slide 28}
+Normally, when you have in a plane a set of SPOTs, those are cross-section of the reciprocal space of you system.
+
+The central beam is the case of electrons which did not suffered the scattering lens, whereas the other SPOTs are arranged on the (h,k,l) values which are required by the Bragg law for that particular structure and their particular relative orientation of the sample with respect to the beam.
+
+If you had a polycristalline sample, you will have a sort of rotation of those pattern around the central beam. So you will obtain rings instead of spots. Those rings are spaced by the reciprocal space vectors in a way that you can obtain information of the structure.
+Those rings are named as \textbf{Debye-Scherrer rings}.
+
+\subsubsection{Slide 29}
+This is an example of crystalline samples obtained by electron diffraction (the very same is for X-rays, the difference is just on the wavelength).
+
+The far we go from the center, the large is the \( \va{G} \). The large is \( \va{G} \), the interplanar spacing is lower. So when we are closer to the center of the patter, we are sampling larger interplanar spacings.
+
+So the far we go from the origin, the tinyer is the details that we want to sample. So for that reason, if we do not have global order, we lose the information on our diffraction pattern (as amorphous sample).
+
+
+\subsubsection{Slide 30}
+Let us see from a very general theoretical point why we need to consider the effect of the size. In this example I simulated for a Cobalt nanoparticle in the fcc arrangement with different size.
+
+In the left plot there is the expected intensity of diffraction, as a function of the inverse lattice spacing.
+We can see those curves.
+
+\begin{itemize}
+\item If we consider the bulk fcc structure on a pure Bragg law, we should expect this delta peaks at the position given by the Miller indexes of that specific kind of reflections.
+
+\item If we look at the diffraction coming from particles with radius which is decreasing, we clearly see a progressing broadening of the peak as the size decreases. As the size is very small, we practically lose any information on the spectrum.
+\end{itemize}
+
+If we plot the peak width as a function of the cluster radius, we obtain the curve on the right. This tells you that the peak width is inversevely proportional to the cluster radius.
+
+We have this broadening because we lose the coordination, the order and the scattering from the atoms does not longer sum up in a sharp interference, but the interference condition is now a little bit loosely defined.
+
+
+\subsubsection{Slide 31}
+The very same occurs for other phases. This is the hexagonal cuve package (hcp) of the Cobalt nanoclusters. Also in this case, the vertical lines are the bulk expected position of the reflections for specific planes.
+
+Now, the structure is less symmetryc, so we have a removal of the degeneracy so we will have more peaks in the diffractions. But still in this case each single peak start to be broadened as the size is decreased.
+
+Also in this case we have the very same inverse behavior of the peak width.
+
+\subsubsection{Slide 33}
+The most important part of the diffractometer are the source, then we have different components to get monochromatic incident beams, then there is the sample.
+
+We can move the sample with respect to the beam. Then, we want to collect the intensity emerging from the scattering, this is a detector in a horizontal plane, radially with respect to an ideal circle centered at the sample surface.
+
+Photons are collected into contribution to a current which can be measured and converted to counts.
+
+When we scan the sample in this horizontal plane, we obtain the scattering pattern.
+
+\subsubsection{Slide 34}
+This is a simple sketch. We have X-ray photons coming from Copper K alpha and K beta values. The wavelength is around \( \lambda = 0.154 nm \). The radiation will arrive at an \( \omega  \) angle with respect to the horizontal (it is the \( \theta  \) angle in the Bragg law).
+The \( \omega  \) measure the degree of grazing incidence with respect to the horizontal surface of the sample.
+
+We will collect the diffraction forming an angle \( 2 \theta  \) with respect to the incoming beam. So for that reason if we were using the perfect Bragg condition, we should match the planes fullfilling this condition with this particular value of the angle \( \omega  \).
+
+When we want to obtain information coming from the sample surface (not from the bulk of the sample), as the case for interest for us, because our sample will be simply a substrate in which we deposite our gold nanoparticles. Since the nanoparticles are very small, we can imagine they form a mono-layer of particles on top of the surface. So we are not interested in diffraction from the samples, but from the subsrate.
+
+However, we want to obtain the largest scattering from the particle. The idea is to reduce the incident angle, so that just a tiny fraction of the X-rays are able to enter the samples. It is a very convenient situation for us, because all the scattering will come from things which are at the surface of the sample.
+
+Then, we will check the scattering from those randomly arranged set of particle with a detector which will be scanned as usual in radial direction.
+
+So normally, we will keep the incident angle fixed and we move the detector. So that the source and the sample will stay fixed and we will scan just the detector during the measruement.
+
+So with this grazing incidence X-rays diffraction, we can improve the signal-to-noise ration as it will be clear in a moment.
+
+Of course, on the contrary, if we are interested in the bulk of our samples  (in a bulky structure), we can move \( \omega  \) and \( 2 \theta  \) in a coordinate way to obtain a \( \theta  \) to \( \theta  \) scan, which is the typical scan to obtain a powder diffraction. I will not enter into details.
+
+For us is sufficient to unrestand that, when you have a grazing X-rays, the projection of \( \va{k} \) vector in the perpendicular direction is so small that it is basically estinguished in few tents of nanometers (hundreds of nm at most).
+We will just work at a grazing angle \( \omega  \) which is of the order of 0.4,0.5,0.6 degree with respect to the horizontal.
+But it cannote be reduced too much, because when the incident angle reaches the total reflection angle (which occurs for ordinary material at around 0.2 degree), you will have a total reflection in your system, so you will lose any information on the structure, because at that angle any sample in practial behaves as a mirror. So it will reflects spectral all the intensity without giving information on the structure, which is the things we want to measure.
+
+So the trick is to stay slighlty higher with respect the total reflection angle, but not too high to have too strong contribution from the substrate.
+
+
+\subsubsection{Slide 35}
+If we look for instance at the typical diffraction from an alloy of gold an iron (this is a peculariar kind of alloy, because gold and iron are non mixible in the bulk phase because they exhibit a positive entalphy of mixing, but if we work at the nanoscale and if we use ion implantation, is straightforward to obtain such kin of structure).
+
+We have this set of peacks which correspond to an fcc phase. If we compare the corresponding phase of gold and the one of iron, we see that the that the lattice space is something between the two.
+
+But in this case the fcc structure will dominate on the typical bcc structure of iron, so that polarizing the structure toward the one of gold.
+
+If you thermally treat the sample, thermodynamics will bring the system toward the thermodynamic bulk stability and so you will smoothely recover the phase separation between the two system.
+
+
+\subsubsection{Slide 36}
+Let us see how we can calculate the nanoparticle size from the peak broadening of the resonance incidente X-rays diffraction.
+
+
+\subsubsection{Slide 37}
+This size broadening was measured and quantified by Scherred (1918). He observed that small crystallite produced a broadening in the peaks measured by X-rays diffraction.
+
+
+\begin{itemize}
+\item He derived the \textbf{Scherrer Formula}, which relates the wavelength to the volume-weighted crystallite size, that is the crystallite size that we want to measure.
+It is a volume-weighted because diffraction intensity is weighted over the volume of the scettering element.
+So when you have a size-distributed system, you will average not only over the radius, but over the volume, which is a sort of biased average, which favours the largest size with respect to the smaller one.
+
+\item The other element in this equation is \( K \) which is the Scherrer constant (adimensional). It is shape dependent: if you have a sphere, or an elliposide this value is expected to varies, but around the value of 1.
+
+\item \( \theta  \) is the Bragg angle at that specific position of the Bragg condition.
+
+\item The most important parameter is \( \beta  \), which is the \textbf{integral breadth} (or the full-width at half maximum). The integral breadth by the area of the peak, divided by the height of the peak of that specific reflection (which is located at \( 2 \theta  \) angle in the spectrum).
+
+This \( K \) value is not only shape dependent, but also  dependent on the definition used for \( \beta  \).
+
+\item
+\( \lambda  \) is the wavelength of the radition. In our case we have Cu K \( \alpha  \) 1 radiation.
+
+\end{itemize}
+
+The important concept here is that all the quantities on the formula should be in radiants. The \( \beta  \) should be measured in radiants, because it is the relative width in radiants of the peak.
+
+\subsubsection{Slide 38}
+Heuristic derivation of the Scherrer formula directly from the Bragg equation.
+
+\( \Delta \theta  \) is a deviation from the pure Bragg condition: it could be either negative or positive. So we do not pay particular attention to the value.
+
+\( \delta z \) is equal to \( d \) (it is the minimal variation that we can obtain).
+
+We do not have obtained the \( K \) factor (because it requires a more finite theory). But this heuristic derivation is ok.
+
+When you measure the \( \beta  \) parameter you are adding two contribution: the first is the instrumental broadening \( \beta _{inst} \) of the peak (related to the non perfect collimation of the beam, so that even with a perfect monocrystalline sample we should expect to have a finite line width of the peak (instead of the delta)) and the other parameter is the size broadening \( \beta _{size} \) that is the broadening due to the confinement of this finite size of the particles.
+
+There are two way to measure this observed width of the peak:
+\begin{itemize}
+\item the first is just the sum of the two. This is a normally used approximation.
+
+\item The other (if you want to have a more finite work) is obtained by summing inchoehrently the two source of errors, so you sum the squares and you take the square root of that sum.
+
+\end{itemize}
+
+So you want to extract information to the size. Hence, let us assume the formula \( \beta _{obs} = \beta _{inst} + \beta _{size} \), the real size broadening is the observed broadening minus the instrumental broadening. The \( \beta _{inst} \) schould be measured and calibrated for each instrument that you will use.
+
+
+\subsubsection{Slide 39}
+
+In our case we did it and using LaB6 standard (it is a crystalline system in which the grains are so large that we can assume as bulk and you can obtain information on the beam broadening).
+
+When dealing with a specific source of X-rays, like in our case copper source, we have a lot of different lines in which you may remember are specific of each element. Normally, we will have the emission of k \( \alpha  \) and k \( \beta \) radiation.
+
+To produce the radiation you send an electronic beam toward the target of that specific material. In this way you can ionize the ?enoshell? and if you ionize for instance the inner \( K \) shell and you fill that hole with another electrons coming from the \( L \) shell, you can have a transition which is \( k \alpha _1 \), or \( k \alpha _2 \).
+You can then fill the very same hole with an electron coming from the \( M \) shell (outer one), and in that case you have a \( k \beta  \) photon.
+
+So if you look at the spectrum emitted from a given elements, you will see these three lines arranged at three wavelength, so that you can obtain a clear identification of the material producing those lines.
+
+In particular, you can use those lines as controlled monocromatic sources for your X-rays diffraction system.
+
+In order to have a monocromatic source, firstly we get rid of \( k \beta  \), which is absorbed by the attenuators in the X-rays diffraction system (or reduced by the parabolic mirror). So you can assume \( k \beta  \) absent in our system. But normally we have \( k \alpha _1 \) and \( k \alpha _2 \) in the spectrum togheter, because they are so close that is very very difficult to get rid of them.
+However, the intensity of one line is twice the second one.
+
+
+So normally you consider that you have just \( k \alpha _1 \) radiation, because we are dealing with really small nanoparticles, so we expect to have a very brough peaks, so that the convolution will be much much more than the separation in energy which will produce an angular separation of the diffraction peak like in this figure here (first figure).
+
+With very large nanoparticles you should take into account also the \( k \alpha _2 \) (this will not be valid for our system).
+
+Just another information on the background of our spectrum (right figure). The background is the Bremstralung which is the incoherent radiation emitted when electrons hit the material. Indeed, electrons will lose energy just by deflection from their original trajectory. So when a charged particle is deflected, it is accelerated so it emits radiation and this will constitute the background of the inchorent radiation here (background for our diffraction peak).
+
+You can obtain the instrumental broadening of our system, which in degree is 0.27 degree.
+
+So you have all the information to process the spectrum.
+
+\subsubsection{Slide 40}
+There are other sources of broadening as the \textbf{strain broadening}. If we do not have a perfect ideal structure in our system (because we are strain compress) we should expect that the planes will suffer a diffrent kind of the effect on the lattice planes (as we have seen for the indium nanoparticles in silica). There is a theory to take into account this and to measure the average strain. It can be done with this \textbf{Stokes and Wilson formula}: in principle you can decouple the strain broadening from the size broadening if you analyze all the sets of diffraction in your system.
+
+\subsubsection{Slide 41}
+A more sophisticated theory which involves the entire description of the peaks is the \textbf{Williamson-Hall theory}. You can in principle obtain information decoupled from the strain and the size on the broadening of the system.
+
+This cannote be done in our samples, in which the size broadening normally dominates over the strain broadening. But in principle if you had a very large set of diffraction peak, you can do this in a very efficient way and in principle you can decouple the two contribution to the broadening.
+
+In our case we will have around 5 peaks, so you can undesrtand why it is better not too many parameters and stay with the size analysis with the Scherrer equation. But you can comment on possible deviation from perfect analysis of the Scherrer equation.
+
+
+
+% \newpage
+%
+% \subsection{Alignments notes}
+%
+% We will see how to allign the diffractemeter to obtain information on the size of the nanoparticles.
+%
+% \begin{enumerate}
+% \item Firstly, we scan the detector without the sample. We will send directly the beam within the detector.
+% We scan the detector in a symmetric interval of \( \theta  \),
+% We will see where there are the \( 2 \theta  \) angles.
+% Instead of a single peak we have 5 peaks. This is the effect of the parallel plate collimator (in front of the detector and it is made by vertical lamelle).
+%
+% \item We put the detector in the position where the maximum of the central peak is located. So now that we have the zero position, we need to allign the samples and then we move the \( z \) coordinate (so we put the sample within the beam, by moving by 3mm with respect to the previous position).
+%
+% \item First we start with a position in which the sample is out of the beam, so we see a flat intensity. 
+% Then, as soon as the beam enters in the samples it will be shadowed and so the intensity will decrease. We need to set the actual position of the system in half way of the flat intensity.
+%
+%
+% \end{enumerate}
+%
+% RIVEDERE
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

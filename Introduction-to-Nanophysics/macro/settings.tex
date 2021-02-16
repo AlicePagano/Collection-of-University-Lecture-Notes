@@ -1,0 +1,30 @@
+%%
+\captionsetup[table]{font=small,labelfont={bf},skip=10pt}
+\captionsetup[figure]{font=small,labelfont={bf},skip=10pt}
+
+%intestazione pagina
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RE]{\ifnum\value{chapter}>0\nouppercase{\leftmark}\fi}
+\fancyhead[LE]{\small\textbf{\thepage}}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\fancyhead[RO]{\small\textbf{\thepage}}
+
+%link ipertestuale per indice
+\hypersetup{
+	colorlinks=false,
+	linkcolor=black,
+	filecolor=blue,
+	citecolor = blue,
+	urlcolor=blue,
+	}
+
+%%%%%indent%%%
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+%boh
+\renewcommand{\chaptermark}[1]{%
+ \markboth{\MakeUppercase{%
+ \chaptername}\ \thechapter.%
+ \ #1}{}}
